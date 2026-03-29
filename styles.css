@@ -444,6 +444,8 @@ h2 {
   }
 
   .hero {
+    display: flex;
+    flex-direction: column;
     padding: 14px;
   }
 
@@ -455,12 +457,22 @@ h2 {
 
   .links-panel {
     position: static;
-    grid-column: auto;
+    grid-column: 1;
     grid-row: auto;
     width: 100%;
     max-width: 100%;
     margin: 0;
     align-self: stretch;
+    order: 2;
+  }
+
+  .hero-copy {
+    order: 1;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .poster-grid {
