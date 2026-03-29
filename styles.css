@@ -21,6 +21,7 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--text);
+  overflow-x: hidden;
   background:
     radial-gradient(circle at top left, rgba(255, 122, 69, 0.18), transparent 24%),
     radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.08), transparent 18%),
@@ -437,7 +438,7 @@ h2 {
 
   .page {
     width: min(100% - 18px, 1040px);
-    padding-top: 20px;
+    padding-top: 420px;
   }
 
   .hero {
@@ -451,9 +452,14 @@ h2 {
   }
 
   .links-panel {
-    position: sticky;
+    position: fixed;
     top: 12px;
-    z-index: 10;
+    left: 9px;
+    right: 9px;
+    width: auto;
+    max-height: min(52vh, 420px);
+    overflow-y: auto;
+    z-index: 40;
   }
 
   .poster-grid {
