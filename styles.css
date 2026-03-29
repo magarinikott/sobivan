@@ -438,7 +438,7 @@ h2 {
 
   .page {
     width: min(100% - 18px, 1040px);
-    padding-top: 188px;
+    padding-top: 20px;
   }
 
   .hero {
@@ -452,43 +452,7 @@ h2 {
   }
 
   .links-panel {
-    position: fixed;
-    top: 12px;
-    left: 9px;
-    right: 9px;
-    width: auto;
-    max-height: none;
-    overflow: hidden;
-    z-index: 40;
-    border-radius: 22px;
-  }
-
-  .panel-label {
-    min-height: 40px;
-    margin-bottom: 10px;
-    font-size: 0.72rem;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .hero-actions::-webkit-scrollbar {
-    display: none;
-  }
-
-  .link-button {
-    min-width: max-content;
-    min-height: 46px;
-    padding: 0 16px;
-    flex: 0 0 auto;
-    white-space: nowrap;
-    scroll-snap-align: start;
+    position: static;
   }
 
   .poster-grid {
