@@ -455,6 +455,12 @@ h2 {
 
   .links-panel {
     position: static;
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    align-self: stretch;
   }
 
   .poster-grid {
