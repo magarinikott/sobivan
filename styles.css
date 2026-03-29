@@ -1,0 +1,455 @@
+:root {
+  --bg: #0a0f17;
+  --panel: rgba(18, 25, 37, 0.84);
+  --panel-soft: rgba(20, 29, 44, 0.78);
+  --line: rgba(165, 188, 235, 0.14);
+  --text: #f5f7ff;
+  --muted: #adb8d1;
+  --accent: #ff7a45;
+  --accent-soft: #ffd4bd;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  --radius: 28px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 122, 69, 0.18), transparent 24%),
+    radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.08), transparent 18%),
+    linear-gradient(180deg, #0a0f17 0%, #0f1724 100%);
+  font-family: "Manrope", sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black 42%, transparent 92%);
+}
+
+.page {
+  width: min(1040px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 34px 0 56px;
+}
+
+.hero,
+.poster-card {
+  display: grid;
+  gap: 22px;
+}
+
+.hero,
+.links-panel,
+.poster-card {
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.hero {
+  grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.9fr);
+  padding: 22px;
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    linear-gradient(145deg, rgba(255, 122, 69, 0.12), rgba(255, 212, 189, 0.02));
+}
+
+.hero-copy {
+  padding: 18px 8px 18px 8px;
+}
+
+.hero-photo {
+  width: min(100%, 420px);
+  margin-top: 14px;
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center 26%;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.36);
+}
+
+.hero-motto {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  margin-top: 12px;
+  background: rgba(255, 122, 69, 0.12);
+  color: var(--accent-soft);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-telegram {
+  margin-top: 18px;
+  width: min(100%, 420px);
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--accent-soft);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Unbounded", sans-serif;
+  line-height: 1.08;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+}
+
+.lead,
+.visual-copy p,
+.footer-note {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.lead {
+  max-width: 42ch;
+  margin: 18px 0 0;
+  font-size: 1.02rem;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-tags {
+  margin-top: 22px;
+}
+
+.hero-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--accent-soft);
+  font-size: 0.88rem;
+}
+
+.telegram-banner {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin-top: 24px;
+  padding: 14px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(34, 158, 217, 0.18), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(77, 170, 229, 0.24);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.telegram-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  background: rgba(77, 170, 229, 0.18);
+  color: #7ed0ff;
+}
+
+.telegram-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.telegram-banner strong,
+.telegram-banner em {
+  display: block;
+}
+
+.telegram-banner em {
+  margin-top: 4px;
+  color: var(--muted);
+  font-style: normal;
+}
+
+.donate-banner {
+  display: grid;
+  gap: 6px;
+  width: min(100%, 420px);
+  margin-top: 20px;
+  padding: 16px 18px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(255, 122, 69, 0.16), rgba(255, 193, 137, 0.08));
+  border: 1px solid rgba(255, 122, 69, 0.22);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.donate-title {
+  font-weight: 800;
+}
+
+.donate-text {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.94rem;
+}
+
+.links-panel {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  padding: 20px;
+  border-radius: 28px;
+  background: var(--panel);
+}
+
+.panel-label {
+  margin: 0 0 14px;
+  color: var(--accent-soft);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-actions {
+  display: grid;
+  gap: 12px;
+}
+
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.link-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 122, 69, 0.35);
+  background: rgba(255, 122, 69, 0.1);
+}
+
+.link-primary {
+  background: linear-gradient(135deg, var(--accent), #ff9755);
+  border-color: transparent;
+  color: #fff8f4;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+.section-compact {
+  padding: 2px 4px 0;
+}
+
+.section-head {
+  margin-bottom: 14px;
+}
+
+.poster-card {
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.12fr);
+  align-items: start;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 34px;
+  background: var(--panel-soft);
+}
+
+.poster-copy {
+  padding: 10px;
+}
+
+.poster-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.poster-item {
+  overflow: hidden;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.poster-item img {
+  display: block;
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+}
+
+.poster-meta {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+}
+
+.poster-meta strong {
+  font-size: 0.96rem;
+}
+
+.poster-meta span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.tracks-card {
+  margin-top: 30px;
+}
+
+.track-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.track-card {
+  display: grid;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
+  padding: 14px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: var(--panel-soft);
+  box-shadow: var(--shadow);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.track-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 122, 69, 0.3);
+  background: rgba(25, 34, 50, 0.92);
+}
+
+.track-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.track-card-meta {
+  display: grid;
+  gap: 4px;
+}
+
+.track-card-meta strong {
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.track-card-meta span {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.social-row a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--accent-soft);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 32px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.footer-note {
+  max-width: 56ch;
+  margin: 10px auto 0;
+}
+
+@media (max-width: 860px) {
+  .hero,
+  .poster-card {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    width: min(100% - 18px, 1040px);
+    padding-top: 20px;
+  }
+
+  .hero {
+    padding: 14px;
+  }
+
+  .hero-copy,
+  .links-panel,
+  .poster-copy {
+    padding: 12px;
+  }
+
+  .poster-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .track-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
