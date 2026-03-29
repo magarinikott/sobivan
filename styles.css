@@ -451,7 +451,9 @@ h2 {
   }
 
   .links-panel {
-    position: static;
+    position: sticky;
+    top: 12px;
+    z-index: 10;
   }
 
   .poster-grid {
