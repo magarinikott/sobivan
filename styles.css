@@ -182,6 +182,14 @@ h2 {
   font-size: 1.02rem;
 }
 
+.lead p {
+  margin: 0;
+}
+
+.lead p + p {
+  margin-top: 12px;
+}
+
 .hero-tags {
   display: flex;
   flex-wrap: wrap;
@@ -206,11 +214,11 @@ h2 {
 
 .telegram-banner {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
+  grid-template-columns: 52px minmax(0, 1fr) auto;
   gap: 14px;
   align-items: center;
   margin-top: 24px;
-  padding: 14px;
+  padding: 14px 16px;
   border-radius: 22px;
   background: linear-gradient(135deg, rgba(255, 122, 69, 0.24), rgba(255, 176, 117, 0.1));
   border: 1px solid rgba(255, 122, 69, 0.28);
@@ -238,15 +246,36 @@ h2 {
   display: block;
 }
 
+.telegram-handle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.telegram-handle .telegram-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 8px;
+  background: rgba(255, 245, 239, 0.08);
+}
+
+.telegram-handle .telegram-icon svg {
+  width: 11px;
+  height: 11px;
+}
+
 .telegram-banner em {
-  margin-top: 4px;
   color: rgba(245, 247, 255, 0.72);
   font-style: normal;
+  margin-top: 0;
 }
 
 .donate-banner {
   display: grid;
-  gap: 6px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
   width: min(100%, 420px);
   margin-top: 20px;
   padding: 16px 18px;
@@ -258,13 +287,58 @@ h2 {
 }
 
 .donate-title {
+  display: block;
   font-weight: 800;
 }
 
 .donate-text {
+  display: block;
   color: var(--muted);
   line-height: 1.6;
   font-size: 0.94rem;
+}
+
+.banner-copy {
+  min-width: 0;
+}
+
+.banner-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  min-width: 84px;
+  padding: 0 12px;
+  border-radius: 14px;
+  background: rgba(255, 240, 231, 0.92);
+  color: #53362e;
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.telegram-banner,
+.donate-banner {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.telegram-banner:hover,
+.donate-banner:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 196, 167, 0.42);
+  box-shadow:
+    0 22px 40px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 245, 239, 0.12);
+}
+
+.telegram-banner:active,
+.donate-banner:active {
+  transform: translateY(0);
 }
 
 .links-panel {
@@ -294,6 +368,7 @@ h2 {
   text-transform: uppercase;
   font-weight: 800;
 }
+
 
 .hero-actions {
   display: grid;
@@ -681,18 +756,18 @@ h2 {
       "motto ."
       "photo telegram"
       "photo donate"
-      "photo lead"
-      "photo tags";
+      "lead lead"
+      "tags tags";
     column-gap: 22px;
-    row-gap: 12px;
+    row-gap: 10px;
     max-width: 760px;
     padding: 34px 16px 24px 24px;
     align-items: start;
   }
 
   .links-panel {
-    width: 232px;
-    right: -14px;
+    width: 272px;
+    right: 6px;
   }
 
   .hero h1 {
@@ -714,27 +789,29 @@ h2 {
   .hero-telegram {
     grid-area: telegram;
     margin-top: 4px;
-    width: 100%;
-    max-width: none;
+    width: calc(100% - 36px);
+    max-width: 286px;
+    margin-left: 18px;
   }
 
   .donate-banner {
     grid-area: donate;
-    width: 100%;
-    margin-top: 0;
-    max-width: none;
+    width: calc(100% - 36px);
+    margin-top: -2px;
+    max-width: 286px;
+    margin-left: 18px;
   }
 
   .lead {
     grid-area: lead;
     max-width: none;
-    margin: 0;
+    margin: 2px 0 0;
     font-size: 1rem;
   }
 
   .hero-tags {
     grid-area: tags;
-    margin-top: 0;
+    margin-top: 2px;
     flex-wrap: nowrap;
     gap: 8px;
     align-items: center;
@@ -748,12 +825,38 @@ h2 {
   }
 
   .telegram-banner {
-    padding: 16px 18px;
+    position: relative;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    padding: 14px 12px 14px 12px;
     border-radius: 24px;
+    align-items: end;
+  }
+
+  .telegram-banner .banner-copy {
+    text-align: left;
+    padding-right: 0;
+    max-width: 170px;
+  }
+
+  .telegram-banner .banner-action {
+    justify-self: end;
+    align-self: center;
+  }
+
+  .telegram-banner strong,
+  .telegram-banner em {
+    padding-left: 0;
+  }
+
+  .telegram-banner .telegram-handle {
+    margin-top: 8px;
   }
 
   .donate-banner {
-    padding: 18px 18px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 14px 12px;
     border-radius: 24px;
   }
 
@@ -871,6 +974,85 @@ h2 {
   .track-slide-meta strong {
     font-size: 1.5rem;
   }
+
+  .telegram-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+  }
+
+  .telegram-banner {
+    position: relative;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px 12px;
+    align-items: start;
+  }
+
+  .telegram-banner .telegram-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .telegram-banner .banner-copy {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+    padding-right: 58px;
+  }
+
+  .telegram-banner .banner-action {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    margin-top: 2px;
+  }
+
+  .telegram-banner strong {
+    font-size: 0.92rem;
+    line-height: 1.28;
+  }
+
+  .telegram-banner em {
+    font-size: 0.88rem;
+  }
+
+  .donate-title {
+    font-size: 0.96rem;
+    line-height: 1.28;
+  }
+
+  .donate-banner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px 12px;
+  }
+
+  .donate-banner .banner-copy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .donate-banner .banner-action {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    margin-top: 2px;
+  }
+
+  .donate-text {
+    margin-top: 4px;
+    font-size: 0.88rem;
+    line-height: 1.38;
+  }
+
+  .telegram-banner .banner-copy,
+  .donate-banner .banner-copy {
+    width: 100%;
+  }
 }
 
 @media (max-width: 420px) {
@@ -987,4 +1169,5 @@ h2 {
   .track-nav-next {
     right: -8px;
   }
+
 }
