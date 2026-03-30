@@ -431,7 +431,7 @@ h2 {
   margin: 10px auto 0;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 700px) {
   .poster-card {
     grid-template-columns: 1fr;
   }
@@ -443,53 +443,25 @@ h2 {
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) minmax(136px, 0.58fr);
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 22px;
     padding: 14px;
-    overflow: hidden;
-    align-items: start;
   }
 
   .hero-copy,
   .links-panel,
   .poster-copy {
     padding: 12px;
-    min-width: 0;
   }
 
   .links-panel {
     position: static;
-    grid-column: 2;
-    grid-row: 1;
-    width: 100%;
-    max-width: 100%;
+    grid-column: auto;
+    grid-row: auto;
+    width: auto;
+    max-width: none;
     margin: 0;
-    align-self: start;
-    overflow: hidden;
-    border-radius: 22px;
-  }
-
-  .panel-label {
-    min-height: 40px;
-    margin-bottom: 10px;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-  }
-
-  .hero-actions {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .link-button {
-    width: 100%;
-    min-width: 0;
-    min-height: 48px;
-    padding: 0 12px;
-    font-size: 0.9rem;
-    line-height: 1.25;
-    text-align: center;
+    align-self: auto;
   }
 
   .poster-grid {
@@ -501,12 +473,7 @@ h2 {
   }
 }
 
-@media (max-width: 520px) {
-  .hero {
-    grid-template-columns: minmax(0, 1fr) 140px;
-    gap: 10px;
-  }
-
+@media (max-width: 420px) {
   .hero-copy,
   .links-panel,
   .poster-copy {
@@ -517,15 +484,5 @@ h2 {
   .hero-telegram,
   .donate-banner {
     width: 100%;
-  }
-
-  .hero-actions {
-    gap: 8px;
-  }
-
-  .link-button {
-    min-height: 46px;
-    padding: 0 10px;
-    font-size: 0.86rem;
   }
 }
