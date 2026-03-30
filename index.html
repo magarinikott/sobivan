@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260329-2316" />
+    <link rel="stylesheet" href="./styles.css?v=20260331-1012" />
   </head>
   <body>
     <main class="page">
@@ -68,7 +68,41 @@
             <span>рэп</span>
             <span>альт-рок</span>
             <span>панк</span>
+            <span>рок</span>
           </div>
+          <section class="release-player" data-release-card>
+            <img
+              class="release-cover"
+              data-release-cover
+              src="./IMG_6472.JPG"
+              alt="Обложка последнего релиза SOBIVAN"
+            />
+            <div class="release-copy">
+              <p class="release-kicker" data-release-kicker>Последний релиз</p>
+              <strong data-release-title>расскажи</strong>
+              <span class="release-type" data-release-meta>Сингл</span>
+            </div>
+            <div class="release-actions">
+              <a
+                class="release-link"
+                data-release-yandex
+                href="https://music.yandex.ru/search?text=SOBIVAN%20%D1%80%D0%B0%D1%81%D1%81%D0%BA%D0%B0%D0%B6%D0%B8"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Яндекс Музыка
+              </a>
+              <a
+                class="release-link"
+                data-release-vk
+                href="https://vk.com/artist/sobivan"
+                target="_blank"
+                rel="noreferrer"
+              >
+                ВКонтакте
+              </a>
+            </div>
+          </section>
         </div>
 
         <aside class="links-panel">
@@ -181,6 +215,69 @@
     </main>
     <script>
       (() => {
+        const releaseCard = document.querySelector("[data-release-card]");
+
+        function applyReleaseData(data) {
+          if (!releaseCard || !data || data.enabled === false) {
+            return;
+          }
+
+          const cover = releaseCard.querySelector("[data-release-cover]");
+          const kicker = releaseCard.querySelector("[data-release-kicker]");
+          const title = releaseCard.querySelector("[data-release-title]");
+          const meta = releaseCard.querySelector("[data-release-meta]");
+          const yandex = releaseCard.querySelector("[data-release-yandex]");
+          const vk = releaseCard.querySelector("[data-release-vk]");
+          const embed = releaseCard.querySelector("[data-release-embed]");
+          const iframe = releaseCard.querySelector("[data-release-iframe]");
+
+          if (cover && data.cover) {
+            cover.src = data.cover;
+            cover.alt = `Обложка релиза ${data.title || "SOBIVAN"}`;
+          }
+
+          if (kicker && data.kicker) {
+            kicker.textContent = data.kicker;
+          }
+
+          if (title && data.title) {
+            title.textContent = data.title;
+          }
+
+          if (meta && data.meta) {
+            meta.textContent = data.meta;
+          }
+
+          if (yandex && data.yandexUrl) {
+            yandex.href = data.yandexUrl;
+          }
+
+          if (vk && data.vkUrl) {
+            vk.href = data.vkUrl;
+          }
+
+          if (embed && iframe) {
+            if (data.embedUrl) {
+              iframe.src = data.embedUrl;
+              embed.hidden = false;
+            } else {
+              iframe.removeAttribute("src");
+              embed.hidden = true;
+            }
+          }
+        }
+
+        if (releaseCard) {
+          fetch("./latest-release.json", { cache: "no-store" })
+            .then((response) => (response.ok ? response.json() : null))
+            .then((data) => {
+              if (data) {
+                applyReleaseData(data);
+              }
+            })
+            .catch(() => {});
+        }
+
         const hero = document.querySelector(".hero");
         const panel = document.querySelector(".links-panel");
 
