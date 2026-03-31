@@ -182,13 +182,12 @@ body::before {
 }
 
 .release-actions {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   width: 100%;
   grid-column: 1 / -1;
-  margin-top: 2px;
+  margin-top: 4px;
   gap: 6px;
-  justify-content: space-between;
 }
 
 .release-link {
@@ -196,7 +195,8 @@ body::before {
   align-items: center;
   justify-content: center;
   min-height: 38px;
-  min-width: 124px;
+  min-width: 0;
+  width: 100%;
   padding: 0 14px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -204,7 +204,7 @@ body::before {
     linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
   color: var(--text);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
   white-space: nowrap;
   box-shadow:
@@ -842,14 +842,14 @@ h2 {
 
 .footer-cta {
   width: fit-content;
-  margin: 140px auto 0;
+  margin: 220px auto 0;
   padding: 12px 20px;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
     rgba(14, 20, 31, 0.9);
-  color: var(--accent-soft);
+  color: var(--muted);
   text-decoration: none;
   font-size: 0.92rem;
   font-weight: 700;
@@ -1055,12 +1055,11 @@ h2 {
 
   .release-actions {
     grid-column: 1 / -1;
-    grid-template-columns: max-content max-content;
-    justify-content: start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .release-link {
-    width: auto;
+    width: 100%;
   }
 }
 
@@ -1155,14 +1154,13 @@ h2 {
 
   .release-actions {
     grid-column: 1 / -1;
-    grid-template-columns: max-content max-content;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
-    justify-content: start;
   }
 
   .release-link {
-    width: auto;
-    min-width: 110px;
+    width: 100%;
+    min-width: 0;
     min-height: 32px;
     font-size: 0.72rem;
   }
