@@ -842,8 +842,11 @@ h2 {
 
 .footer-cta-wrap {
   display: flex;
+  width: 100%;
   justify-content: center;
-  padding-top: 280px;
+  margin-top: 88px;
+  padding-top: 0;
+  padding-bottom: 32px;
 }
 
 .footer-cta {
@@ -1169,6 +1172,11 @@ h2 {
     min-width: 0;
     min-height: 32px;
     font-size: 0.72rem;
+  }
+
+  .footer-cta-wrap {
+    margin-top: 120px;
+    padding-bottom: 40px;
   }
 
   .telegram-icon {
