@@ -1375,3 +1375,186 @@ h2 {
   }
 
 }
+
+:root {
+  --bg: #050505;
+  --panel: rgba(10, 10, 10, 0.94);
+  --panel-soft: rgba(16, 16, 16, 0.82);
+  --line: rgba(255, 146, 86, 0.16);
+  --text: #f4f4f4;
+  --muted: #a6a6a6;
+  --accent: #ff7a45;
+  --accent-soft: #ffd4bd;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+}
+
+html,
+body {
+  background:
+    radial-gradient(circle at top left, rgba(255, 122, 69, 0.16), transparent 22%),
+    radial-gradient(circle at 85% 12%, rgba(255, 163, 112, 0.05), transparent 16%),
+    linear-gradient(180deg, #050505 0%, #0a0a0a 44%, #101010 100%);
+}
+
+body::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 122, 69, 0.028) 1px, transparent 1px);
+}
+
+.hero::before {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+    linear-gradient(145deg, rgba(255, 122, 69, 0.08), rgba(255, 212, 189, 0.015));
+}
+
+.hero-photo img,
+.poster-item,
+.poster-item img,
+.track-frame,
+.track-slide,
+.track-slide img {
+  border-radius: 22px;
+}
+
+.hero-motto,
+.tracks-eyebrow,
+.poster-eyebrow,
+.panel-label {
+  background: rgba(255, 122, 69, 0.14);
+  color: var(--accent-soft);
+}
+
+.telegram-banner,
+.donate-banner,
+.release-player {
+  border-radius: 20px;
+  border-color: rgba(255, 122, 69, 0.18);
+  background:
+    linear-gradient(135deg, rgba(255, 122, 69, 0.14), rgba(255, 212, 189, 0.03)),
+    rgba(12, 12, 12, 0.88);
+}
+
+.telegram-icon,
+.telegram-handle .telegram-icon {
+  background: rgba(255, 122, 69, 0.12);
+  color: #ffb790;
+}
+
+.banner-action {
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff965f, #ffd1b7);
+  color: #2e170e;
+  box-shadow:
+    0 12px 26px rgba(255, 122, 69, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.link-button,
+.release-link,
+.social-row a,
+.footer-cta {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(255, 122, 69, 0.16);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 122, 69, 0.05));
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+.link-button::before,
+.release-link::before,
+.social-row a::before,
+.footer-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(180deg, #ff9c67, #ff6d31);
+  opacity: 0.92;
+}
+
+.link-button {
+  justify-content: flex-start;
+  padding-left: 18px;
+  padding-right: 18px;
+  font-weight: 800;
+}
+
+.release-link,
+.social-row a {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.footer-cta {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.link-button:hover,
+.release-link:hover,
+.social-row a:hover,
+.footer-cta:hover,
+.telegram-banner:hover,
+.donate-banner:hover {
+  border-color: rgba(255, 152, 102, 0.28);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 122, 69, 0.09));
+  box-shadow:
+    0 18px 34px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(255, 122, 69, 0.05);
+}
+
+.track-frame {
+  border-color: rgba(255, 122, 69, 0.12);
+  background:
+    radial-gradient(circle at top center, rgba(255, 122, 69, 0.1), transparent 40%),
+    linear-gradient(180deg, rgba(22, 22, 22, 0.98), rgba(10, 10, 10, 0.98));
+}
+
+.track-viewport::before {
+  background: linear-gradient(90deg, rgba(10, 10, 10, 0.82), rgba(10, 10, 10, 0));
+}
+
+.track-viewport::after {
+  background: linear-gradient(270deg, rgba(10, 10, 10, 0.82), rgba(10, 10, 10, 0));
+}
+
+.track-slide {
+  border-color: rgba(255, 122, 69, 0.1);
+  background: rgba(30, 26, 24, 0.92);
+}
+
+.track-slide.is-active {
+  box-shadow:
+    0 18px 34px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(255, 122, 69, 0.12);
+}
+
+.track-slide:hover {
+  background: rgba(22, 18, 16, 0.95);
+}
+
+.track-dot {
+  background: rgba(255, 212, 189, 0.28);
+}
+
+.track-dot.is-active {
+  background: #ff8f5b;
+}
+
+.track-nav {
+  border-color: rgba(255, 122, 69, 0.12);
+  background: rgba(18, 15, 13, 0.92);
+}
+
+.footer-note a {
+  color: var(--accent-soft);
+  border-bottom-color: rgba(255, 122, 69, 0.3);
+}
