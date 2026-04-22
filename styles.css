@@ -1676,14 +1676,15 @@ body::before {
 
 .chords-layout {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 18px;
+  grid-template-columns: 1fr;
+  gap: 16px;
   margin-top: 20px;
   align-items: start;
 }
 
 .chords-sidebar {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   width: 100%;
 }
@@ -1693,6 +1694,7 @@ body::before {
   gap: 4px;
   width: max-content;
   max-width: 240px;
+  min-width: max-content;
   padding: 14px 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
@@ -1796,6 +1798,7 @@ body::before {
   margin: 0;
   padding: 18px;
   overflow: auto;
+  max-height: min(70vh, 820px);
   border-radius: 20px;
   background: rgba(4, 6, 10, 0.9);
   color: #eef2ff;
@@ -2001,6 +2004,10 @@ body::before {
   .chords-viewer {
     width: 100%;
     padding: 12px;
+  }
+
+  .chords-sheet {
+    max-height: 58vh;
   }
 
   .chords-toolbar {

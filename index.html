@@ -1693,8 +1693,8 @@ Just do it, ёпта
         }
 
         function startAutoScroll() {
-          const viewer = textNode?.closest(".chords-viewer");
-          if (!viewer) {
+          const sheet = textNode?.closest(".chords-sheet");
+          if (!sheet) {
             return;
           }
 
@@ -1718,15 +1718,14 @@ Just do it, ёпта
             const delta = timestamp - autoScrollLastTime;
             autoScrollLastTime = timestamp;
             const amount = (autoScrollBaseSpeed * autoScrollMultiplier * delta) / 1000;
-            const currentTop = window.scrollY;
-            const maxScroll = Math.max(0, viewer.offsetTop + viewer.offsetHeight - window.innerHeight + 120);
+            const maxScroll = Math.max(0, sheet.scrollHeight - sheet.clientHeight);
 
-            if (currentTop >= maxScroll - 2) {
+            if (sheet.scrollTop >= maxScroll - 2) {
               stopAutoScroll();
               return;
             }
 
-            window.scrollTo({ top: Math.min(maxScroll, currentTop + amount), behavior: "auto" });
+            sheet.scrollTop = Math.min(maxScroll, sheet.scrollTop + amount);
             autoScrollFrame = window.requestAnimationFrame(step);
           };
 
@@ -1833,10 +1832,9 @@ Just do it, ёпта
           stopAutoScroll();
           titleNode.textContent = song.title;
           textNode.innerHTML = renderHighlightedText(getRenderedSongText(song, shift));
-          const viewer = textNode.closest(".chords-viewer");
-          if (viewer) {
-            const top = viewer.getBoundingClientRect().top + window.scrollY - 24;
-            window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+          const sheet = textNode.closest(".chords-sheet");
+          if (sheet) {
+            sheet.scrollTop = 0;
           }
 
           buttons.forEach((button) => {
