@@ -1931,6 +1931,93 @@ body::before {
   }
 }
 
+
+@media (max-width: 700px) {
+  .poster-card {
+    overflow: hidden;
+    padding: 16px 12px 18px;
+  }
+
+  .poster-copy,
+  .poster-grid,
+  .poster-item,
+  .poster-archive-wrap,
+  .poster-archive-list,
+  .chords-layout,
+  .chords-viewer,
+  .chords-sheet {
+    min-width: 0;
+  }
+
+  .poster-grid {
+    width: 100%;
+  }
+
+  .poster-item {
+    width: 100%;
+  }
+
+  .poster-item img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .poster-meta {
+    padding: 12px 12px 14px;
+  }
+
+  .chords-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .chords-sidebar {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .chords-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chord-song {
+    flex: 0 0 auto;
+    width: max-content;
+    max-width: none;
+    min-width: max-content;
+    padding: 10px 14px;
+    border-radius: 16px;
+  }
+
+  .chord-song strong {
+    font-size: 0.86rem;
+    white-space: nowrap;
+  }
+
+  .chords-viewer {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .chords-toolbar {
+    align-items: stretch;
+  }
+
+  .chords-actions {
+    flex-wrap: wrap;
+  }
+
+  .chords-sheet {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    padding: 14px;
+  }
+}
+
 @media (min-width: 981px) {
   .poster-card {
     grid-template-columns: minmax(320px, 0.78fr) minmax(360px, 420px);
