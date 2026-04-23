@@ -1976,22 +1976,17 @@ body::before {
 
   .chords-sidebar {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    scrollbar-width: none;
-  }
-
-  .chords-sidebar::-webkit-scrollbar {
-    display: none;
+    overflow: visible;
+    padding-bottom: 0;
   }
 
   .chord-song {
     flex: 0 0 auto;
     width: max-content;
-    max-width: none;
-    min-width: max-content;
+    max-width: 100%;
+    min-width: 0;
     padding: 10px 14px;
     border-radius: 16px;
   }
