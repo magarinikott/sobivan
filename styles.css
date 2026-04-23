@@ -2002,7 +2002,7 @@ body::before {
   }
 
   .chords-sheet {
-    height: min(92svh, 1120px);
+    height: min(138svh, 1680px);
     max-height: none;
   }
 
