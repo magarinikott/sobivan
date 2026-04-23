@@ -1717,7 +1717,8 @@ Just do it, ёпта
 
             const delta = timestamp - autoScrollLastTime;
             autoScrollLastTime = timestamp;
-            const amount = (autoScrollBaseSpeed * autoScrollMultiplier * delta) / 1000;
+            const effectiveMultiplier = autoScrollMultiplier === 1 ? 1.6 : 2;
+            const amount = (autoScrollBaseSpeed * effectiveMultiplier * delta) / 1000;
             const maxScroll = Math.max(0, sheet.scrollHeight - sheet.clientHeight);
 
             if (sheet.scrollTop >= maxScroll - 2) {
