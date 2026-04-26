@@ -1719,7 +1719,7 @@ Just do it, ёпта
 
             const delta = timestamp - autoScrollLastTime;
             autoScrollLastTime = timestamp;
-            const effectiveMultiplier = autoScrollMultiplier === 1 ? 1 : 2;
+            const effectiveMultiplier = autoScrollMultiplier === 1 ? 0.5 : 1;
             const rawAmount = (autoScrollBaseSpeed * effectiveMultiplier * delta) / 1000 + autoScrollRemainder;
             const amount = Math.floor(rawAmount);
             autoScrollRemainder = rawAmount - amount;
