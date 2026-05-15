@@ -2140,31 +2140,69 @@ body::before {
   }
 }
 
-/* restored black minimal theme */
+/* draft visual pass: calmer, less glossy, more editorial */
 :root {
-  --line: rgba(255, 255, 255, 0.08);
-  --accent: #f0f0f0;
-  --accent-soft: #ffffff;
+  --panel: rgba(11, 11, 12, 0.96);
+  --panel-soft: rgba(14, 14, 15, 0.86);
+  --line: rgba(255, 255, 255, 0.075);
+  --text: #f3f1ef;
+  --muted: #9e9a97;
+  --accent: #ff8857;
+  --accent-soft: #efc8b2;
+  --shadow: 0 28px 82px rgba(0, 0, 0, 0.56);
 }
 
 html,
 body {
   background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 22%),
-    radial-gradient(circle at 85% 12%, rgba(255, 255, 255, 0.035), transparent 16%),
-    linear-gradient(180deg, #050505 0%, #0a0a0a 44%, #101010 100%);
+    radial-gradient(circle at 12% 0%, rgba(255, 136, 87, 0.09), transparent 24%),
+    radial-gradient(circle at 84% 10%, rgba(255, 255, 255, 0.03), transparent 17%),
+    linear-gradient(180deg, #050505 0%, #080808 44%, #0c0c0d 100%);
 }
 
 body::before {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.014) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+  opacity: 0.72;
+}
+
+.hero::before,
+.poster-card,
+.links-panel,
+.chords-card,
+.track-frame {
+  border-color: rgba(255, 255, 255, 0.075);
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
 }
 
 .hero::before {
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    radial-gradient(circle at 18% 12%, rgba(255, 136, 87, 0.07), transparent 28%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.96), rgba(10, 10, 10, 0.94));
+}
+
+.poster-card,
+.links-panel,
+.chords-card {
+  background:
+    linear-gradient(180deg, rgba(17, 17, 18, 0.94), rgba(11, 11, 12, 0.92));
+}
+
+.hero-photo img,
+.poster-item,
+.poster-item img,
+.track-frame,
+.track-slide,
+.track-slide img,
+.chords-viewer,
+.chords-sheet,
+.telegram-banner,
+.donate-banner,
+.release-player {
+  border-radius: 20px;
 }
 
 .hero-motto,
@@ -2173,53 +2211,45 @@ body::before {
 .panel-label,
 .chords-eyebrow,
 .hero-tags span,
-.social-row a,
 .chords-key,
 .chords-capo {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--accent-soft);
 }
 
 .telegram-banner,
 .donate-banner,
-.release-player,
-.chords-card,
-.poster-card,
-.links-panel {
-  border-color: rgba(255, 255, 255, 0.1);
+.release-player {
+  border-color: rgba(255, 156, 106, 0.14);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
-    rgba(12, 12, 12, 0.86);
+    linear-gradient(180deg, rgba(26, 20, 18, 0.92), rgba(13, 13, 13, 0.96));
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .telegram-icon,
 .telegram-handle .telegram-icon {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-}
-
-.banner-action {
-  background: #ffffff;
-  color: #0a0a0a;
-  border-radius: 12px;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f0b48f;
 }
 
 .link-button,
 .release-link,
 .social-row a,
 .footer-cta,
-.chords-actions button,
+.banner-action,
 .chord-song,
-.track-nav {
-  position: static;
-  overflow: visible;
-  border-color: rgba(255, 255, 255, 0.1);
+.track-nav,
+.chords-actions button {
+  border-radius: 16px;
+  border-color: rgba(255, 255, 255, 0.08);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-  border-radius: 14px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.025));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 8px 18px rgba(0, 0, 0, 0.14);
 }
 
 .link-button::before,
@@ -2229,10 +2259,12 @@ body::before {
   display: none;
 }
 
-.link-button,
-.release-link,
-.footer-cta {
-  justify-content: center;
+.banner-action {
+  background: linear-gradient(180deg, #efc9b3, #dca886);
+  color: #1f130d;
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .link-button:hover,
@@ -2241,52 +2273,334 @@ body::before {
 .footer-cta:hover,
 .telegram-banner:hover,
 .donate-banner:hover,
-.chords-actions button:hover,
-.chord-song:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+.chord-song:hover,
+.chords-actions button:hover {
+  border-color: rgba(255, 156, 106, 0.18);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 136, 87, 0.05));
   box-shadow:
-    0 18px 34px rgba(0, 0, 0, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 16px 28px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .track-frame {
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.065);
   background:
-    radial-gradient(circle at top center, rgba(255, 255, 255, 0.08), transparent 40%),
-    linear-gradient(180deg, rgba(22, 22, 22, 0.98), rgba(10, 10, 10, 0.98));
+    radial-gradient(circle at top center, rgba(255, 136, 87, 0.08), transparent 38%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(10, 10, 10, 0.98));
+}
+
+.track-viewport::before {
+  background: linear-gradient(90deg, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0));
+}
+
+.track-viewport::after {
+  background: linear-gradient(270deg, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0));
 }
 
 .track-slide {
-  border-color: rgba(255, 255, 255, 0.08);
-  background: rgba(30, 30, 30, 0.92);
+  border-color: rgba(255, 255, 255, 0.06);
+  background: rgba(22, 22, 22, 0.92);
 }
 
 .track-slide.is-active {
   box-shadow:
-    0 18px 34px rgba(0, 0, 0, 0.24),
-    0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-.track-slide:hover {
-  background: rgba(36, 36, 36, 0.95);
+    0 18px 34px rgba(0, 0, 0, 0.26),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .track-dot {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .track-dot.is-active {
-  background: #ffffff;
+  background: #eeb998;
 }
 
+.chords-card {
+  background:
+    linear-gradient(180deg, rgba(14, 14, 15, 0.96), rgba(10, 10, 11, 0.94));
+}
+
+.chords-viewer {
+  background:
+    linear-gradient(180deg, rgba(12, 12, 13, 0.98), rgba(6, 6, 7, 1));
+}
+
+.chords-sheet {
+  background: rgba(5, 5, 6, 0.96);
+}
+
+.chords-line--accent {
+  color: #edbb99;
+}
+
+/* draft poster-form pass: reshape blocks, keep structure */
+.hero::before,
+.poster-card,
+.links-panel,
+.chords-card {
+  border-radius: 30px 18px 26px 18px;
+}
+
+.hero-photo img,
+.poster-item,
+.poster-item img,
+.track-frame,
+.track-slide,
+.track-slide img,
+.telegram-banner,
+.donate-banner,
+.release-player,
+.chords-viewer,
+.chords-sheet {
+  border-radius: 18px 12px 18px 12px;
+}
+
+.links-panel {
+  border-radius: 26px 14px 26px 14px;
+  padding-top: 18px;
+}
+
+.panel-label,
+.poster-eyebrow,
+.tracks-eyebrow,
+.chords-eyebrow,
+.hero-motto {
+  border-radius: 8px 14px 8px 14px;
+  padding-left: 16px;
+  padding-right: 16px;
+  letter-spacing: 0.16em;
+}
+
+.link-button,
+.release-link,
+.banner-action,
+.social-row a,
+.footer-cta,
+.chords-actions button,
+.chord-song,
 .track-nav {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(18, 18, 18, 0.92);
+  border-radius: 10px;
 }
 
-.footer-note a {
-  color: #ffffff;
-  border-bottom-color: rgba(255, 255, 255, 0.3);
+.link-button,
+.release-link,
+.social-row a,
+.footer-cta,
+.chords-actions button,
+.track-nav {
+  min-height: 42px;
+  border-width: 1px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.link-button {
+  justify-content: center;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.release-player {
+  grid-template-columns: 78px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 16px 24px 16px 24px;
+}
+
+.release-cover {
+  border-radius: 12px;
+}
+
+.release-kicker {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+}
+
+.release-copy strong {
+  font-size: 1.04rem;
+  text-transform: lowercase;
+}
+
+.release-actions {
+  gap: 8px;
+}
+
+.release-link {
+  min-height: 36px;
+  border-radius: 9px;
+}
+
+.hero-tags {
+  gap: 8px;
+}
+
+.hero-tags span {
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 8px;
+  transform: rotate(-1.2deg);
+  border-color: rgba(255, 156, 106, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--accent-soft);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+}
+
+.hero-tags span:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.telegram-banner,
+.donate-banner {
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  border-radius: 16px 26px 16px 26px;
+}
+
+.banner-action {
+  border-radius: 8px;
+  min-height: 36px;
+  padding: 0 16px;
+}
+
+.poster-item {
+  border-radius: 18px 10px 18px 10px;
+}
+
+.poster-meta {
+  gap: 4px;
+}
+
+.poster-meta strong {
+  line-height: 1.15;
+}
+
+.poster-archive-summary {
+  letter-spacing: 0.01em;
+}
+
+.poster-item--archive {
+  border-radius: 16px 10px 16px 10px;
+}
+
+.track-frame {
+  border-radius: 22px 14px 22px 14px;
+}
+
+.track-slide {
+  border-radius: 20px 12px 20px 12px;
+}
+
+.track-slide img {
+  border-radius: 20px 12px 20px 12px;
+}
+
+.track-dot {
+  border-radius: 6px;
+}
+
+.chords-card {
+  border-radius: 26px 16px 26px 16px;
+}
+
+.chord-song {
+  padding: 11px 14px;
+  min-height: 0;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.chord-song strong {
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+}
+
+.chords-toolbar {
+  align-items: flex-start;
+}
+
+.chords-key {
+  border-radius: 8px;
+}
+
+.chords-sheet {
+  border-radius: 14px 10px 14px 10px;
+}
+
+@media (max-width: 700px) {
+  .hero::before,
+  .poster-card,
+  .links-panel,
+  .chords-card {
+    border-radius: 22px 14px 22px 14px;
+  }
+
+  .link-button,
+  .release-link,
+  .banner-action,
+  .social-row a,
+  .footer-cta,
+  .chords-actions button,
+  .chord-song,
+  .track-nav,
+  .hero-tags span {
+    transform: none;
+  }
+
+  .release-player,
+  .telegram-banner,
+  .donate-banner,
+  .track-frame,
+  .track-slide,
+  .track-slide img,
+  .chords-sheet,
+  .chords-viewer {
+    border-radius: 16px 10px 16px 10px;
+  }
+}
+
+
+/* orange button accents over variant 4 */
+.panel-label,
+.hero-motto,
+.poster-eyebrow,
+.tracks-eyebrow,
+.chords-eyebrow {
+  background: rgba(255, 122, 69, 0.14);
+  color: #ffd4bd;
+  border-color: rgba(255, 122, 69, 0.18);
+}
+
+.link-button,
+.release-link,
+.social-row a,
+.footer-cta,
+.chords-actions button,
+.chord-song,
+.track-nav {
+  border-color: rgba(255, 122, 69, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 122, 69, 0.035));
+}
+
+.link-button:hover,
+.release-link:hover,
+.social-row a:hover,
+.footer-cta:hover,
+.chords-actions button:hover,
+.chord-song:hover,
+.track-nav:hover {
+  border-color: rgba(255, 152, 102, 0.28);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 122, 69, 0.08));
+}
+
+.banner-action {
+  background: linear-gradient(180deg, #ff965f, #ffd1b7);
+  color: #2e170e;
+}
+
+.track-dot.is-active {
+  background: #ff8f5b;
 }
