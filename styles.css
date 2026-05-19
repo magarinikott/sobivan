@@ -2604,3 +2604,74 @@ body::before {
 .track-dot.is-active {
   background: #ff8f5b;
 }
+
+
+@media (max-width: 767px) {
+  .telegram-banner,
+  .donate-banner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: end;
+    padding: 14px 12px;
+  }
+
+  .telegram-banner .banner-copy,
+  .donate-banner .banner-copy {
+    max-width: none;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .telegram-banner .banner-copy {
+    display: grid;
+    gap: 6px;
+  }
+
+  .telegram-banner .telegram-icon {
+    position: static;
+    width: 18px;
+    height: 18px;
+    border-radius: 8px;
+  }
+
+  .telegram-banner .telegram-handle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 0;
+  }
+
+  .telegram-banner .banner-action,
+  .donate-banner .banner-action {
+    grid-column: auto;
+    grid-row: auto;
+    justify-self: end;
+    align-self: end;
+    margin-top: 0;
+  }
+
+  .telegram-banner strong,
+  .donate-title {
+    font-size: 0.96rem;
+    line-height: 1.28;
+  }
+
+  .telegram-banner em,
+  .donate-text {
+    font-size: 0.88rem;
+    line-height: 1.32;
+  }
+}
+
+@media (max-width: 420px) {
+  .telegram-banner,
+  .donate-banner {
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+  }
+
+  .telegram-banner .banner-copy,
+  .donate-banner .banner-copy {
+    min-width: 0;
+  }
+}
