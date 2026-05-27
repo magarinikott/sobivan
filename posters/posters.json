@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "status": "active",
+      "title": "29 мая • Гитарник",
+      "subtitle": "Амфитеатр на набережной • Казань • 19:00",
+      "alt": "Афиша выступления SOBIVAN 29 мая на Гитарнике в Казани",
+      "image": "./posters/assets/2026-05-29-gitarnik.JPG"
+    },
+    {
+      "status": "active",
+      "title": "17 июня • Квартирник",
+      "subtitle": "Rock Star Bar • Пушкина, 29А • 19:00",
+      "alt": "Афиша квартирника SOBIVAN 17 июня в Rock Star Bar",
+      "image": "./posters/assets/2026-06-17-rockstar-kvartirnik.PNG"
+    },
+    {
+      "status": "archive",
+      "title": "24 мая • Травелье",
+      "subtitle": "Казань • Кремлёвская, 21 • 18:00",
+      "alt": "Прошедший концерт SOBIVAN 24 мая в Травелье",
+      "image": "./posters/assets/2026-05-24-travelbe-v2.JPG"
+    },
+    {
+      "status": "archive",
+      "title": "4 апреля 2026 • Art-Cafe Bogema",
+      "subtitle": "Йошкар-Ола",
+      "alt": "Прошедший концерт SOBIVAN 4 апреля 2026 в Art-Cafe Bogema",
+      "image": "./posters/assets/2026-04-04-bogema.PNG"
+    },
+    {
+      "status": "archive",
+      "title": "8 января • Art-Cafe Bogema",
+      "subtitle": "Acoustic",
+      "alt": "Прошедший концерт SOBIVAN 8 января в Art-Cafe Bogema",
+      "image": "./posters/assets/2026-01-08-bogema.PNG"
+    },
+    {
+      "status": "archive",
+      "title": "19 июля • Казань",
+      "subtitle": "Acoustic support",
+      "alt": "Прошедший концерт SOBIVAN 19 июля в Казани",
+      "image": "./posters/assets/2025-07-19-kazan.PNG"
+    }
+  ]
+}
