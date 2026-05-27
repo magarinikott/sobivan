@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mood section variants</title>
+  <style>
+    :root { --bg:#050505; --line:rgba(255,255,255,.08); --green:#b5ff1f; --paper:#f2eadb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial,sans-serif; background:#050505 url('./assets/images/bg-texture-main.png') center/cover fixed; color:#f2eadb; }
+    .wrap { width:min(1280px, 100% - 48px); margin:0 auto; padding:40px 0 80px; }
+    h1 { font:700 28px/1.1 Arial,sans-serif; margin:0 0 24px; text-transform:uppercase; }
+    .variants { display:grid; gap:42px; }
+    .variant { padding:26px; border:1px solid var(--line); background:rgba(0,0,0,.28); }
+    .label { color:var(--green); font:700 13px/1 Arial,sans-serif; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; }
+    .board { min-height:340px; position:relative; overflow:hidden; }
+    .listen, .quote, .shut { position:absolute; display:block; }
+    .listen img, .quote img, .shut img { display:block; width:100%; height:auto; }
+    .v1 .listen { left:0; top:10px; width:34%; }
+    .v1 .quote { left:31%; top:135px; width:27%; transform:rotate(-6deg); }
+    .v1 .shut { right:2%; top:16px; width:34%; }
+    .v2 .listen { left:0; top:22px; width:36%; transform:rotate(-2deg); }
+    .v2 .quote { right:2%; top:32px; width:32%; transform:rotate(3deg); }
+    .v2 .shut { left:37%; bottom:0; width:29%; }
+    .v3 .listen { left:0; top:30px; width:30%; }
+    .v3 .quote { left:28%; top:0; width:38%; transform:rotate(-4deg); }
+    .v3 .shut { right:0; top:44px; width:27%; transform:rotate(1deg); }
+    .note { margin-top:12px; color:rgba(255,255,255,.72); font-size:14px; line-height:1.4; max-width:780px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>варианты компоновки mood-секции</h1>
+    <div class="variants">
+      <section class="variant v1">
+        <div class="label">вариант 1 — центр через цитату</div>
+        <div class="board">
+          <div class="listen"><img src="./assets/images/listen-platforms-full-v1.png" alt=""></div>
+          <div class="quote"><img src="./assets/images/quote-podnimaeshsya-v1.png" alt=""></div>
+          <div class="shut"><img src="./assets/images/shut-dolzhen-veselit.png" alt=""></div>
+        </div>
+        <div class="note">цитата стягивает левую и правую части. это ближе к тому, что у тебя уже есть, но чище.</div>
+      </section>
+      <section class="variant v2">
+        <div class="label">вариант 2 — шут внизу как якорь</div>
+        <div class="board">
+          <div class="listen"><img src="./assets/images/listen-platforms-full-v1.png" alt=""></div>
+          <div class="quote"><img src="./assets/images/quote-podnimaeshsya-v1.png" alt=""></div>
+          <div class="shut"><img src="./assets/images/shut-dolzhen-veselit.png" alt=""></div>
+        </div>
+        <div class="note">менее “три колонки”, больше ощущение коллажа. я бы смотрел в эту сторону.</div>
+      </section>
+      <section class="variant v3">
+        <div class="label">вариант 3 — цитата как главный верхний акцент</div>
+        <div class="board">
+          <div class="listen"><img src="./assets/images/listen-platforms-full-v1.png" alt=""></div>
+          <div class="quote"><img src="./assets/images/quote-podnimaeshsya-v1.png" alt=""></div>
+          <div class="shut"><img src="./assets/images/shut-dolzhen-veselit.png" alt=""></div>
+        </div>
+        <div class="note">самый плакатный вариант, но и самый рискованный: легко перегрузить, если секция ниже тоже шумная.</div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
