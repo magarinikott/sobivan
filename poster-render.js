@@ -21,10 +21,13 @@
     const strong = document.createElement('strong');
     strong.textContent = item.title || '';
 
-    const span = document.createElement('span');
-    span.textContent = item.subtitle || '';
-
-    meta.append(strong, span);
+    if (item.subtitle) {
+      const span = document.createElement('span');
+      span.textContent = item.subtitle;
+      meta.append(strong, span);
+    } else {
+      meta.append(strong);
+    }
     article.append(img, meta);
     return article;
   }
