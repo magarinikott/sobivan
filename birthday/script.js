@@ -103,8 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const getNextSlide = () => {
       const current = getClosestSlide();
       const currentIndex = Math.max(0, orderedSlides.indexOf(current));
-      const nextIndex = currentIndex >= orderedSlides.length - 1 ? 0 : currentIndex + 1;
-      return orderedSlides[nextIndex];
+      const isLast = currentIndex >= orderedSlides.length - 1;
+      return {
+        slide: orderedSlides[isLast ? 0 : currentIndex + 1],
+        wraps: isLast,
+      };
     };
 
     const stopAuto = () => {
@@ -116,7 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAuto();
       autoTimer = window.setInterval(() => {
         if (isPointerDown) return;
-        centerSlide(getNextSlide(), 'smooth');
+        const next = getNextSlide();
+        if (!next?.slide) return;
+        centerSlide(next.slide, next.wraps ? 'auto' : 'smooth');
       }, 2600);
     };
 
