@@ -2379,7 +2379,7 @@ fieldset {
   padding: 10px max(8px, calc(50% - min(195px, 14vw))) 12px;
   scrollbar-width: none;
   cursor: grab;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
   touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;

@@ -96,14 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPointerDown = false;
     let startX = 0;
     let startScroll = 0;
-    let snapTimer = null;
     let originalStart = 0;
     let originalWidth = 0;
 
-    const stopSnapTimer = () => {
-      if (snapTimer) window.clearTimeout(snapTimer);
-      snapTimer = null;
-    };
 
     const measureLoop = () => {
       const first = originalSlides[0];
@@ -143,18 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, null);
     };
 
-    const centerSlide = (slide, behavior = 'smooth') => {
-      if (!slide) return;
-      const left = slide.offsetLeft - (viewport.clientWidth - slide.offsetWidth) / 2;
-      viewport.scrollTo({ left: Math.max(0, left), behavior });
-    };
-
-    const scheduleSnap = (delay = 160) => {
-      stopSnapTimer();
-      snapTimer = window.setTimeout(() => {
-        centerSlide(getClosestSlide(), 'smooth');
-      }, delay);
-    };
 
     viewport.addEventListener('wheel', (event) => {
       const absX = Math.abs(event.deltaX);
@@ -164,7 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const dominantDelta = absX > absY ? event.deltaX : event.deltaY;
       viewport.scrollLeft += dominantDelta * 0.72;
       normalizeLoop();
-      scheduleSnap(220);
     }, { passive: false });
 
     viewport.addEventListener('pointerdown', (event) => {
@@ -174,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
       startScroll = viewport.scrollLeft;
       viewport.classList.add('is-dragging');
       viewport.setPointerCapture?.(event.pointerId);
-      stopSnapTimer();
     });
 
     viewport.addEventListener('pointermove', (event) => {
@@ -189,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
       isPointerDown = false;
       activePointerId = null;
       viewport.classList.remove('is-dragging');
-      scheduleSnap(120);
     };
 
     viewport.addEventListener('pointerup', releasePointer);
@@ -197,11 +177,19 @@ document.addEventListener('DOMContentLoaded', () => {
     viewport.addEventListener('lostpointercapture', releasePointer);
 
     measureLoop();
-    centerSlide(originalSlides[0], 'auto');
+    const initialSlide = getClosestSlide() || originalSlides[0];
+    if (initialSlide) {
+      const initialLeft = initialSlide.offsetLeft - (viewport.clientWidth - initialSlide.offsetWidth) / 2;
+      viewport.scrollLeft = Math.max(0, initialLeft);
+    }
     normalizeLoop();
     window.addEventListener('resize', () => {
       measureLoop();
-      centerSlide(getClosestSlide(), 'auto');
+      const nextSlide = getClosestSlide();
+      if (nextSlide) {
+        const nextLeft = nextSlide.offsetLeft - (viewport.clientWidth - nextSlide.offsetWidth) / 2;
+        viewport.scrollLeft = Math.max(0, nextLeft);
+      }
       normalizeLoop();
     });
   }
