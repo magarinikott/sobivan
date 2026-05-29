@@ -66,33 +66,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const viewport = carousel.querySelector('.friends-carousel__viewport');
     const track = carousel.querySelector('.friends-carousel__track');
-    const slides = Array.from(track.querySelectorAll('.polaroid-slide'));
-    if (!viewport || !track || !slides.length) return;
+    const sourceSlides = Array.from(track.querySelectorAll('.polaroid-slide'));
+    if (!viewport || !track || !sourceSlides.length) return;
 
-    const orderedSlides = shuffle(slides);
-
-    orderedSlides.forEach((slide) => {
+    const orderedSlides = shuffle(sourceSlides);
+    const originalMarkup = orderedSlides.map((slide, index) => {
       const tilt = Number.parseFloat(slide.dataset.tilt || '0') || 0;
+      slide.dataset.carouselIndex = `${index}`;
       slide.style.setProperty('--tilt', `${tilt}deg`);
-      track.appendChild(slide);
+      return slide;
     });
+
+    track.replaceChildren();
+
+    const createClone = (slide) => {
+      const clone = slide.cloneNode(true);
+      clone.dataset.carouselIndex = slide.dataset.carouselIndex || '';
+      clone.dataset.clone = 'true';
+      clone.style.setProperty('--tilt', slide.style.getPropertyValue('--tilt'));
+      return clone;
+    };
+
+    const prefixSlides = originalMarkup.map(createClone);
+    const suffixSlides = originalMarkup.map(createClone);
+    [...prefixSlides, ...originalMarkup, ...suffixSlides].forEach((slide) => track.appendChild(slide));
+
+    const renderedSlides = Array.from(track.querySelectorAll('.polaroid-slide'));
 
     let autoTimer = null;
     let isPointerDown = false;
+    let activePointerId = null;
     let startX = 0;
     let startScroll = 0;
     let snapTimer = null;
+    let originalStart = 0;
+    let originalWidth = 0;
 
     const stopSnapTimer = () => {
       if (snapTimer) window.clearTimeout(snapTimer);
       snapTimer = null;
     };
 
+    const measureLoop = () => {
+      const first = originalMarkup[0];
+      const last = originalMarkup[originalMarkup.length - 1];
+      if (!first || !last) return;
+      originalStart = first.offsetLeft;
+      originalWidth = (last.offsetLeft + last.offsetWidth) - first.offsetLeft;
+    };
+
     const getCenterX = () => viewport.scrollLeft + viewport.clientWidth / 2;
 
+    const normalizeLoop = () => {
+      if (!originalWidth) return;
+      const minCenter = originalStart;
+      const maxCenter = originalStart + originalWidth;
+      let centerX = getCenterX();
+
+      while (centerX < minCenter) {
+        viewport.scrollLeft += originalWidth;
+        centerX += originalWidth;
+      }
+
+      while (centerX > maxCenter) {
+        viewport.scrollLeft -= originalWidth;
+        centerX -= originalWidth;
+      }
+    };
+
     const getClosestSlide = () => {
+      normalizeLoop();
       const centerX = getCenterX();
-      return orderedSlides.reduce((closest, slide) => {
+      return renderedSlides.reduce((closest, slide) => {
         const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
         if (!closest) return slide;
         const closestCenter = closest.offsetLeft + closest.offsetWidth / 2;
@@ -115,9 +160,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const getNextSlide = (direction = 1) => {
       const current = getClosestSlide();
-      const currentIndex = Math.max(0, orderedSlides.indexOf(current));
-      const nextIndex = (currentIndex + direction + orderedSlides.length) % orderedSlides.length;
-      return orderedSlides[nextIndex];
+      if (!current) return null;
+      const currentIndex = Number.parseInt(current.dataset.carouselIndex || '0', 10) || 0;
+      const targetIndex = (currentIndex + direction + originalMarkup.length) % originalMarkup.length;
+      const currentCenter = current.offsetLeft + current.offsetWidth / 2;
+      const candidates = renderedSlides.filter((slide) => Number.parseInt(slide.dataset.carouselIndex || '-1', 10) === targetIndex);
+      if (!candidates.length) return null;
+
+      return candidates.reduce((best, slide) => {
+        if (!best) return slide;
+        const bestCenter = best.offsetLeft + best.offsetWidth / 2;
+        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+        const bestDistance = Math.abs(bestCenter - currentCenter);
+        const slideDistance = Math.abs(slideCenter - currentCenter);
+        return slideDistance < bestDistance ? slide : best;
+      }, null);
     };
 
     const stopAuto = () => {
@@ -134,38 +191,63 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     viewport.addEventListener('wheel', (event) => {
-      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      const absX = Math.abs(event.deltaX);
+      const absY = Math.abs(event.deltaY);
+      if (absX === 0 && absY === 0) return;
       event.preventDefault();
-      viewport.scrollLeft += event.deltaY;
+      viewport.scrollLeft += absX > absY ? event.deltaX : event.deltaY;
+      normalizeLoop();
       scheduleSnap();
     }, { passive: false });
 
+    viewport.addEventListener('scroll', () => {
+      if (isPointerDown) {
+        normalizeLoop();
+        return;
+      }
+      scheduleSnap();
+    }, { passive: true });
+
     viewport.addEventListener('pointerdown', (event) => {
       isPointerDown = true;
+      activePointerId = event.pointerId;
       startX = event.clientX;
       startScroll = viewport.scrollLeft;
       viewport.classList.add('is-dragging');
+      viewport.setPointerCapture?.(event.pointerId);
       stopAuto();
     });
 
-    window.addEventListener('pointerup', () => {
+    viewport.addEventListener('pointermove', (event) => {
+      if (!isPointerDown || event.pointerId !== activePointerId) return;
+      const dx = event.clientX - startX;
+      viewport.scrollLeft = startScroll - dx;
+      normalizeLoop();
+    });
+
+    const releasePointer = () => {
       if (!isPointerDown) return;
       isPointerDown = false;
+      activePointerId = null;
       viewport.classList.remove('is-dragging');
       scheduleSnap();
       startAuto();
-    });
+    };
 
-    viewport.addEventListener('pointermove', (event) => {
-      if (!isPointerDown) return;
-      const dx = event.clientX - startX;
-      viewport.scrollLeft = startScroll - dx;
-    });
+    viewport.addEventListener('pointerup', releasePointer);
+    viewport.addEventListener('pointercancel', releasePointer);
+    viewport.addEventListener('lostpointercapture', releasePointer);
 
     carousel.addEventListener('mouseenter', stopAuto);
     carousel.addEventListener('mouseleave', startAuto);
-    window.addEventListener('resize', () => centerSlide(getClosestSlide(), 'auto'));
-    centerSlide(orderedSlides[0], 'auto');
+    measureLoop();
+    centerSlide(originalMarkup[0], 'auto');
+    normalizeLoop();
+    window.addEventListener('resize', () => {
+      measureLoop();
+      centerSlide(getClosestSlide(), 'auto');
+      normalizeLoop();
+    });
     startAuto();
   }
 

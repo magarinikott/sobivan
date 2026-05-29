@@ -2382,6 +2382,9 @@ fieldset {
   cursor: grab;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .friends-carousel__viewport::-webkit-scrollbar {
@@ -2425,6 +2428,8 @@ fieldset {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   background: #0b0b0b;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
 .polaroid-slide:hover {
