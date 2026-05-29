@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!viewport || !track || !sourceSlides.length) return;
 
     const orderedSlides = shuffle(sourceSlides);
-    const originalMarkup = orderedSlides.map((slide, index) => {
+    const originalSlides = orderedSlides.map((slide, index) => {
       const tilt = Number.parseFloat(slide.dataset.tilt || '0') || 0;
       slide.dataset.carouselIndex = `${index}`;
       slide.style.setProperty('--tilt', `${tilt}deg`);
@@ -87,15 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
       return clone;
     };
 
-    const prefixSlides = originalMarkup.map(createClone);
-    const suffixSlides = originalMarkup.map(createClone);
-    [...prefixSlides, ...originalMarkup, ...suffixSlides].forEach((slide) => track.appendChild(slide));
+    const prefixSlides = originalSlides.map(createClone);
+    const suffixSlides = originalSlides.map(createClone);
+    [...prefixSlides, ...originalSlides, ...suffixSlides].forEach((slide) => track.appendChild(slide));
 
     const renderedSlides = Array.from(track.querySelectorAll('.polaroid-slide'));
-
-    let autoTimer = null;
-    let isPointerDown = false;
     let activePointerId = null;
+    let isPointerDown = false;
     let startX = 0;
     let startScroll = 0;
     let snapTimer = null;
@@ -108,8 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const measureLoop = () => {
-      const first = originalMarkup[0];
-      const last = originalMarkup[originalMarkup.length - 1];
+      const first = originalSlides[0];
+      const last = originalSlides[originalSlides.length - 1];
       if (!first || !last) return;
       originalStart = first.offsetLeft;
       originalWidth = (last.offsetLeft + last.offsetWidth) - first.offsetLeft;
@@ -151,43 +149,11 @@ document.addEventListener('DOMContentLoaded', () => {
       viewport.scrollTo({ left: Math.max(0, left), behavior });
     };
 
-    const scheduleSnap = () => {
+    const scheduleSnap = (delay = 160) => {
       stopSnapTimer();
       snapTimer = window.setTimeout(() => {
         centerSlide(getClosestSlide(), 'smooth');
-      }, 120);
-    };
-
-    const getNextSlide = (direction = 1) => {
-      const current = getClosestSlide();
-      if (!current) return null;
-      const currentIndex = Number.parseInt(current.dataset.carouselIndex || '0', 10) || 0;
-      const targetIndex = (currentIndex + direction + originalMarkup.length) % originalMarkup.length;
-      const currentCenter = current.offsetLeft + current.offsetWidth / 2;
-      const candidates = renderedSlides.filter((slide) => Number.parseInt(slide.dataset.carouselIndex || '-1', 10) === targetIndex);
-      if (!candidates.length) return null;
-
-      return candidates.reduce((best, slide) => {
-        if (!best) return slide;
-        const bestCenter = best.offsetLeft + best.offsetWidth / 2;
-        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-        const bestDistance = Math.abs(bestCenter - currentCenter);
-        const slideDistance = Math.abs(slideCenter - currentCenter);
-        return slideDistance < bestDistance ? slide : best;
-      }, null);
-    };
-
-    const stopAuto = () => {
-      if (autoTimer) window.clearInterval(autoTimer);
-      autoTimer = null;
-      stopSnapTimer();
-    };
-
-    const startAuto = () => {
-      stopAuto();
-      autoTimer = window.setInterval(() => {
-        centerSlide(getNextSlide(1), 'smooth');
-      }, 2400);
+      }, delay);
     };
 
     viewport.addEventListener('wheel', (event) => {
@@ -195,18 +161,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const absY = Math.abs(event.deltaY);
       if (absX === 0 && absY === 0) return;
       event.preventDefault();
-      viewport.scrollLeft += absX > absY ? event.deltaX : event.deltaY;
+      const dominantDelta = absX > absY ? event.deltaX : event.deltaY;
+      viewport.scrollLeft += dominantDelta * 0.72;
       normalizeLoop();
-      scheduleSnap();
+      scheduleSnap(220);
     }, { passive: false });
-
-    viewport.addEventListener('scroll', () => {
-      if (isPointerDown) {
-        normalizeLoop();
-        return;
-      }
-      scheduleSnap();
-    }, { passive: true });
 
     viewport.addEventListener('pointerdown', (event) => {
       isPointerDown = true;
@@ -215,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
       startScroll = viewport.scrollLeft;
       viewport.classList.add('is-dragging');
       viewport.setPointerCapture?.(event.pointerId);
-      stopAuto();
+      stopSnapTimer();
     });
 
     viewport.addEventListener('pointermove', (event) => {
@@ -230,25 +189,21 @@ document.addEventListener('DOMContentLoaded', () => {
       isPointerDown = false;
       activePointerId = null;
       viewport.classList.remove('is-dragging');
-      scheduleSnap();
-      startAuto();
+      scheduleSnap(120);
     };
 
     viewport.addEventListener('pointerup', releasePointer);
     viewport.addEventListener('pointercancel', releasePointer);
     viewport.addEventListener('lostpointercapture', releasePointer);
 
-    carousel.addEventListener('mouseenter', stopAuto);
-    carousel.addEventListener('mouseleave', startAuto);
     measureLoop();
-    centerSlide(originalMarkup[0], 'auto');
+    centerSlide(originalSlides[0], 'auto');
     normalizeLoop();
     window.addEventListener('resize', () => {
       measureLoop();
       centerSlide(getClosestSlide(), 'auto');
       normalizeLoop();
     });
-    startAuto();
   }
 
   function shuffle(items) {

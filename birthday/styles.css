@@ -19,7 +19,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -2380,11 +2379,11 @@ fieldset {
   padding: 10px max(8px, calc(50% - min(195px, 14vw))) 12px;
   scrollbar-width: none;
   cursor: grab;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
   touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
+  overscroll-behavior-x: contain;
 }
 
 .friends-carousel__viewport::-webkit-scrollbar {
