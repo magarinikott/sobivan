@@ -80,6 +80,45 @@ document.addEventListener('DOMContentLoaded', () => {
     let activePointerId = null;
     let startX = 0;
     let startScroll = 0;
+    let autoTimer = null;
+
+    const getCenterX = () => viewport.scrollLeft + viewport.clientWidth / 2;
+
+    const getClosestSlide = () => {
+      const centerX = getCenterX();
+      return orderedSlides.reduce((closest, slide) => {
+        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+        if (!closest) return slide;
+        const closestCenter = closest.offsetLeft + closest.offsetWidth / 2;
+        return Math.abs(slideCenter - centerX) < Math.abs(closestCenter - centerX) ? slide : closest;
+      }, null);
+    };
+
+    const centerSlide = (slide, behavior = 'smooth') => {
+      if (!slide) return;
+      const left = slide.offsetLeft - (viewport.clientWidth - slide.offsetWidth) / 2;
+      viewport.scrollTo({ left: Math.max(0, left), behavior });
+    };
+
+    const getNextSlide = () => {
+      const current = getClosestSlide();
+      const currentIndex = Math.max(0, orderedSlides.indexOf(current));
+      const nextIndex = currentIndex >= orderedSlides.length - 1 ? 0 : currentIndex + 1;
+      return orderedSlides[nextIndex];
+    };
+
+    const stopAuto = () => {
+      if (autoTimer) window.clearInterval(autoTimer);
+      autoTimer = null;
+    };
+
+    const startAuto = () => {
+      stopAuto();
+      autoTimer = window.setInterval(() => {
+        if (isPointerDown) return;
+        centerSlide(getNextSlide(), 'smooth');
+      }, 2600);
+    };
 
     viewport.addEventListener('wheel', (event) => {
       const absX = Math.abs(event.deltaX);
@@ -96,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
       startScroll = viewport.scrollLeft;
       viewport.classList.add('is-dragging');
       viewport.setPointerCapture?.(event.pointerId);
+      stopAuto();
     });
 
     viewport.addEventListener('pointermove', (event) => {
@@ -109,11 +149,22 @@ document.addEventListener('DOMContentLoaded', () => {
       isPointerDown = false;
       activePointerId = null;
       viewport.classList.remove('is-dragging');
+      startAuto();
     };
 
     viewport.addEventListener('pointerup', releasePointer);
     viewport.addEventListener('pointercancel', releasePointer);
     viewport.addEventListener('lostpointercapture', releasePointer);
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopAuto();
+      else startAuto();
+    });
+
+    centerSlide(orderedSlides[0], 'auto');
+    startAuto();
   }
 
   function shuffle(items) {
