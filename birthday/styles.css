@@ -227,11 +227,15 @@ h2,
 
 .nav a,
 .socials a {
-  font-size: 0.96rem;
+  font-size: 1.22rem;
   letter-spacing: 0.08em;
   color: var(--paper);
   opacity: 0.86;
   transition: color 160ms ease, opacity 160ms ease;
+}
+
+.nav {
+  gap: 14px 22px;
 }
 
 .nav a:hover,
@@ -590,6 +594,8 @@ legend,
   padding-left: 24px;
   margin-bottom: 10px;
   color: var(--paper);
+  font-size: 1.16rem;
+  line-height: 1.68;
 }
 
 .about-list li::before {
@@ -599,6 +605,26 @@ legend,
   top: -1px;
   color: var(--green);
   font-weight: 800;
+}
+
+.about-inline-link {
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(194, 255, 39, 0.34);
+  font-size: inherit;
+}
+
+.about-inline-link:hover,
+.about-inline-link:focus-visible {
+  color: var(--green);
+  border-bottom-color: rgba(194, 255, 39, 0.64);
+}
+
+.about-inline-accent {
+  color: var(--green);
+  font-family: var(--font-condensed);
+  letter-spacing: 0.04em;
+  font-size: inherit;
 }
 
 .photo-strip {
@@ -1252,10 +1278,11 @@ fieldset {
 
 .rsvp-feedback {
   display: grid;
-  gap: 10px;
-  padding: 16px 18px;
+  gap: 6px;
+  padding: 4px 10px 10px;
   border: 1px solid rgba(255,255,255,0.08);
   background: rgba(255,255,255,0.04);
+  align-content: start;
 }
 
 .rsvp-feedback[data-state="success"] {
@@ -1286,10 +1313,17 @@ fieldset {
 }
 
 .rsvp-telegram-cta {
+  display: flex;
   width: 100%;
+  margin-top: -8px;
+  box-sizing: border-box;
+  align-self: stretch;
+  min-height: 52px;
+  font-size: 1rem;
 }
 
 .sprite-submit {
+  margin-top: 10px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -1355,6 +1389,34 @@ fieldset {
 .lineup-grid { gap: 22px; }
 .hero-ticket .tape { top: -8px; }
 .place-photo, .place-map { min-height: 0; }
+
+.rsvp-warning {
+  margin-top: 34px;
+}
+
+.rsvp-lead-note {
+  margin: 0;
+  padding: 14px 16px;
+  background: rgba(194, 255, 39, 0.06);
+  border-left: 3px solid rgba(194, 255, 39, 0.72);
+}
+
+.rsvp-copy p,
+.rsvp-warning {
+  font-size: 1.16rem;
+  line-height: 1.68;
+}
+
+.rsvp-slogans {
+  margin-top: 34px;
+}
+
+.rsvp-warning strong {
+  color: var(--green);
+  font-family: var(--font-condensed);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 
 
 .real-place-photo img,
@@ -1524,6 +1586,7 @@ fieldset {
 .hero-gift-note {
   max-width: 420px;
   margin: 6px 0 0;
+  padding-left: 14px;
   color: rgba(244, 241, 235, 0.96);
   font-family: var(--font-condensed);
   font-size: 1.18rem;
@@ -1532,11 +1595,17 @@ fieldset {
   text-transform: uppercase;
   text-wrap: balance;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.24);
+  border-left: 2px solid rgba(194, 255, 39, 0.7);
 }
 
 .hero-gift-note strong {
   color: var(--green);
   font-weight: 700;
+}
+
+.hero-gift-note-secondary {
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .hero-lineup-button {
@@ -2308,9 +2377,11 @@ fieldset {
 .friends-carousel__viewport {
   overflow-x: auto;
   overflow-y: visible;
-  padding: 10px 4px 12px 2px;
+  padding: 10px max(8px, calc(50% - min(195px, 14vw))) 12px;
   scrollbar-width: none;
   cursor: grab;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 
 .friends-carousel__viewport::-webkit-scrollbar {
@@ -2326,7 +2397,6 @@ fieldset {
   gap: 8px;
   align-items: flex-start;
   width: max-content;
-  padding-right: 8px;
 }
 
 .polaroid-slide {
@@ -2337,6 +2407,8 @@ fieldset {
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
   transform: rotate(var(--tilt, -2deg));
   transition: transform 220ms ease, box-shadow 220ms ease;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 .polaroid-slide:nth-child(3n) {
@@ -2361,12 +2433,21 @@ fieldset {
 }
 
 @media (max-width: 979px) {
+  .about-list li {
+    font-size: 1.1rem;
+  }
+
+  .rsvp-copy p,
+  .rsvp-warning {
+    font-size: 1.1rem;
+  }
+
   .friends-carousel {
     width: 100%;
   }
 
   .friends-carousel__viewport {
-    padding: 8px 2px 12px 0;
+    padding: 8px max(8px, calc(50% - min(140px, 36vw))) 12px;
   }
 
   .friends-carousel__track {
@@ -2392,12 +2473,12 @@ fieldset {
   }
 
   .nav {
-    gap: 8px 12px;
+    gap: 10px 16px;
   }
 
   .nav a,
   .socials a {
-    font-size: 0.82rem;
+    font-size: 1.04rem;
     letter-spacing: 0.06em;
   }
 

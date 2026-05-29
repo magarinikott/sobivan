@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderFeedback({
           type: 'error',
           title: 'форма ещё не привязана',
-          text: 'заполни /Users/kseniasoboleva/Desktop/кодекс /сайты/sobivan-event/rsvp-config.js: вставь URL Cloudflare Worker.',
+          text: 'форма ещё не привязана: нужно указать URL обработчика RSVP.',
         });
         return;
       }
@@ -69,7 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = Array.from(track.querySelectorAll('.polaroid-slide'));
     if (!viewport || !track || !slides.length) return;
 
-    shuffle(slides).forEach((slide, index) => {
+    const orderedSlides = shuffle(slides);
+
+    orderedSlides.forEach((slide) => {
       const tilt = Number.parseFloat(slide.dataset.tilt || '0') || 0;
       slide.style.setProperty('--tilt', `${tilt}deg`);
       track.appendChild(slide);
@@ -79,41 +81,63 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPointerDown = false;
     let startX = 0;
     let startScroll = 0;
+    let snapTimer = null;
 
-    const step = () => slides[0]?.getBoundingClientRect().width + 8 || 320;
+    const stopSnapTimer = () => {
+      if (snapTimer) window.clearTimeout(snapTimer);
+      snapTimer = null;
+    };
+
+    const getCenterX = () => viewport.scrollLeft + viewport.clientWidth / 2;
+
+    const getClosestSlide = () => {
+      const centerX = getCenterX();
+      return orderedSlides.reduce((closest, slide) => {
+        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+        if (!closest) return slide;
+        const closestCenter = closest.offsetLeft + closest.offsetWidth / 2;
+        return Math.abs(slideCenter - centerX) < Math.abs(closestCenter - centerX) ? slide : closest;
+      }, null);
+    };
+
+    const centerSlide = (slide, behavior = 'smooth') => {
+      if (!slide) return;
+      const left = slide.offsetLeft - (viewport.clientWidth - slide.offsetWidth) / 2;
+      viewport.scrollTo({ left: Math.max(0, left), behavior });
+    };
+
+    const scheduleSnap = () => {
+      stopSnapTimer();
+      snapTimer = window.setTimeout(() => {
+        centerSlide(getClosestSlide(), 'smooth');
+      }, 120);
+    };
+
+    const getNextSlide = (direction = 1) => {
+      const current = getClosestSlide();
+      const currentIndex = Math.max(0, orderedSlides.indexOf(current));
+      const nextIndex = (currentIndex + direction + orderedSlides.length) % orderedSlides.length;
+      return orderedSlides[nextIndex];
+    };
 
     const stopAuto = () => {
       if (autoTimer) window.clearInterval(autoTimer);
       autoTimer = null;
+      stopSnapTimer();
     };
 
     const startAuto = () => {
       stopAuto();
       autoTimer = window.setInterval(() => {
-        viewport.scrollBy({ left: step(), behavior: 'smooth' });
-        window.setTimeout(() => recycleIfNeeded(), 420);
+        centerSlide(getNextSlide(1), 'smooth');
       }, 2400);
-    };
-
-    const recycleIfNeeded = () => {
-      const first = track.firstElementChild;
-      if (!first) return;
-      const firstWidth = first.getBoundingClientRect().width + 8;
-      while (viewport.scrollLeft > firstWidth) {
-        viewport.scrollLeft -= firstWidth;
-        track.appendChild(track.firstElementChild);
-      }
-      while (viewport.scrollLeft < 0 && track.lastElementChild) {
-        track.prepend(track.lastElementChild);
-        viewport.scrollLeft += firstWidth;
-      }
     };
 
     viewport.addEventListener('wheel', (event) => {
       if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
       event.preventDefault();
       viewport.scrollLeft += event.deltaY;
-      recycleIfNeeded();
+      scheduleSnap();
     }, { passive: false });
 
     viewport.addEventListener('pointerdown', (event) => {
@@ -128,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!isPointerDown) return;
       isPointerDown = false;
       viewport.classList.remove('is-dragging');
-      recycleIfNeeded();
+      scheduleSnap();
       startAuto();
     });
 
@@ -136,11 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!isPointerDown) return;
       const dx = event.clientX - startX;
       viewport.scrollLeft = startScroll - dx;
-      recycleIfNeeded();
     });
 
     carousel.addEventListener('mouseenter', stopAuto);
     carousel.addEventListener('mouseleave', startAuto);
+    window.addEventListener('resize', () => centerSlide(getClosestSlide(), 'auto'));
+    centerSlide(orderedSlides[0], 'auto');
     startAuto();
   }
 
