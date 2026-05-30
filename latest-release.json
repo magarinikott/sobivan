@@ -1,9 +1,9 @@
 {
   "enabled": true,
   "kicker": "Последний релиз",
-  "title": "расскажи",
-  "meta": "Сингл",
-  "cover": "./IMG_6472.JPG",
-  "yandexUrl": "https://music.yandex.ru/search?text=SOBIVAN%20%D1%80%D0%B0%D1%81%D1%81%D0%BA%D0%B0%D0%B6%D0%B8",
-  "vkUrl": "https://vk.com/artist/sobivan"
+  "title": "поднимаешься",
+  "meta": "single",
+  "cover": "./covers/releases/20260530-поднимаешься.jpg",
+  "yandexUrl": "https://music.yandex.ru/album/42053051?ref_id=16852FF9-EE23-47E8-8B25-25DEED501F97&utm_medium=copy_link",
+  "vkUrl": "https://vk.ru/audio-2001576838_149576838"
 }
