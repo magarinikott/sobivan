@@ -2736,19 +2736,6 @@ body[data-site-studio-viewport="mobile"].site-studio-mobile [data-site-studio-no
 
 
 
-html[data-site-studio-viewport="mobile"] .hero-photo-note-art,
-body[data-site-studio-viewport="mobile"].site-studio-mobile .hero-photo-note-art {
-  width: auto !important;
-  max-width: none !important;
-  top: -236px !important;
-  left: 44px !important;
-  transform: translate(0, 0) scale(0.21) rotate(6deg) !important;
-  transform-origin: top left !important;
-  z-index: 8 !important;
-  pointer-events: auto !important;
-  cursor: pointer !important;
-}
-
 html[data-site-studio-viewport="mobile"] .hero-live-photo-wrap,
 body[data-site-studio-viewport="mobile"].site-studio-mobile .hero-live-photo-wrap,
 html[data-site-studio-viewport="mobile"] .hero-photo-overlay,
