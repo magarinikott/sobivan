@@ -257,7 +257,8 @@ h2,
 
 .age-badge--hero {
   position: absolute;
-  left: clamp(180px, 37%, 420px);
+  left: auto;
+  right: clamp(72px, 18%, 220px);
   bottom: clamp(6px, 5.4vw, 42px);
   z-index: 2;
 }
