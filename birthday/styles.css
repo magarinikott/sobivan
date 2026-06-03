@@ -2609,19 +2609,19 @@ fieldset {
 
   .hero-live-photo-wrap {
     width: 100%;
-    height: 392px;
+    height: 420px;
     min-height: 0;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
     background: transparent;
   }
 
   .hero-live-photo {
-    width: 112%;
+    width: 108%;
     height: auto;
-    max-width: 112%;
-    margin-left: -6%;
-    margin-top: -18px;
+    max-width: 108%;
+    margin-left: -4%;
+    margin-top: -6px;
     object-fit: contain;
     object-position: center top;
     transform: none !important;
@@ -2636,7 +2636,7 @@ fieldset {
 
   .hero-photo-note-art {
     position: absolute;
-    top: -68px;
+    top: -34px;
     left: 24px;
     width: min(44vw, 184px);
     margin: 0;
