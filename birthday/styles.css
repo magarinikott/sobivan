@@ -2866,8 +2866,8 @@ body.gift-modal-open {
   }
 
   .age-badge--hero {
-    left: auto;
-    right: 6px;
+    left: clamp(56px, 9vw, 84px);
+    right: auto;
     bottom: 8px;
   }
 
