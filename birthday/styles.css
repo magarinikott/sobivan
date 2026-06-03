@@ -2621,7 +2621,7 @@ fieldset {
     height: auto;
     max-width: 132%;
     margin-left: -16%;
-    margin-top: 0;
+    margin-top: -18px;
     object-fit: contain;
     object-position: center top;
     transform: none !important;
@@ -2638,9 +2638,9 @@ fieldset {
     position: absolute;
     top: -92px;
     left: 24px;
-    width: min(44vw, 184px);
+    width: min(48vw, 204px);
     margin: 0;
-    transform: rotate(6deg) !important;
+    transform: rotate(3deg) !important;
     z-index: 8;
     pointer-events: auto;
   }
