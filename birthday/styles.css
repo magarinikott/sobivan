@@ -2622,7 +2622,8 @@ fieldset {
     max-width: none;
     object-fit: contain;
     object-position: center top;
-    transform: none !important;
+    transform: scale(1.08) !important;
+    transform-origin: center top;
   }
 
   .hero-photo-overlay {
@@ -2634,11 +2635,12 @@ fieldset {
 
   .hero-photo-note-art {
     position: absolute;
-    top: 10px;
-    left: 8px;
-    width: min(42vw, 176px);
+    top: -34px;
+    left: 18px;
+    width: min(46vw, 192px);
     margin: 0;
     transform: rotate(6deg) !important;
+    z-index: 8;
     pointer-events: auto;
   }
 
