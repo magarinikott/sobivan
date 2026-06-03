@@ -2620,13 +2620,13 @@ fieldset {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 28px;
+    margin-top: 42px;
     min-height: 0;
     overflow: visible;
   }
 
   .hero-poster-large {
-    width: min(74vw, 300px);
+    width: min(70vw, 284px);
     height: auto;
     transform: none !important;
   }
