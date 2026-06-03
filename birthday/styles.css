@@ -2621,7 +2621,7 @@ fieldset {
     height: auto;
     max-width: 132%;
     margin-left: -16%;
-    margin-top: -18px;
+    margin-top: -34px;
     object-fit: contain;
     object-position: center top;
     transform: none !important;
@@ -2636,7 +2636,7 @@ fieldset {
 
   .hero-photo-note-art {
     position: absolute;
-    top: -92px;
+    top: -164px;
     left: 24px;
     width: min(48vw, 204px);
     margin: 0;
