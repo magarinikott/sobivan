@@ -2617,13 +2617,13 @@ fieldset {
   }
 
   .hero-live-photo {
-    width: 100%;
+    width: 104%;
     height: auto;
-    max-width: none;
+    max-width: 104%;
+    margin-left: -2%;
     object-fit: contain;
     object-position: center top;
-    transform: scale(1.08) !important;
-    transform-origin: center top;
+    transform: none !important;
   }
 
   .hero-photo-overlay {
@@ -2635,9 +2635,9 @@ fieldset {
 
   .hero-photo-note-art {
     position: absolute;
-    top: -34px;
-    left: 18px;
-    width: min(46vw, 192px);
+    top: -56px;
+    left: 24px;
+    width: min(44vw, 184px);
     margin: 0;
     transform: rotate(6deg) !important;
     z-index: 8;
