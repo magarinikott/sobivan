@@ -242,8 +242,6 @@ h2,
 
 .age-badge {
   width: fit-content;
-  align-self: flex-end;
-  margin-top: -2px;
   padding: 7px 13px 6px;
   border: 1px solid rgba(255, 92, 92, 0.42);
   border-radius: 999px;
@@ -255,6 +253,13 @@ h2,
   letter-spacing: 0.1em;
   text-transform: uppercase;
   box-shadow: 0 10px 26px rgba(120, 16, 16, 0.18);
+}
+
+.age-badge--hero {
+  position: absolute;
+  left: clamp(180px, 37%, 420px);
+  bottom: clamp(6px, 5.4vw, 42px);
+  z-index: 2;
 }
 
 
@@ -2856,10 +2861,14 @@ body.gift-modal-open {
   }
 
   .age-badge {
-    align-self: flex-end;
-    margin-right: 10px;
     padding: 5px 10px 4px;
     font-size: 0.82rem;
+  }
+
+  .age-badge--hero {
+    left: auto;
+    right: 6px;
+    bottom: 8px;
   }
 
   .nav a,
