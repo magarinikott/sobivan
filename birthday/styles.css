@@ -2626,7 +2626,7 @@ fieldset {
   }
 
   .hero-poster-large {
-    width: min(82vw, 330px);
+    width: min(74vw, 300px);
     height: auto;
     transform: none !important;
   }
