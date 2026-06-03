@@ -242,13 +242,13 @@ h2,
 
 .age-badge {
   width: fit-content;
-  padding: 8px 15px 7px;
+  padding: 10px 18px 9px;
   border: 1px solid rgba(255, 92, 92, 0.42);
   border-radius: 999px;
   background: rgba(255, 92, 92, 0.14);
   color: rgba(255, 214, 214, 0.96);
   font-family: "Oswald", Impact, sans-serif;
-  font-size: 1.12rem;
+  font-size: 1.34rem;
   line-height: 1;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -257,9 +257,9 @@ h2,
 
 .age-badge--hero {
   position: absolute;
-  left: clamp(540px, 58%, 690px);
+  left: clamp(575px, 61%, 760px);
   right: auto;
-  bottom: clamp(-14px, 2.6vw, 10px);
+  bottom: clamp(-46px, -1vw, -14px);
   z-index: 2;
 }
 
