@@ -240,6 +240,22 @@ h2,
   transition: color 160ms ease, opacity 160ms ease;
 }
 
+.age-badge {
+  width: fit-content;
+  align-self: flex-start;
+  padding: 5px 10px 4px;
+  border: 1px solid rgba(194, 255, 39, 0.28);
+  border-radius: 999px;
+  background: rgba(194, 255, 39, 0.08);
+  color: rgba(244, 241, 235, 0.86);
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
 .nav {
   gap: 14px 22px;
 }
@@ -2835,6 +2851,12 @@ body.gift-modal-open {
 
   .socials {
     display: none;
+  }
+
+  .age-badge {
+    align-self: center;
+    padding: 4px 9px 3px;
+    font-size: 0.72rem;
   }
 
   .nav a,
