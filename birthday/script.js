@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  initGiftModal();
   initFriendsCarousel();
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -59,6 +60,88 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+
+  function initGiftModal() {
+    const modal = document.getElementById('gift-modal');
+    const openButton = document.querySelector('[data-gift-modal-open]');
+    if (!modal || !openButton) return;
+
+    const dialog = modal.querySelector('.gift-modal__dialog');
+    const closeButtons = modal.querySelectorAll('[data-gift-modal-close]');
+    const copyButtons = modal.querySelectorAll('[data-copy-text]');
+    const body = document.body;
+    let lastFocused = null;
+
+    const closeModal = () => {
+      modal.hidden = true;
+      modal.setAttribute('aria-hidden', 'true');
+      body.classList.remove('gift-modal-open');
+      lastFocused?.focus?.();
+    };
+
+    const openModal = () => {
+      lastFocused = document.activeElement;
+      modal.hidden = false;
+      modal.setAttribute('aria-hidden', 'false');
+      body.classList.add('gift-modal-open');
+      window.setTimeout(() => {
+        modal.querySelector('.gift-modal__close')?.focus();
+      }, 20);
+    };
+
+    openButton.addEventListener('click', openModal);
+    closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+
+    modal.addEventListener('click', (event) => {
+      if (!dialog.contains(event.target)) closeModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !modal.hidden) closeModal();
+    });
+
+    copyButtons.forEach((button) => {
+      button.addEventListener('click', async () => {
+        const text = button.dataset.copyText || '';
+        if (!text) return;
+        const original = button.textContent;
+        const copied = await copyText(text);
+        button.textContent = copied ? 'номер скопирован' : 'не скопировалось';
+        button.classList.toggle('is-copied', copied);
+        window.setTimeout(() => {
+          button.textContent = original;
+          button.classList.remove('is-copied');
+        }, 1800);
+      });
+    });
+  }
+
+  async function copyText(text) {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch (error) {
+      // fallback below
+    }
+
+    try {
+      const helper = document.createElement('textarea');
+      helper.value = text;
+      helper.setAttribute('readonly', '');
+      helper.style.position = 'absolute';
+      helper.style.left = '-9999px';
+      document.body.appendChild(helper);
+      helper.select();
+      const copied = document.execCommand('copy');
+      helper.remove();
+      return copied;
+    } catch (error) {
+      return false;
+    }
+  }
 
   function initFriendsCarousel() {
     const carousel = document.querySelector('.js-friends-carousel');

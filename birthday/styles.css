@@ -1620,6 +1620,10 @@ fieldset {
 .hero-gift-button {
   display: inline-block;
   width: min(320px, 42vw);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
   transform: rotate(-2.5deg);
 }
 
@@ -1634,6 +1638,223 @@ fieldset {
   width: 100%;
   height: auto;
 }
+
+
+.gift-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.gift-modal[hidden] {
+  display: none;
+}
+
+body.gift-modal-open {
+  overflow: hidden;
+}
+
+
+.gift-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 7, 7, 0.76);
+  backdrop-filter: blur(12px);
+}
+
+.gift-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 680px);
+  padding: 30px 28px 24px;
+  border: 1px solid rgba(194, 255, 39, 0.22);
+  background:
+    linear-gradient(180deg, rgba(22, 22, 20, 0.97), rgba(10, 10, 10, 0.98)),
+    var(--panel-texture);
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.42);
+}
+
+.gift-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(244, 241, 235, 0.16);
+  border-radius: 999px;
+  background: rgba(244, 241, 235, 0.05);
+  color: rgba(244, 241, 235, 0.9);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.gift-modal__eyebrow {
+  margin: 0 0 8px;
+  color: rgba(194, 255, 39, 0.98);
+  font-family: var(--font-condensed);
+  font-size: clamp(1.18rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gift-modal__title {
+  margin: 0;
+  max-width: none;
+  color: rgba(244, 241, 235, 0.96);
+  font-size: clamp(1.5rem, 2vw, 2.15rem);
+  line-height: 1.05;
+  text-wrap: nowrap;
+}
+
+.gift-modal__intro,
+.gift-modal__footnote {
+  margin: 14px 0 0;
+  max-width: 52ch;
+  color: rgba(244, 241, 235, 0.82);
+}
+
+.gift-modal__intro {
+  font-size: 1.06rem;
+  line-height: 1.4;
+}
+
+.gift-options {
+  margin-top: 22px;
+  display: grid;
+  gap: 14px;
+}
+
+.gift-option {
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(244, 241, 235, 0.08);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.gift-option--accent {
+  background: linear-gradient(180deg, rgba(194, 255, 39, 0.12), rgba(255, 255, 255, 0.035));
+  border-color: rgba(194, 255, 39, 0.2);
+}
+
+.gift-option__topline {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.gift-option__label,
+.gift-option__value,
+.gift-option__meta {
+  margin: 0;
+}
+
+.gift-option__label {
+  font-family: var(--font-condensed);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gift-option__badge {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(244, 241, 235, 0.08);
+  color: rgba(244, 241, 235, 0.74);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gift-option__value {
+  margin-top: 10px;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.gift-option__meta {
+  margin-top: 6px;
+  color: rgba(244, 241, 235, 0.7);
+}
+
+.gift-option__button {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 1px solid rgba(194, 255, 39, 0.26);
+  border-radius: 999px;
+  background: rgba(194, 255, 39, 0.1);
+  color: var(--text-primary);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.gift-option__button:hover,
+.gift-option__button:focus-visible,
+.gift-modal__close:hover,
+.gift-modal__close:focus-visible {
+  transform: translateY(-1px);
+}
+
+.gift-option__button:hover,
+.gift-option__button:focus-visible {
+  background: rgba(194, 255, 39, 0.16);
+  border-color: rgba(194, 255, 39, 0.4);
+}
+
+.gift-option__button.is-copied {
+  background: rgba(244, 241, 235, 0.12);
+  border-color: rgba(244, 241, 235, 0.24);
+}
+
+.gift-option__cards {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.gift-card-row {
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(244, 241, 235, 0.07);
+}
+
+.gift-card-row__label,
+.gift-card-row__value {
+  margin: 0;
+}
+
+.gift-card-row__label {
+  color: rgba(244, 241, 235, 0.72);
+  font-size: 0.92rem;
+}
+
+.gift-card-row__value {
+  margin-top: 6px;
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.gift-option__button--small {
+  min-height: 42px;
+  padding: 10px 14px;
+  font-size: 0.92rem;
+}
+
 
 .hero-gift-note {
   max-width: 420px;
@@ -1678,6 +1899,25 @@ fieldset {
 }
 
 @media (max-width: 979px) {
+  .gift-modal {
+    padding: 16px;
+  }
+
+  .gift-modal__dialog {
+    padding: 24px 18px 18px;
+    border-radius: 26px;
+  }
+
+  .gift-modal__title {
+    max-width: none;
+    text-wrap: balance;
+  }
+
+  .gift-option {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
   .hero-live-photo-wrap {
     min-height: 0;
   }
@@ -2688,6 +2928,30 @@ fieldset {
     transform: rotate(4deg) !important;
   }
 
+  .gift-modal__dialog {
+    width: min(100%, 94vw);
+    padding: 22px 16px 16px;
+  }
+
+  .gift-modal__close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .gift-modal__title {
+    padding-right: 40px;
+    font-size: clamp(1.2rem, 4.8vw, 1.55rem);
+    text-wrap: balance;
+  }
+
+  .gift-option__value {
+    font-size: 1.14rem;
+  }
+
+  .gift-option__button {
+    width: 100%;
+  }
+
   .hero-gift-note {
     position: absolute;
     left: 14px;
@@ -2771,6 +3035,19 @@ body[data-site-studio-viewport="mobile"].site-studio-mobile [data-site-studio-no
 }
 
 
+
+html[data-site-studio-viewport="mobile"] .hero-photo-note-art,
+body[data-site-studio-viewport="mobile"].site-studio-mobile .hero-photo-note-art {
+  width: auto !important;
+  max-width: none !important;
+  top: -236px !important;
+  left: 44px !important;
+  transform: translate(0, 0) scale(0.21) rotate(6deg) !important;
+  transform-origin: top left !important;
+  z-index: 8 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
 
 html[data-site-studio-viewport="mobile"] .hero-live-photo-wrap,
 body[data-site-studio-viewport="mobile"].site-studio-mobile .hero-live-photo-wrap,

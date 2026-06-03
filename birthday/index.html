@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css?v=20260603t">
+    <link rel="stylesheet" href="./styles.css?v=20260603b">
   <style data-site-studio-mobile-overrides="">@media (max-width: 767px) {
   body [data-site-studio-node="n-24-p-4"][data-site-studio-node="n-24-p-4"][data-site-studio-node="n-24-p-4"][data-site-studio-node="n-24-p-4"][data-site-studio-node="n-24-p-4"] { transform: translate(0px, 48px) !important }
   body [data-site-studio-node="n-23-p-3"][data-site-studio-node="n-23-p-3"][data-site-studio-node="n-23-p-3"][data-site-studio-node="n-23-p-3"][data-site-studio-node="n-23-p-3"] { transform: translate(0px, 40px) !important }
@@ -66,7 +66,7 @@ body [data-site-studio-node="n-20-span-0"][data-site-studio-node="n-20-span-0"][
             <img class="hero-live-photo" src="./assets/images/hero-live-photo-site-v3.png" alt="Живой кадр с концерта SOBIVAN" data-site-studio-node="n-29-img-0" style="transform: translate(-16px, -64px) scale(1.09)">
             <div class="hero-photo-overlay" data-site-studio-node="n-30-div-1">
               <img class="hero-photo-note-art" src="./assets/images/note-budet-gromko-v2.png" alt="Будет громко, будет круто" data-site-studio-node="n-31-img-0" style="transform: translate(126px, 86px) scale(0.72) rotate(-1deg)">
-              <a class="hero-gift-button" href="https://www.tinkoff.ru/rm/r_yGPDyMUNeY.SOOLKKWrMq/otxxb58517" target="_blank" rel="noreferrer noopener" data-site-studio-node="n-32-a-1"><img src="./assets/images/button-chto-podarit-v1.png" alt="Что подарить?" data-site-studio-node="n-33-img-0" style="transform: translate(2px, 202px) scale(1.51) rotate(5deg)"></a>
+              <button class="hero-gift-button" type="button" data-gift-modal-open aria-haspopup="dialog" aria-controls="gift-modal" data-site-studio-node="n-32-a-1"><img src="./assets/images/button-chto-podarit-v1.png" alt="Что подарить?" data-site-studio-node="n-33-img-0" style="transform: translate(2px, 202px) scale(1.51) rotate(5deg)"></button>
               <p class="hero-gift-note" data-site-studio-node="n-34-p-2" style="transform: translate(44px, 134px) scale(1.23)">ИВАН ХОЧЕТ КУПИТЬ СЕБЕ КЛАССНУЮ ГИТАРУ.<br data-site-studio-node="n-35-br-0"><span class="hero-gift-note-secondary" data-site-studio-node="n-36-span-1">ПОУЧАСТВОВАТЬ МОЖНО ПО КНОПКЕ ВЫШЕ.</span></p>
             </div>
           </div>
@@ -403,8 +403,60 @@ body [data-site-studio-node="n-20-span-0"][data-site-studio-node="n-20-span-0"][
       </footer>
     </main>
 
+    <div class="gift-modal" id="gift-modal" hidden aria-hidden="true">
+      <div class="gift-modal__backdrop" data-gift-modal-close></div>
+      <div class="gift-modal__dialog textured-panel" role="dialog" aria-modal="true" aria-labelledby="gift-modal-title">
+        <button class="gift-modal__close" type="button" aria-label="Закрыть окно" data-gift-modal-close>×</button>
+        <p class="gift-modal__eyebrow">общий сбор на подарок для ивана</p>
+        <h3 class="gift-modal__title" id="gift-modal-title">выбирай удобный для себя способ</h3>
+        <p class="gift-modal__intro">если переводите по номеру телефона, укажите в сообщении: <strong>«подарок для Вани»</strong>.</p>
+
+        <div class="gift-options">
+          <article class="gift-option">
+            <div class="gift-option__topline">
+              <p class="gift-option__label">сбер / тинькофф — по номеру телефона</p>
+              <span class="gift-option__badge">самый простой способ</span>
+            </div>
+            <p class="gift-option__value" data-copy-value="89196244939">8 919 624-49-39</p>
+            <p class="gift-option__meta">получатель: Ксения С.</p>
+            <button class="gift-option__button" type="button" data-copy-text="89196244939">скопировать номер</button>
+          </article>
+
+          <article class="gift-option">
+            <div class="gift-option__topline">
+              <p class="gift-option__label">реквизиты / карты</p>
+              <span class="gift-option__badge">если так удобнее</span>
+            </div>
+            <div class="gift-option__cards">
+              <div class="gift-card-row">
+                <p class="gift-card-row__label">сбер — Ксения С.</p>
+                <p class="gift-card-row__value">4276 6200 2706 1450</p>
+                <button class="gift-option__button gift-option__button--small" type="button" data-copy-text="4276620027061450">скопировать карту сбер</button>
+              </div>
+              <div class="gift-card-row">
+                <p class="gift-card-row__label">тинькофф — Ксения С.</p>
+                <p class="gift-card-row__value">2200 7013 0034 8544</p>
+                <button class="gift-option__button gift-option__button--small" type="button" data-copy-text="2200701300348544">скопировать карту тинькофф</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="gift-option gift-option--accent">
+            <div class="gift-option__topline">
+              <p class="gift-option__label">общий счёт подарка</p>
+              <span class="gift-option__badge">официальная ссылка</span>
+            </div>
+            <p class="gift-option__meta">если удобнее перевести сразу в сбор на гитару — можно открыть ссылку от Тинькофф.</p>
+            <a class="gift-option__button gift-option__button--link" href="https://www.tinkoff.ru/rm/r_yGPDyMUNeY.SOOLKKWrMq/otxxb58517" target="_blank" rel="noreferrer noopener">открыть счёт подарка</a>
+          </article>
+        </div>
+
+        <p class="gift-modal__footnote">любого из этих способов достаточно — всё уйдёт в подарок Ивану.</p>
+      </div>
+    </div>
+
     <script src="./rsvp-config.js" data-site-studio-node="n-244-script--1"></script>
-    <script src="./script.js?v=20260603t" data-site-studio-node="n-245-script--1"></script>
+    <script src="./script.js?v=20260603b" data-site-studio-node="n-245-script--1"></script>
   
 
 
