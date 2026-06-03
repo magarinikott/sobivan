@@ -72,11 +72,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyButtons = modal.querySelectorAll('[data-copy-text]');
     const body = document.body;
     let lastFocused = null;
+    let scrollY = 0;
+
+    const lockBodyScroll = () => {
+      scrollY = window.scrollY || window.pageYOffset || 0;
+      body.style.position = 'fixed';
+      body.style.top = `-${scrollY}px`;
+      body.style.left = '0';
+      body.style.right = '0';
+      body.style.width = '100%';
+      body.style.overflow = 'hidden';
+    };
+
+    const unlockBodyScroll = () => {
+      body.style.position = '';
+      body.style.top = '';
+      body.style.left = '';
+      body.style.right = '';
+      body.style.width = '';
+      body.style.overflow = '';
+      window.scrollTo(0, scrollY);
+    };
 
     const closeModal = () => {
       modal.hidden = true;
       modal.setAttribute('aria-hidden', 'true');
       body.classList.remove('gift-modal-open');
+      unlockBodyScroll();
       lastFocused?.focus?.();
     };
 
@@ -85,6 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.hidden = false;
       modal.setAttribute('aria-hidden', 'false');
       body.classList.add('gift-modal-open');
+      lockBodyScroll();
+      if (dialog) dialog.scrollTop = 0;
       window.setTimeout(() => {
         modal.querySelector('.gift-modal__close')?.focus();
       }, 20);
@@ -96,6 +120,16 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.addEventListener('click', (event) => {
       if (!dialog.contains(event.target)) closeModal();
     });
+
+    dialog?.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+
+    modal.addEventListener('touchmove', (event) => {
+      if (!dialog?.contains(event.target)) {
+        event.preventDefault();
+      }
+    }, { passive: false });
 
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && !modal.hidden) closeModal();
