@@ -257,10 +257,28 @@ h2,
 
 .age-badge--hero {
   position: absolute;
-  left: clamp(720px, 76%, 900px);
+  left: clamp(56px, 9vw, 84px);
   right: auto;
-  bottom: clamp(-122px, -9vw, -82px);
+  bottom: 8px;
   z-index: 2;
+}
+
+.age-badge--inline {
+  display: none;
+  padding: 7px 13px 6px;
+  font-size: 0.98rem;
+  align-self: center;
+}
+
+@media (min-width: 768px) {
+  .age-badge--hero {
+    display: none;
+  }
+
+  .age-badge--inline {
+    display: inline-flex;
+    margin-left: 6px;
+  }
 }
 
 
