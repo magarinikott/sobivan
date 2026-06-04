@@ -186,6 +186,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = Array.from(track.querySelectorAll('.polaroid-slide'));
     if (!viewport || !track || !slides.length) return;
 
+    const controls = document.createElement('div');
+    controls.className = 'friends-carousel__controls';
+    controls.innerHTML = `
+      <button class="friends-carousel__button friends-carousel__button--prev" type="button" aria-label="предыдущее фото">←</button>
+      <button class="friends-carousel__button friends-carousel__button--next" type="button" aria-label="следующее фото">→</button>
+    `;
+    carousel.appendChild(controls);
+
+    const prevButton = controls.querySelector('.friends-carousel__button--prev');
+    const nextButton = controls.querySelector('.friends-carousel__button--next');
+
     const orderedSlides = shuffle(slides);
     orderedSlides.forEach((slide) => {
       const tilt = Number.parseFloat(slide.dataset.tilt || '0') || 0;
@@ -224,6 +235,16 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         slide: orderedSlides[isLast ? 0 : currentIndex + 1],
         wraps: isLast,
+      };
+    };
+
+    const getPrevSlide = () => {
+      const current = getClosestSlide();
+      const currentIndex = Math.max(0, orderedSlides.indexOf(current));
+      const isFirst = currentIndex <= 0;
+      return {
+        slide: orderedSlides[isFirst ? orderedSlides.length - 1 : currentIndex - 1],
+        wraps: isFirst,
       };
     };
 
@@ -271,6 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
       isPointerDown = false;
       activePointerId = null;
       viewport.classList.remove('is-dragging');
+      centerSlide(getClosestSlide(), 'smooth');
       startAuto();
     };
 
@@ -280,6 +302,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carousel.addEventListener('mouseenter', stopAuto);
     carousel.addEventListener('mouseleave', startAuto);
+    prevButton?.addEventListener('click', () => {
+      stopAuto();
+      const prev = getPrevSlide();
+      centerSlide(prev?.slide, prev?.wraps ? 'auto' : 'smooth');
+      startAuto();
+    });
+    nextButton?.addEventListener('click', () => {
+      stopAuto();
+      const next = getNextSlide();
+      centerSlide(next?.slide, next?.wraps ? 'auto' : 'smooth');
+      startAuto();
+    });
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) stopAuto();
       else startAuto();

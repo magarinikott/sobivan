@@ -2723,6 +2723,7 @@ body.gift-modal-open {
   width: 100%;
   margin-top: 2px;
   overflow: visible;
+  position: relative;
 }
 
 .friends-carousel__viewport {
@@ -2732,10 +2733,11 @@ body.gift-modal-open {
   scrollbar-width: none;
   cursor: grab;
   scroll-snap-type: x mandatory;
-  touch-action: pan-y;
+  touch-action: pan-x pan-y;
   user-select: none;
   -webkit-user-select: none;
   overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .friends-carousel__viewport::-webkit-scrollbar {
@@ -2751,6 +2753,37 @@ body.gift-modal-open {
   gap: 8px;
   align-items: flex-start;
   width: max-content;
+}
+
+.friends-carousel__controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.friends-carousel__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(12, 12, 12, 0.58);
+  color: var(--paper);
+  border-radius: 999px;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.friends-carousel__button:hover,
+.friends-carousel__button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(152, 255, 29, 0.42);
+  background: rgba(18, 18, 18, 0.8);
+  color: var(--green);
 }
 
 .polaroid-slide {
