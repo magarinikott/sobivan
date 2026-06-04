@@ -2895,12 +2895,12 @@ body.gift-modal-open {
 
   .hero-title-art {
     display: block;
-    width: 101vw !important;
-    max-width: 101vw !important;
+    width: 103vw !important;
+    max-width: 103vw !important;
     margin-left: 0 !important;
     height: auto !important;
     margin: 0 !important;
-    transform: translateX(2px) !important;
+    transform: translateX(-2px) !important;
   }
 
   .hero-microcopy {
