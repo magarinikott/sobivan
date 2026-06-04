@@ -2895,18 +2895,22 @@ body.gift-modal-open {
 
   .hero-title-art {
     display: block;
-    width: 106vw !important;
-    max-width: 106vw !important;
+    width: 97vw !important;
+    max-width: 97vw !important;
     margin-left: 0 !important;
     height: auto !important;
     margin: 0 !important;
-    transform: none !important;
+    transform: translateX(12px) !important;
   }
 
   .hero-microcopy {
     margin-top: 14px;
     gap: 8px;
     justify-content: center;
+  }
+
+  .age-badge--hero {
+    display: none !important;
   }
 
   .micro-tag {
@@ -3150,7 +3154,7 @@ body[data-site-studio-viewport="mobile"].site-studio-mobile .hero-title-art-wrap
   display: flex !important;
   justify-content: center !important;
   align-items: flex-start !important;
-  transform: translate(10px, 34px) scale(0.58) !important;
+  transform: translate(18px, 34px) scale(0.565) !important;
   transform-origin: top center !important;
   margin: -8px 0 -72px !important;
 }
@@ -3158,6 +3162,35 @@ body[data-site-studio-viewport="mobile"].site-studio-mobile .hero-title-art-wrap
 html[data-site-studio-viewport="mobile"] .hero-title-art,
 body[data-site-studio-viewport="mobile"].site-studio-mobile .hero-title-art {
   margin: 0 !important;
+  width: 97vw !important;
+  max-width: 97vw !important;
+  transform: translateX(12px) !important;
+}
+
+html[data-site-studio-viewport="mobile"] .hero-microcopy,
+body[data-site-studio-viewport="mobile"].site-studio-mobile .hero-microcopy {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 0 auto !important;
+  transform: translateY(32px) !important;
+}
+
+html[data-site-studio-viewport="mobile"] .hero-microcopy .micro-tag,
+body[data-site-studio-viewport="mobile"].site-studio-mobile .hero-microcopy .micro-tag {
+  min-height: 28px !important;
+  padding: 0 7px !important;
+  font-size: 0.62rem !important;
+  flex: 0 0 auto !important;
+}
+
+html[data-site-studio-viewport="mobile"] .hero-microcopy .micro-tag--age,
+body[data-site-studio-viewport="mobile"].site-studio-mobile .hero-microcopy .micro-tag--age {
+  padding: 0 10px !important;
 }
 
 html[data-site-studio-viewport="mobile"] [data-site-studio-node="n-20-span-0"],
@@ -3166,7 +3199,7 @@ html[data-site-studio-viewport="mobile"] [data-site-studio-node="n-22-span-2"],
 body[data-site-studio-viewport="mobile"].site-studio-mobile [data-site-studio-node="n-20-span-0"],
 body[data-site-studio-viewport="mobile"].site-studio-mobile [data-site-studio-node="n-21-span-1"],
 body[data-site-studio-viewport="mobile"].site-studio-mobile [data-site-studio-node="n-22-span-2"] {
-  transform: translateY(32px) !important;
+  transform: none !important;
 }
 
 html[data-site-studio-viewport="mobile"] [data-site-studio-node="n-23-p-3"],
