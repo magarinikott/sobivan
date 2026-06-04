@@ -1327,18 +1327,18 @@ fieldset {
 
 .rsvp-consent {
   display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
+  grid-template-columns: 14px minmax(0, 1fr);
   align-items: start;
-  gap: 12px;
+  gap: 16px;
   color: var(--muted);
   font-size: 0.96rem;
-  line-height: 1.22;
+  line-height: 1.28;
 }
 
 .rsvp-consent input {
-  width: 18px;
-  height: 18px;
-  margin-top: 2px;
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
 }
 
 .rsvp-feedback {
