@@ -334,6 +334,7 @@ legend,
   position: relative;
   margin-top: 18px;
   justify-content: center;
+  align-items: center;
 }
 
 .micro-tag {
@@ -349,9 +350,16 @@ legend,
 }
 
 .micro-tag--age {
-  border-color: rgba(255, 92, 92, 0.42);
-  background: rgba(255, 92, 92, 0.14);
-  color: rgba(255, 214, 214, 0.96);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 92, 92, 0.42);
+  border-radius: 999px;
+  background: rgba(255, 92, 92, 0.16);
+  color: rgba(255, 214, 214, 0.98);
+  box-shadow: 0 8px 22px rgba(120, 16, 16, 0.16);
 }
 
 .hero-lead {
@@ -2847,6 +2855,7 @@ body.gift-modal-open {
   }
 
   .micro-tag--age {
+    min-height: 30px;
     padding: 0 10px;
     font-size: 0.82rem;
   }
