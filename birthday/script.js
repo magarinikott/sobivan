@@ -8,15 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (form) {
     const submitButton = form.querySelector('button[type="submit"]');
-    const attendanceType = form.querySelector('[name="attendance_type"]');
-    const guestCount = form.querySelector('[name="guest_count"]');
-
-    attendanceType?.addEventListener('change', () => {
-      if (!guestCount) return;
-      if (attendanceType.value === 'solo') guestCount.value = '1';
-      if (attendanceType.value === 'plus_one' && Number(guestCount.value || 0) < 2) guestCount.value = '2';
-      if (attendanceType.value === 'group' && Number(guestCount.value || 0) < 3) guestCount.value = '3';
-    });
 
     form.addEventListener('submit', (event) => {
       event.preventDefault();
@@ -361,8 +352,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         formEl.reset();
-        const guestCount = formEl.querySelector('[name="guest_count"]');
-        if (guestCount) guestCount.value = '1';
 
         renderFeedback({
           type: 'success',
@@ -389,7 +378,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function buildPayload(formEl, runtimeConfig) {
     const formData = new FormData(formEl);
     const attendanceType = formData.get('attendance_type');
-    const guestCount = normalizeGuestCount(attendanceType, formData.get('guest_count'));
 
     return {
       source: 'site_form',
@@ -399,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: `${formData.get('name') || ''}`.trim(),
       contact: `${formData.get('contact') || ''}`.trim(),
       attendance_type: attendanceType,
-      guest_count: guestCount,
+      guest_count: normalizeGuestCount(attendanceType),
       note: `${formData.get('note') || ''}`.trim(),
       consent_contact: formData.get('consent_contact') === 'on',
     };
@@ -424,12 +412,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const contact = formEl.querySelector('[name="contact"]')?.value.trim();
     const attendanceType = formEl.querySelector('[name="attendance_type"]')?.value;
     const consent = formEl.querySelector('[name="consent_contact"]')?.checked;
-    const guestCount = normalizeGuestCount(attendanceType, formEl.querySelector('[name="guest_count"]')?.value);
 
     if (!name || name.length < 2) return 'нужно имя хотя бы из 2 символов.';
     if (!contact || contact.length < 3) return 'нужен telegram или телефон.';
     if (!['solo', 'plus_one', 'group'].includes(attendanceType)) return 'выбери, как ты идёшь.';
-    if (!Number.isFinite(guestCount) || guestCount < 1) return 'укажи корректное количество гостей.';
     if (!consent) return 'нужно согласие на связь по заявке.';
     return '';
   }
