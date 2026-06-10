@@ -353,12 +353,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }).catch(() => {});
   }
 
-  function submitViaWorker(formEl, payload, runtimeConfig, submitButton) {
-    const controller = new AbortController();
+  async function submitViaWorker(formEl, payload, runtimeConfig, submitButton) {
+    const apiUrl = `${runtimeConfig.apiBaseUrl.replace(/\/$/, '')}/api/rsvp`;
 
-    const timeout = window.setTimeout(() => {
-      controller.abort();
-    }, runtimeConfig.submitTimeoutMs || 18000);
+    async function attemptSubmit(attemptNumber) {
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => {
+        controller.abort();
+      }, runtimeConfig.submitTimeoutMs || 30000);
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+          signal: controller.signal,
+        });
+
+        const data = await response.json().catch(() => null);
+        if (!response.ok || !data || !data.ok) {
+          throw new Error(data?.message || 'не удалось отправить заявку.');
+        }
+
+        return data;
+      } finally {
+        window.clearTimeout(timeout);
+      }
+    }
 
     setSubmitting(submitButton, true);
     renderFeedback({
@@ -367,50 +390,50 @@ document.addEventListener('DOMContentLoaded', () => {
       text: 'секунду. сейчас сохраним тебя в список.',
     });
 
-    fetch(`${runtimeConfig.apiBaseUrl.replace(/\/$/, '')}/api/rsvp`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-      signal: controller.signal,
-    })
-      .then(async (response) => {
-        const data = await response.json().catch(() => null);
-        if (!response.ok || !data || !data.ok) {
-          throw new Error(data?.message || 'не удалось отправить заявку.');
-        }
-
-        formEl.reset();
+    try {
+      let data;
+      try {
+        data = await attemptSubmit(1);
+      } catch (error) {
+        const isTransient = error?.name === 'AbortError' || error instanceof TypeError;
+        if (!isTransient) throw error;
 
         renderFeedback({
-          type: 'success',
-          title: 'заявка принята',
-          text: 'теперь открой бота и нажми start — без этого бот не сможет прислать напоминание.',
-          deeplink: data.bot_deeplink,
-        });
-      })
-      .catch((error) => {
-        const isAbort = error?.name === 'AbortError';
-        reportClientIssue(runtimeConfig, {
-          type: isAbort ? 'submit_timeout' : 'submit_error',
-          title: isAbort ? 'ответ не пришёл вовремя' : 'заявку не удалось отправить',
-          message: error?.message || '',
-          request: payload,
-        });
-        renderFeedback({
-          type: 'error',
-          title: isAbort ? 'ответ задержался' : 'заявку не удалось отправить',
-          text: isAbort
-            ? 'у вас нестабильное интернет-соединение. попробуйте позднее.'
-            : 'не удалось отправить заявку. попробуйте ещё раз чуть позже.',
+          type: 'pending',
+          title: 'пробуем ещё раз…',
+          text: 'соединение нестабильно. повторяем отправку автоматически.',
           deeplink: '',
         });
-      })
-      .finally(() => {
-        window.clearTimeout(timeout);
-        setSubmitting(submitButton, false);
+        await new Promise((resolve) => window.setTimeout(resolve, 1200));
+        data = await attemptSubmit(2);
+      }
+
+      formEl.reset();
+      renderFeedback({
+        type: 'success',
+        title: 'заявка принята',
+        text: 'теперь открой бота и нажми start — без этого бот не сможет прислать напоминание.',
+        deeplink: data.bot_deeplink,
       });
+    } catch (error) {
+      const isAbort = error?.name === 'AbortError';
+      reportClientIssue(runtimeConfig, {
+        type: isAbort ? 'submit_timeout' : 'submit_error',
+        title: isAbort ? 'ответ не пришёл вовремя' : 'заявку не удалось отправить',
+        message: error?.message || '',
+        request: payload,
+      });
+      renderFeedback({
+        type: 'error',
+        title: isAbort ? 'ответ задержался' : 'заявку не удалось отправить',
+        text: isAbort
+          ? 'у вас нестабильное интернет-соединение. попробуйте позднее.'
+          : 'не удалось отправить заявку. попробуйте ещё раз чуть позже.',
+        deeplink: '',
+      });
+    } finally {
+      setSubmitting(submitButton, false);
+    }
   }
 
   function buildPayload(formEl, runtimeConfig) {
