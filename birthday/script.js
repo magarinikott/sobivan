@@ -323,6 +323,36 @@ document.addEventListener('DOMContentLoaded', () => {
     return arr;
   }
 
+  function reportClientIssue(runtimeConfig, details = {}) {
+    const apiBaseUrl = String(runtimeConfig?.apiBaseUrl || '').trim();
+    if (!apiBaseUrl || apiBaseUrl.includes('PASTE_')) return;
+
+    const body = JSON.stringify({
+      ...details,
+      page_url: window.location.href,
+      user_agent: navigator.userAgent || ''
+    });
+
+    const url = `${apiBaseUrl.replace(/\/$/, '')}/api/client-error`;
+
+    try {
+      if (navigator.sendBeacon) {
+        const blob = new Blob([body], { type: 'application/json' });
+        navigator.sendBeacon(url, blob);
+        return;
+      }
+    } catch (error) {
+      // fallback below
+    }
+
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body,
+      keepalive: true,
+    }).catch(() => {});
+  }
+
   function submitViaWorker(formEl, payload, runtimeConfig, submitButton) {
     const controller = new AbortController();
 
@@ -361,12 +391,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       })
       .catch((error) => {
+        const isAbort = error?.name === 'AbortError';
+        reportClientIssue(runtimeConfig, {
+          type: isAbort ? 'submit_timeout' : 'submit_error',
+          title: isAbort ? 'ответ не пришёл вовремя' : 'заявку не удалось отправить',
+          message: error?.message || '',
+          request: payload,
+        });
         renderFeedback({
           type: 'error',
-          title: error?.name === 'AbortError' ? 'ответ не пришёл' : 'заявку не удалось отправить',
-          text: error?.name === 'AbortError'
-            ? 'Worker не ответил вовремя. проверь dev server или production deploy.'
-            : (error?.message || 'попробуй ещё раз чуть позже.'),
+          title: isAbort ? 'ответ задержался' : 'заявку не удалось отправить',
+          text: isAbort
+            ? 'у вас нестабильное интернет-соединение. попробуйте позднее.'
+            : 'не удалось отправить заявку. попробуйте ещё раз чуть позже.',
+          deeplink: '',
         });
       })
       .finally(() => {
