@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       if (navigator.sendBeacon) {
-        const blob = new Blob([body], { type: 'application/json' });
+        const blob = new Blob([body], { type: 'text/plain;charset=UTF-8' });
         navigator.sendBeacon(url, blob);
         return;
       }
@@ -347,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
       body,
       keepalive: true,
     }).catch(() => {});
@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch(apiUrl, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'text/plain;charset=UTF-8',
           },
           body: JSON.stringify(payload),
           signal: controller.signal,
