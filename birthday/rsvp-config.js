@@ -4,5 +4,5 @@ window.RSVP_CONFIG = {
   eventSlug: 'sobivan-birthday-kazan',
   eventTitle: 'день рождения sobivan',
   siteOrigin: window.location.origin || '*',
-  submitTimeoutMs: 30000,
+  submitTimeoutMs: 12000,
 };

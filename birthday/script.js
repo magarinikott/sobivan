@@ -354,13 +354,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function submitViaWorker(formEl, payload, runtimeConfig, submitButton) {
-    const apiUrl = `${runtimeConfig.apiBaseUrl.replace(/\/$/, '')}/api/rsvp`;
+    const apiBase = runtimeConfig.apiBaseUrl.replace(/\/$/, '');
+    const apiUrl = `${apiBase}/api/rsvp`;
+    const fallbackUrl = `${apiBase}/api/rsvp-lite`;
 
-    async function attemptSubmit(attemptNumber) {
+    function isTransientError(error) {
+      return error?.name === 'AbortError' || error instanceof TypeError;
+    }
+
+    async function parseResponse(response) {
+      const data = await response.json().catch(() => null);
+      if (!response.ok || !data || !data.ok) {
+        throw new Error(data?.message || 'не удалось отправить заявку.');
+      }
+      return data;
+    }
+
+    async function attemptPost(timeoutMs) {
       const controller = new AbortController();
       const timeout = window.setTimeout(() => {
         controller.abort();
-      }, runtimeConfig.submitTimeoutMs || 30000);
+      }, timeoutMs);
 
       try {
         const response = await fetch(apiUrl, {
@@ -370,14 +384,36 @@ document.addEventListener('DOMContentLoaded', () => {
           },
           body: JSON.stringify(payload),
           signal: controller.signal,
+          cache: 'no-store',
         });
 
-        const data = await response.json().catch(() => null);
-        if (!response.ok || !data || !data.ok) {
-          throw new Error(data?.message || 'не удалось отправить заявку.');
-        }
+        return await parseResponse(response);
+      } finally {
+        window.clearTimeout(timeout);
+      }
+    }
 
-        return data;
+    async function attemptGetFallback(timeoutMs) {
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => {
+        controller.abort();
+      }, timeoutMs);
+
+      try {
+        const params = new URLSearchParams();
+        Object.entries(payload).forEach(([key, value]) => {
+          if (value === undefined || value === null) return;
+          params.set(key, String(value));
+        });
+        params.set('_ts', String(Date.now()));
+
+        const response = await fetch(`${fallbackUrl}?${params.toString()}`, {
+          method: 'GET',
+          signal: controller.signal,
+          cache: 'no-store',
+        });
+
+        return await parseResponse(response);
       } finally {
         window.clearTimeout(timeout);
       }
@@ -391,12 +427,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     try {
+      const baseTimeout = Math.max(8000, Number(runtimeConfig.submitTimeoutMs || 12000));
       let data;
+
       try {
-        data = await attemptSubmit(1);
+        data = await attemptPost(baseTimeout);
       } catch (error) {
-        const isTransient = error?.name === 'AbortError' || error instanceof TypeError;
-        if (!isTransient) throw error;
+        if (!isTransientError(error)) throw error;
 
         renderFeedback({
           type: 'pending',
@@ -404,8 +441,22 @@ document.addEventListener('DOMContentLoaded', () => {
           text: 'соединение нестабильно. повторяем отправку автоматически.',
           deeplink: '',
         });
-        await new Promise((resolve) => window.setTimeout(resolve, 1200));
-        data = await attemptSubmit(2);
+        await new Promise((resolve) => window.setTimeout(resolve, 900));
+
+        try {
+          data = await attemptPost(baseTimeout + 4000);
+        } catch (secondError) {
+          if (!isTransientError(secondError)) throw secondError;
+
+          renderFeedback({
+            type: 'pending',
+            title: 'есть запасной путь…',
+            text: 'telegram браузер иногда тупит. отправляем заявку облегчённым способом.',
+            deeplink: '',
+          });
+          await new Promise((resolve) => window.setTimeout(resolve, 700));
+          data = await attemptGetFallback(baseTimeout + 4000);
+        }
       }
 
       formEl.reset();
