@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+  if (window.location.protocol === 'http:' && /(^|\.)sobivan\.ru$/i.test(window.location.hostname)) {
+    window.location.replace(`https://${window.location.host}${window.location.pathname}${window.location.search}${window.location.hash}`);
+    return;
+  }
   const config = window.RSVP_CONFIG || {};
   const form = document.querySelector('.rsvp-form');
   const feedback = document.querySelector('.rsvp-feedback');
