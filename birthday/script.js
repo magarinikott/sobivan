@@ -362,6 +362,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const apiUrl = `${apiBase}/api/rsvp`;
     const fallbackUrl = `${apiBase}/api/rsvp-lite`;
     const statusUrl = `${apiBase}/api/rsvp-status`;
+    const genericBotLink = runtimeConfig.telegramBotUsername
+      ? `https://t.me/${String(runtimeConfig.telegramBotUsername).replace(/^@/, '')}`
+      : '';
 
     function isTransientError(error) {
       return error?.name === 'AbortError' || error instanceof TypeError;
@@ -520,9 +523,9 @@ document.addEventListener('DOMContentLoaded', () => {
           type: 'error',
           title: isAbort ? 'ответ задержался' : 'заявку не удалось отправить',
           text: isAbort
-            ? 'у вас нестабильное интернет-соединение. попробуйте позднее.'
-            : 'не удалось отправить заявку. попробуйте ещё раз чуть позже.',
-          deeplink: '',
+            ? 'у вас нестабильное интернет-соединение. если сайт тупит, можно сразу перейти в бот и оставить короткую заявку там.'
+            : 'не удалось отправить заявку. если сайт тупит, можно сразу перейти в бот и оставить короткую заявку там.',
+          deeplink: genericBotLink,
         });
       }
     } finally {
