@@ -2,8 +2,15 @@
   "items": [
     {
       "status": "active",
-      "title": "16 августа • Акустический концерт",
+      "title": "20 сентября • Акустический концерт",
       "subtitle": "Крыша Мира • Казань • 19:00",
+      "alt": "Афиша акустического концерта SOBIVAN и Хабиасса 20 сентября на Крыше Мира",
+      "image": "./posters/assets/2026-09-20-roof-habiass.jpg"
+    },
+    {
+      "status": "archive",
+      "title": "Казань",
+      "subtitle": "",
       "alt": "Афиша акустического концерта SOBIVAN и Поли Яблоковой 16 августа на Крыше Мира",
       "image": "./posters/assets/2026-08-16-roof-acoustic-yablokova.jpg"
     },
