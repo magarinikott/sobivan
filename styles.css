@@ -2677,3 +2677,126 @@ body::before {
     min-width: 0;
   }
 }
+
+
+/* 2026-09: approved archive carousel and mobile banner alignment */
+.poster-archive-carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: 12px;
+}
+
+.poster-archive-carousel .poster-archive-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 2px 0 8px;
+}
+
+.poster-archive-carousel .poster-archive-list::-webkit-scrollbar {
+  display: none;
+}
+
+.poster-archive-carousel .poster-item--archive {
+  flex: 0 0 min(360px, calc((100% - 28px) / 3));
+  min-width: min(360px, calc((100% - 28px) / 3));
+  scroll-snap-align: start;
+}
+
+.poster-archive-nav {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 167, 111, 0.32);
+  border-radius: 12px;
+  background: rgba(18, 14, 13, 0.9);
+  color: var(--accent-soft);
+  font: inherit;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .poster-archive-carousel {
+    display: block;
+  }
+
+  .poster-archive-nav {
+    display: none;
+  }
+
+  .poster-archive-carousel .poster-item--archive {
+    flex: 0 0 180px;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 767px) {
+  .telegram-banner,
+  .donate-banner {
+    grid-template-columns: minmax(0, 1fr) 148px;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 14px 16px;
+  }
+
+  .telegram-banner .banner-copy,
+  .donate-banner .banner-copy {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    padding-right: 0;
+  }
+
+  .telegram-banner .banner-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .telegram-banner strong,
+  .donate-title {
+    display: block;
+    font-size: 0.98rem;
+    line-height: 1.34;
+  }
+
+  .telegram-banner em,
+  .donate-text {
+    font-size: 0.9rem;
+    line-height: 1.34;
+  }
+
+  .telegram-banner .telegram-handle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0;
+    min-width: 0;
+  }
+
+  .telegram-banner .telegram-icon {
+    position: static;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    padding: 0;
+    border-radius: 999px;
+  }
+
+  .telegram-banner .banner-action,
+  .donate-banner .banner-action {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+    width: 100%;
+    max-width: 148px;
+    margin-top: 0;
+  }
+}

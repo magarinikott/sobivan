@@ -3,6 +3,8 @@
   const archiveList = document.querySelector('[data-poster-archive-list]');
   const archiveCount = document.querySelector('[data-poster-archive-count]');
   const archiveWrap = document.querySelector('[data-poster-archive-wrap]');
+  const archivePrev = document.querySelector('[data-archive-prev]');
+  const archiveNext = document.querySelector('[data-archive-next]');
 
   if (!grid || !archiveList || !archiveCount || !archiveWrap) return;
 
@@ -31,6 +33,16 @@
     article.append(img, meta);
     return article;
   }
+
+  function scrollArchive(direction) {
+    const firstCard = archiveList.firstElementChild;
+    const gap = parseFloat(getComputedStyle(archiveList).gap) || 16;
+    const step = firstCard ? firstCard.getBoundingClientRect().width + gap : archiveList.clientWidth * 0.8;
+    archiveList.scrollBy({ left: direction * step, behavior: 'smooth' });
+  }
+
+  archivePrev?.addEventListener('click', () => scrollArchive(-1));
+  archiveNext?.addEventListener('click', () => scrollArchive(1));
 
   try {
     const response = await fetch('./posters/posters.json', { cache: 'no-store' });
