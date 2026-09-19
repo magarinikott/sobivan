@@ -397,6 +397,11 @@ Am C G Dm/F
           return;
         }
 
+        if (window.matchMedia("(max-width: 767px)").matches) {
+          panel.style.setProperty("--links-panel-shift", "0px");
+          return;
+        }
+
         let baseTop = 0;
         let maxShift = 0;
         let startScroll = 0;
@@ -537,7 +542,7 @@ Am C G Dm/F
             link: "https://music.yandex.com/album/41288577/track/149570107?ref_id=620FA750-4C61-40F0-8BFF-0B8C136928F5&utm_medium=copy_link",
           },
         ];
-        const copyCount = 5;
+        const copyCount = 3;
         const centerCopy = Math.floor(copyCount / 2);
         const loopedTracks = Array.from({ length: copyCount }, () => tracks).flat();
 
@@ -555,12 +560,13 @@ Am C G Dm/F
         let touchStartX = 0;
         let touchDeltaX = 0;
         let isAnimatingLoopReset = false;
+        let carouselIsVisible = !("IntersectionObserver" in window);
 
         strip.innerHTML = loopedTracks
           .map(
             (track) => `
               <a class="track-slide" href="${track.link}" target="_blank" rel="noreferrer">
-                <img src="${track.image}" alt="${track.title}" />
+                <img src="${track.image}" alt="${track.title}" loading="lazy" decoding="async" />
                 <div class="track-slide-meta">
                   <p class="track-kicker">Сейчас в фокусе</p>
                   <strong>${track.title}</strong>
@@ -631,6 +637,11 @@ Am C G Dm/F
 
         function startRotation() {
           window.clearInterval(timer);
+
+          if (!carouselIsVisible || document.hidden) {
+            return;
+          }
+
           timer = window.setInterval(() => {
             goToNext();
           }, 3200);
@@ -722,6 +733,19 @@ Am C G Dm/F
           setStripPosition(false);
           updateDots();
         });
+
+        if ("IntersectionObserver" in window) {
+          const carouselObserver = new IntersectionObserver(
+            ([entry]) => {
+              carouselIsVisible = Boolean(entry?.isIntersecting);
+              startRotation();
+            },
+            { rootMargin: "160px 0px", threshold: 0.01 }
+          );
+          carouselObserver.observe(carousel);
+        }
+
+        document.addEventListener("visibilitychange", startRotation);
 
         updateCarouselMetrics();
         renderTrack(0, { immediate: true });
