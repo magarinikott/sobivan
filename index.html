@@ -45,7 +45,7 @@
           </a>
           <a class="donate-banner" href="https://tips.yandex.ru/guest/payment/3214056" target="_blank" rel="noreferrer">
             <span class="banner-copy">
-              <span class="donate-title">Поддержать можно здесь :)</span>
+              <span class="donate-title">Поддержать можно здесь</span>
               <span class="donate-text">Коплю на новую гитару</span>
             </span>
             <span class="banner-action">Донат</span>
@@ -394,11 +394,6 @@ Am C G Dm/F
         const panel = document.querySelector(".links-panel");
 
         if (!hero || !panel) {
-          return;
-        }
-
-        if (window.matchMedia("(max-width: 767px)").matches) {
-          panel.style.setProperty("--links-panel-shift", "0px");
           return;
         }
 
