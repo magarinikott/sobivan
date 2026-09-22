@@ -1309,7 +1309,7 @@ a {
   }
 }
 
-/* v1.0.1 — approved composition refinements */
+/* v1.0.2 — approved composition refinements */
 .hero-motto {
   width: max-content;
   max-width: 100%;
@@ -1358,10 +1358,13 @@ a {
   }
 
   .hero-eyebrow {
-    grid-column: 7 / 9;
-    justify-self: start;
-    align-self: end;
-    margin: 0 0 -4px !important;
+    position: absolute;
+    top: 48px;
+    left: calc(42px + clamp(276px, 31.74vw, 469px));
+    grid-column: auto;
+    justify-self: auto;
+    align-self: auto;
+    margin: 0 !important;
   }
 
   .hero h1 {
@@ -1378,6 +1381,10 @@ a {
 
   .hero-photo {
     grid-row: 2 / 7;
+  }
+
+  .donate-banner {
+    grid-column: 5 / 9;
   }
 
   .lead {
