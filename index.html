@@ -15,7 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css?v=20260919-2300" />
-    <link rel="stylesheet" href="./brandbook-redesign.css?v=1.0.3" />
+    <link rel="stylesheet" href="./brandbook-redesign.css?v=1.0.4" />
   </head>
   <body>
     <main class="page">
@@ -2181,11 +2181,19 @@ Just do it, ёпта
             return false;
           }
 
-          if (/^Капо/i.test(trimmed)) {
+          if (/^Капо(?:\s|$)/i.test(trimmed)) {
             return true;
           }
 
-          return /^[A-H](?:#|b)?(?:m|maj|min|sus|add|dim|aug|7|9|11|13|6|2|4|5|°|ø|\/|\s|\-|\(|\)|[0-9])*?(?:\s+[A-H](?:#|b)?(?:m|maj|min|sus|add|dim|aug|7|9|11|13|6|2|4|5|°|ø|\/|\-|\(|\)|[0-9])*)*$/i.test(trimmed);
+          const chord = "[A-H](?:#|b)?(?:m|maj|min|sus|add|dim|aug)?(?:2|4|5|6|7|9|11|13)?(?:\\/[A-H](?:#|b)?(?:m|maj|min|sus|add|dim|aug)?(?:2|4|5|6|7|9|11|13)?)?";
+          const oneChord = new RegExp(`^${chord}$`, "i");
+
+          if (oneChord.test(trimmed)) {
+            return true;
+          }
+
+          const chordsInLine = trimmed.match(new RegExp(`(?:^|\\s)${chord}(?=\\s|$|\\))`, "gi")) || [];
+          return chordsInLine.length >= 2;
         }
 
         function renderHighlightedText(text) {
