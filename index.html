@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css?v=20260919-2300" />
+    <link rel="stylesheet" href="./brandbook-redesign.css?v=1.0.0" />
   </head>
   <body>
     <main class="page">
@@ -25,8 +26,8 @@
           <div class="hero-motto">нонкомформизм и рэп</div>
           <div class="hero-photo">
             <img
-              src="./photo_2026-03-29 17.54.44.jpeg"
-              alt="SOBIVAN на фоне ковра"
+              src="./IMG_9033-clean.png"
+              alt="SOBIVAN выступает с гитарой"
             />
           </div>
           <a class="telegram-banner hero-telegram" href="https://t.me/sobivan_live" target="_blank" rel="noreferrer">
@@ -409,10 +410,21 @@ Am C G Dm/F
           panel.style.setProperty("--links-panel-shift", "0px");
 
           baseTop = parseFloat(getComputedStyle(panel).top) || 0;
-          maxShift = Math.max(
-            0,
-            hero.offsetHeight - panel.offsetHeight - baseTop - 18
-          );
+          const isMobile = window.matchMedia("(max-width: 820px)").matches;
+          const release = hero.querySelector(".release-player");
+
+          if (isMobile && release) {
+            const heroRect = hero.getBoundingClientRect();
+            const releaseRect = release.getBoundingClientRect();
+            const releaseTop = releaseRect.top - heroRect.top;
+
+            maxShift = Math.max(
+              0,
+              releaseTop - panel.offsetHeight - baseTop - 18
+            );
+          } else {
+            maxShift = 0;
+          }
           startScroll = window.scrollY + hero.getBoundingClientRect().top;
         }
 
@@ -552,6 +564,8 @@ Am C G Dm/F
         let visualIndex = tracks.length * centerCopy;
         let timer = 0;
         let slideBasis = 72;
+        let slideWidth = 0;
+        let slideGap = 14;
         let touchStartX = 0;
         let touchDeltaX = 0;
         let isAnimatingLoopReset = false;
@@ -579,6 +593,8 @@ Am C G Dm/F
             parseFloat(
               getComputedStyle(carousel).getPropertyValue("--track-slide-basis")
             ) || 72;
+          slideGap = parseFloat(getComputedStyle(strip).columnGap) || 14;
+          slideWidth = viewport.clientWidth * (slideBasis / 100);
         }
 
         function updateDots() {
@@ -598,7 +614,11 @@ Am C G Dm/F
           strip.style.transition = withTransition
             ? "transform 720ms cubic-bezier(0.16, 1, 0.3, 1)"
             : "none";
-          strip.style.transform = `translateX(calc(50% - ${slideBasis / 2}% - ${visualIndex} * (${slideBasis}% + 14px)))`;
+          const offset =
+            viewport.clientWidth / 2 -
+            slideWidth / 2 -
+            visualIndex * (slideWidth + slideGap);
+          strip.style.transform = `translateX(${offset}px)`;
         }
 
         function renderTrack(index, { immediate = false } = {}) {
@@ -674,7 +694,11 @@ Am C G Dm/F
             strip.classList.add("is-resetting");
             strip.style.transition = "none";
             visualIndex = resetIndex;
-            strip.style.transform = `translateX(calc(50% - ${slideBasis / 2}% - ${visualIndex} * (${slideBasis}% + 14px)))`;
+            const offset =
+              viewport.clientWidth / 2 -
+              slideWidth / 2 -
+              visualIndex * (slideWidth + slideGap);
+            strip.style.transform = `translateX(${offset}px)`;
             strip.getBoundingClientRect();
 
             window.requestAnimationFrame(() => {

@@ -1,0 +1,1310 @@
+@font-face {
+  font-family: "SOB Oswald";
+  src: url("./assets/fonts/Oswald-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "SOB Oswald";
+  src: url("./assets/fonts/Oswald-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "SOB Oswald";
+  src: url("./assets/fonts/Oswald-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "SOB Inter";
+  src: url("./assets/fonts/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "SOB Inter";
+  src: url("./assets/fonts/Inter-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "SOB Inter";
+  src: url("./assets/fonts/Inter-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+:root {
+  --sob-black: #050505;
+  --sob-panel: #101010;
+  --sob-paper: #e8e0d3;
+  --sob-paper-dark: #d8d0c4;
+  --sob-white: #f4f1eb;
+  --sob-muted: #bdb4a7;
+  --sob-lime: #98ff1d;
+  --sob-red: #ff3535;
+  --sob-violet: #8352a8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--sob-black);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--sob-white) !important;
+  background:
+    radial-gradient(circle at 82% 6%, rgba(131, 82, 168, 0.18), transparent 29rem),
+    linear-gradient(180deg, #050505 0%, #090909 52%, #050505 100%) !important;
+  font-family: "SOB Inter", sans-serif !important;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("./assets/brand/bg-texture.png");
+  background-repeat: repeat;
+  background-size: 620px auto;
+  opacity: 0.085;
+  mix-blend-mode: screen;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  width: min(1480px, calc(100% - 44px)) !important;
+  margin: 0 auto !important;
+  padding: 22px 0 70px !important;
+  max-width: none !important;
+}
+
+.hero,
+.poster-card,
+.tracks-card,
+.chords-card {
+  border: 1px solid rgba(232, 224, 211, 0.22) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 320px !important;
+  gap: 0 !important;
+  min-height: 880px;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.018), transparent 45%),
+    var(--sob-black) !important;
+}
+
+.hero::before {
+  content: "VISUAL IDENTITY / HONEST NOISE / KAZAN";
+  position: absolute;
+  inset: auto !important;
+  left: auto !important;
+  bottom: auto !important;
+  top: 20px;
+  right: 350px;
+  width: auto !important;
+  height: auto !important;
+  z-index: 6;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: none !important;
+  color: var(--sob-muted);
+  font: 700 10px/1 "SOB Inter", sans-serif;
+  letter-spacing: 0.12em;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto auto auto auto auto auto auto;
+  gap: 24px 16px;
+  padding: 44px 42px 42px !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0;
+}
+
+.hero-copy::after {
+  content: none;
+}
+
+.eyebrow {
+  margin: 0 !important;
+  color: var(--sob-black) !important;
+  background: var(--sob-lime) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 7px 10px 6px !important;
+  font: 700 11px/1 "SOB Inter", sans-serif !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase;
+  width: max-content;
+}
+
+.hero-eyebrow {
+  grid-column: 1 / 5;
+  grid-row: 1;
+  z-index: 8;
+  margin-bottom: 4px !important;
+}
+
+.hero h1 {
+  grid-column: 1 / 9;
+  grid-row: 2;
+  position: relative;
+  z-index: 4;
+  margin: 0 0 10px !important;
+  color: var(--sob-paper) !important;
+  font: 700 clamp(100px, 11.5vw, 170px)/0.82 "SOB Oswald", sans-serif !important;
+  letter-spacing: -0.045em !important;
+  text-transform: uppercase;
+  text-shadow: 9px 9px 0 rgba(131, 82, 168, 0.34);
+}
+
+.hero h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: min(92%, 690px);
+  height: 8px;
+  background: var(--sob-red);
+  transform: rotate(-0.7deg);
+  transform-origin: left;
+}
+
+.hero-motto {
+  grid-column: 1 / 9;
+  grid-row: 3;
+  z-index: 7;
+  margin: 8px 0 2px !important;
+  color: var(--sob-lime) !important;
+  font: 600 clamp(24px, 3vw, 44px)/1 "SOB Oswald", sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  transform: rotate(-1deg);
+}
+
+.hero-photo {
+  grid-column: 9 / 13;
+  grid-row: 2 / 5;
+  position: relative !important;
+  z-index: 2;
+  width: 100% !important;
+  height: 590px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+  clip-path: polygon(4% 3%, 97% 0, 100% 97%, 0 100%);
+  box-shadow: none !important;
+  filter: saturate(0.74) contrast(1.08);
+}
+
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5,5,5,.18), transparent 28%),
+    linear-gradient(180deg, rgba(131,82,168,.08), rgba(5,5,5,.18));
+  pointer-events: none;
+}
+
+.hero-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 54% 34% !important;
+  transform: scale(1.1);
+}
+
+.lead {
+  grid-column: 1 / 9;
+  grid-row: 4;
+  z-index: 7;
+  max-width: 720px !important;
+  margin: 4px 0 0 !important;
+  padding: 0 !important;
+  color: var(--sob-white) !important;
+}
+
+.lead p {
+  margin: 0 0 11px !important;
+  font: 500 clamp(15px, 1.5vw, 20px)/1.42 "SOB Inter", sans-serif !important;
+}
+
+.lead p:last-child {
+  color: var(--sob-muted) !important;
+  font-size: clamp(13px, 1.16vw, 16px) !important;
+  max-width: 690px;
+}
+
+.hero-tags {
+  grid-column: 1 / 9;
+  grid-row: 5;
+  z-index: 7;
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 7px !important;
+  margin: 0 !important;
+}
+
+.hero-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px 10px !important;
+  color: var(--sob-paper) !important;
+  background: transparent !important;
+  border: 1px solid rgba(232,224,211,.38) !important;
+  border-radius: 0 !important;
+  font: 700 10px/1 "SOB Inter", sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hero-telegram,
+.donate-banner {
+  z-index: 7;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 82px !important;
+  margin: 0 !important;
+  padding: 15px 17px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none;
+  transform: none !important;
+}
+
+.hero-telegram {
+  grid-column: 1 / 7;
+  grid-row: 6;
+  color: var(--sob-black) !important;
+  background: var(--sob-lime) !important;
+  border: 1px solid var(--sob-lime) !important;
+}
+
+.donate-banner {
+  grid-column: 7 / 13;
+  grid-row: 6;
+  color: var(--sob-paper) !important;
+  background: var(--sob-panel) !important;
+  border: 1px solid var(--sob-red) !important;
+}
+
+.hero-telegram strong,
+.donate-title {
+  font: 700 13px/1.2 "SOB Inter", sans-serif !important;
+}
+
+.telegram-handle,
+.donate-text {
+  margin-top: 5px;
+  color: inherit !important;
+  opacity: .82;
+  font: 600 10px/1.2 "SOB Inter", sans-serif !important;
+}
+
+.telegram-icon {
+  display: none !important;
+}
+
+.banner-action {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 12px !important;
+  border-radius: 0 !important;
+  color: var(--sob-paper) !important;
+  background: var(--sob-black) !important;
+  border: 1px solid currentColor;
+  font: 700 9px/1 "SOB Inter", sans-serif !important;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.donate-banner .banner-action {
+  color: var(--sob-black) !important;
+  background: var(--sob-red) !important;
+  border-color: var(--sob-red) !important;
+}
+
+.release-player {
+  grid-column: 1 / 13;
+  grid-row: 7;
+  z-index: 7;
+  display: grid !important;
+  grid-template-columns: 172px minmax(0, 1fr) auto !important;
+  gap: 22px !important;
+  align-items: center;
+  min-height: 200px;
+  margin: 0 !important;
+  padding: 14px !important;
+  color: var(--sob-black) !important;
+  background: var(--sob-paper) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.release-cover {
+  width: 172px !important;
+  height: 172px !important;
+  border-radius: 0 !important;
+  object-fit: cover;
+  border: 1px solid var(--sob-black);
+}
+
+.release-copy {
+  min-width: 0;
+}
+
+.release-kicker {
+  margin: 0 0 11px !important;
+  color: var(--sob-red) !important;
+  font: 700 10px/1 "SOB Inter", sans-serif !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.release-copy strong {
+  display: block;
+  color: var(--sob-black) !important;
+  font: 700 clamp(34px, 4vw, 64px)/.92 "SOB Oswald", sans-serif !important;
+  text-transform: uppercase;
+}
+
+.release-type {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--sob-black) !important;
+  font: 700 9px/1 "SOB Inter", sans-serif !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.release-actions {
+  display: grid !important;
+  gap: 8px !important;
+  align-self: stretch;
+  align-content: center;
+}
+
+.release-link {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 142px;
+  min-height: 44px;
+  padding: 10px 14px !important;
+  color: var(--sob-paper) !important;
+  background: var(--sob-black) !important;
+  border: 1px solid var(--sob-black) !important;
+  border-radius: 0 !important;
+  font: 700 9px/1 "SOB Inter", sans-serif !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+
+.release-link:hover {
+  color: var(--sob-black) !important;
+  background: var(--sob-lime) !important;
+}
+
+.links-panel {
+  position: relative !important;
+  top: auto !important;
+  align-self: start !important;
+  height: max-content !important;
+  margin: 52px 24px 0 16px !important;
+  padding: 34px 20px 26px !important;
+  color: var(--sob-black) !important;
+  background: var(--sob-paper) !important;
+  border: 0 !important;
+  border-left: 1px solid rgba(5,5,5,.35) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.links-panel::before {
+  content: "СПИСОК ПЛОЩАДОК";
+  display: block;
+  margin-bottom: 29px;
+  color: var(--sob-red);
+  font: 700 9px/1 "SOB Inter", sans-serif;
+  letter-spacing: .09em;
+}
+
+.panel-label {
+  margin: 0 0 22px !important;
+  color: var(--sob-black) !important;
+  font: 700 47px/.9 "SOB Oswald", sans-serif !important;
+  text-transform: uppercase;
+}
+
+.hero-actions {
+  display: grid !important;
+  gap: 0 !important;
+}
+
+.link-button {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 54px;
+  padding: 12px 2px !important;
+  color: var(--sob-black) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(5,5,5,.28) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font: 700 12px/1 "SOB Inter", sans-serif !important;
+  text-decoration: none;
+}
+
+.link-button::after {
+  content: "↗";
+  color: var(--sob-red);
+  font-size: 15px;
+}
+
+.link-button:hover {
+  padding-left: 9px !important;
+  background: var(--sob-lime) !important;
+}
+
+.poster-card,
+.tracks-card,
+.chords-card {
+  margin-top: 24px !important;
+}
+
+.poster-card {
+  display: block !important;
+  padding: 46px 42px 50px !important;
+  color: var(--sob-white) !important;
+  background: var(--sob-black) !important;
+}
+
+.poster-copy {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 34px !important;
+}
+
+.poster-copy h2 {
+  margin: 0 !important;
+  color: var(--sob-paper) !important;
+  font: 700 clamp(52px, 7vw, 104px)/.88 "SOB Oswald", sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+}
+
+.social-row {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px !important;
+  margin-top: 20px;
+  padding-bottom: 0;
+}
+
+.social-row a {
+  padding: 7px 9px !important;
+  color: var(--sob-muted) !important;
+  background: transparent !important;
+  border: 1px solid rgba(232,224,211,.25) !important;
+  border-radius: 0 !important;
+  font: 700 8px/1 "SOB Inter", sans-serif !important;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.social-row a:hover {
+  color: var(--sob-black) !important;
+  background: var(--sob-lime) !important;
+  border-color: var(--sob-lime) !important;
+}
+
+.poster-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  width: 100% !important;
+  max-width: none !important;
+  align-items: stretch;
+  gap: 16px !important;
+  margin: 0 !important;
+}
+
+.poster-item {
+  position: relative;
+  display: grid !important;
+  grid-template-rows: minmax(0, 1fr) auto;
+  overflow: hidden;
+  color: var(--sob-white) !important;
+  background: var(--sob-panel) !important;
+  border: 1px solid rgba(232,224,211,.24) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.poster-grid .poster-item:first-child {
+  min-height: 0;
+}
+
+.poster-grid .poster-item:last-child {
+  min-height: 0;
+}
+
+.poster-item img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1 !important;
+  min-height: 0 !important;
+  object-fit: contain !important;
+  background: #0a0a0a;
+  border-radius: 0 !important;
+  filter: saturate(.83) contrast(1.07);
+  transition: transform .45s ease, filter .45s ease;
+}
+
+.poster-item:hover img {
+  transform: scale(1.018);
+  filter: saturate(1) contrast(1.08);
+}
+
+.poster-meta {
+  padding: 18px 19px 20px !important;
+  color: var(--sob-black) !important;
+  background: var(--sob-paper) !important;
+  border-top: 5px solid var(--sob-red) !important;
+}
+
+.poster-meta strong {
+  display: block;
+  margin-bottom: 7px;
+  font: 700 clamp(24px, 2.3vw, 38px)/1 "SOB Oswald", sans-serif !important;
+  text-transform: uppercase;
+}
+
+.poster-meta span {
+  color: #48433d !important;
+  font: 600 10px/1.3 "SOB Inter", sans-serif !important;
+  text-transform: uppercase;
+}
+
+.poster-archive-wrap {
+  margin-top: 44px !important;
+}
+
+.poster-archive {
+  border: 0 !important;
+  border-top: 1px solid rgba(232,224,211,.25) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.poster-archive-summary {
+  min-height: 84px;
+  padding: 24px 0 !important;
+  color: var(--sob-paper) !important;
+  background: transparent !important;
+  font: 600 28px/1 "SOB Oswald", sans-serif !important;
+  text-transform: uppercase;
+}
+
+.poster-archive-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  color: var(--sob-black) !important;
+  background: var(--sob-lime) !important;
+  border-radius: 0 !important;
+  font: 700 11px/1 "SOB Inter", sans-serif !important;
+}
+
+.poster-archive-carousel {
+  display: grid !important;
+  grid-template-columns: 42px minmax(0, 1fr) 42px;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0 0 !important;
+}
+
+.poster-archive-list {
+  display: grid !important;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 32%);
+  gap: 12px !important;
+  overflow-x: auto !important;
+  padding: 0 0 10px !important;
+  scroll-snap-type: x mandatory;
+}
+
+.poster-item--archive {
+  min-height: 0 !important;
+  scroll-snap-align: start;
+}
+
+.poster-item--archive .poster-meta {
+  border-top-color: var(--sob-lime) !important;
+}
+
+.poster-item--archive .poster-meta strong {
+  font-size: 22px !important;
+}
+
+.poster-archive-nav,
+.track-nav {
+  position: static !important;
+  inset: auto !important;
+  margin: 0 !important;
+  transform: none !important;
+  width: 42px !important;
+  height: 56px !important;
+  color: var(--sob-black) !important;
+  background: var(--sob-paper) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  font: 600 30px/1 "SOB Oswald", sans-serif !important;
+}
+
+.track-nav-prev {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.track-nav-next {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.poster-archive-nav:hover,
+.track-nav:hover {
+  background: var(--sob-lime) !important;
+}
+
+.tracks-card {
+  padding: 50px 0 40px !important;
+  color: var(--sob-black) !important;
+  background: var(--sob-paper) !important;
+}
+
+.tracks-card .section-head {
+  padding: 0 42px 24px !important;
+}
+
+.tracks-eyebrow {
+  background: var(--sob-red) !important;
+}
+
+.tracks-card .section-head::after {
+  content: "ТРЕКИ, КОТОРЫЕ УЖЕ ЖИВУТ";
+  display: block;
+  margin-top: 18px;
+  color: var(--sob-black);
+  font: 700 clamp(46px, 6vw, 86px)/.9 "SOB Oswald", sans-serif;
+  text-transform: uppercase;
+}
+
+.track-carousel {
+  --track-slide-basis: 46% !important;
+  margin-top: 0 !important;
+}
+
+.track-frame {
+  display: grid !important;
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  gap: 14px !important;
+  align-items: center;
+}
+
+.track-viewport {
+  grid-column: 2;
+  grid-row: 1;
+  overflow: hidden !important;
+  min-height: 620px;
+  padding: 9px 0 18px !important;
+}
+
+.track-slide {
+  flex: 0 0 var(--track-slide-basis) !important;
+  min-height: 580px;
+  background: var(--sob-black) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+.track-slide img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: cover !important;
+  border-radius: 0 !important;
+}
+
+.track-slide-meta {
+  padding: 18px 20px 20px !important;
+  color: var(--sob-paper) !important;
+  background: var(--sob-black) !important;
+  border-top: 5px solid var(--sob-lime) !important;
+}
+
+.track-slide-meta strong {
+  color: var(--sob-paper) !important;
+  font: 700 clamp(28px, 3.6vw, 52px)/.95 "SOB Oswald", sans-serif !important;
+  text-transform: uppercase;
+}
+
+.track-kicker,
+.track-slide-meta span {
+  color: var(--sob-lime) !important;
+  font: 700 8px/1 "SOB Inter", sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.track-dot {
+  width: 28px !important;
+  height: 4px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: rgba(5,5,5,.25) !important;
+}
+
+.track-dot.is-active {
+  background: var(--sob-red) !important;
+}
+
+.chords-card {
+  padding: 50px 42px 52px !important;
+  color: var(--sob-white) !important;
+  background: var(--sob-black) !important;
+}
+
+.chords-head {
+  margin-bottom: 30px !important;
+}
+
+.chords-head::after {
+  content: "ПОЙ И ИГРАЙ";
+  display: block;
+  margin-top: 18px;
+  color: var(--sob-paper);
+  font: 700 clamp(46px, 6vw, 86px)/.9 "SOB Oswald", sans-serif;
+  text-transform: uppercase;
+}
+
+.chords-layout {
+  display: grid !important;
+  grid-template-columns: minmax(220px, .34fr) minmax(0, 1fr) !important;
+  gap: 0 !important;
+  border: 1px solid rgba(232,224,211,.25) !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+.chords-sidebar {
+  max-height: 670px;
+  padding: 0 !important;
+  background: var(--sob-panel) !important;
+  border: 0 !important;
+  border-right: 1px solid rgba(232,224,211,.22) !important;
+  border-radius: 0 !important;
+  overflow-y: auto;
+}
+
+.chord-song {
+  width: 100%;
+  min-height: 58px;
+  padding: 15px 18px !important;
+  color: var(--sob-muted) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(232,224,211,.1) !important;
+  border-radius: 0 !important;
+  text-align: left;
+}
+
+.chord-song strong {
+  font: 600 17px/1.1 "SOB Oswald", sans-serif !important;
+  text-transform: uppercase;
+}
+
+.chord-song:hover,
+.chord-song.is-active {
+  color: var(--sob-black) !important;
+  background: var(--sob-lime) !important;
+}
+
+.chords-viewer {
+  min-width: 0;
+  color: var(--sob-black) !important;
+  background: var(--sob-paper) !important;
+}
+
+.chords-toolbar {
+  min-height: 78px;
+  padding: 16px 20px !important;
+  color: var(--sob-paper) !important;
+  background: var(--sob-black) !important;
+  border: 0 !important;
+  border-bottom: 5px solid var(--sob-red) !important;
+}
+
+.chords-key {
+  color: var(--sob-paper) !important;
+  font: 700 30px/1 "SOB Oswald", sans-serif !important;
+  text-transform: uppercase;
+}
+
+.chords-actions button {
+  min-width: 38px;
+  height: 36px;
+  padding: 0 10px !important;
+  color: var(--sob-paper) !important;
+  background: var(--sob-panel) !important;
+  border: 1px solid rgba(232,224,211,.3) !important;
+  border-radius: 0 !important;
+  font: 700 10px/1 "SOB Inter", sans-serif !important;
+}
+
+.chords-actions button:hover,
+.chords-actions button.is-active {
+  color: var(--sob-black) !important;
+  background: var(--sob-lime) !important;
+  border-color: var(--sob-lime) !important;
+}
+
+.chords-sheet {
+  min-height: 590px;
+  margin: 0 !important;
+  padding: 32px clamp(22px, 5vw, 72px) 80px !important;
+  color: var(--sob-black) !important;
+  background:
+    linear-gradient(rgba(5,5,5,.055) 1px, transparent 1px) 0 31px / 100% 28px,
+    var(--sob-paper) !important;
+  font: 500 15px/1.86 "SOB Inter", sans-serif !important;
+  white-space: pre-wrap;
+}
+
+.footer {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 24px !important;
+  padding: 44px 42px !important;
+  color: var(--sob-black) !important;
+  background: var(--sob-lime) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.footer p {
+  margin: 0 !important;
+}
+
+.footer > p:first-child {
+  font: 700 clamp(38px, 5vw, 72px)/.9 "SOB Oswald", sans-serif !important;
+  text-transform: uppercase;
+}
+
+.footer-note {
+  align-self: end;
+  justify-self: end;
+  max-width: 360px;
+  padding: 4px 0 4px 18px;
+  border-left: 4px solid var(--sob-black);
+  color: rgba(5, 5, 5, .72) !important;
+  font: 700 11px/1.55 "SOB Inter", sans-serif !important;
+  letter-spacing: .035em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.footer a {
+  color: var(--sob-black) !important;
+  text-decoration-thickness: 2px;
+}
+
+.footer-note a {
+  display: inline-block;
+  margin-top: 6px;
+  font: 700 22px/1 "SOB Oswald", sans-serif !important;
+  letter-spacing: 0;
+  text-transform: lowercase;
+}
+
+@media (max-width: 1040px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 280px !important;
+  }
+
+  .hero::before {
+    right: 310px;
+  }
+
+  .hero-copy {
+    padding: 38px 30px 32px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(88px, 12vw, 138px) !important;
+  }
+
+  .hero-photo {
+    height: 470px !important;
+  }
+
+  .poster-grid .poster-item {
+    min-height: 610px;
+  }
+}
+
+@media (max-width: 820px) {
+  .page {
+    width: min(100% - 22px, 620px) !important;
+    padding-top: 11px !important;
+  }
+
+  .hero,
+  .poster-card,
+  .tracks-card,
+  .chords-card {
+    margin-top: 12px !important;
+  }
+
+  .hero {
+    display: block !important;
+    position: relative;
+    min-height: 0;
+  }
+
+  .hero::before {
+    display: none;
+  }
+
+  .hero-copy {
+    display: flex !important;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    padding: 24px 14px 18px !important;
+  }
+
+  .hero-copy > .hero-eyebrow,
+  .hero-copy > .hero-photo,
+  .hero-copy > .lead,
+  .hero-copy > .hero-tags,
+  .hero-copy > .hero-telegram,
+  .hero-copy > .donate-banner {
+    width: calc(100% - 124px) !important;
+    max-width: calc(100% - 124px) !important;
+  }
+
+  .hero-copy > h1,
+  .hero-copy > .hero-motto {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hero-copy::after {
+    content: none;
+  }
+
+  .hero h1 {
+    order: 2;
+    margin: 4px 0 13px !important;
+    font-size: clamp(78px, 25vw, 104px) !important;
+    line-height: .79 !important;
+    letter-spacing: -.055em !important;
+  }
+
+  .hero h1::after {
+    bottom: -10px;
+    width: 100%;
+    height: 6px;
+  }
+
+  .hero-eyebrow {
+    order: 1;
+  }
+
+  .hero-motto {
+    order: 3;
+    margin: 4px 0 0 !important;
+    font-size: 23px !important;
+  }
+
+  .hero-photo {
+    order: 4;
+    width: 100% !important;
+    height: min(105vw, 460px) !important;
+    clip-path: polygon(0 2%, 97% 0, 100% 98%, 3% 100%);
+  }
+
+  .lead { order: 5; }
+  .hero-tags { order: 6; }
+  .hero-telegram { order: 7; }
+  .donate-banner { order: 8; }
+  .release-player { order: 9; }
+
+  .lead p {
+    font-size: 15px !important;
+  }
+
+  .hero-telegram,
+  .donate-banner {
+    min-height: 76px !important;
+  }
+
+  .release-player {
+    display: grid !important;
+    grid-template-columns: 98px minmax(0, 1fr) !important;
+    gap: 14px !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0;
+  }
+
+  .release-cover {
+    width: 98px !important;
+    height: 98px !important;
+  }
+
+  .release-copy strong {
+    font-size: 31px !important;
+  }
+
+  .release-actions {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .links-panel {
+    position: absolute !important;
+    top: 194px !important;
+    right: 0 !important;
+    width: 116px !important;
+    height: max-content !important;
+    margin: 0 !important;
+    padding: 18px 11px 14px !important;
+    border-left: 1px solid rgba(5,5,5,.35) !important;
+    border-top: 0 !important;
+    transform: translateY(var(--links-panel-shift, 0px)) !important;
+    will-change: transform;
+    z-index: 20;
+  }
+
+  .panel-label {
+    margin-bottom: 13px !important;
+    font-size: 20px !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap;
+  }
+
+  .links-panel::before {
+    margin-bottom: 15px;
+    font-size: 7px;
+  }
+
+  .link-button {
+    min-height: 42px;
+    padding: 8px 1px !important;
+    font-size: 9px !important;
+  }
+
+  .poster-card,
+  .chords-card {
+    padding: 30px 18px 34px !important;
+  }
+
+  .poster-copy {
+    display: block !important;
+    margin-bottom: 22px !important;
+  }
+
+  .poster-copy h2,
+  .tracks-card .section-head::after {
+    margin-top: 17px !important;
+    font-size: clamp(42px, 15vw, 72px) !important;
+  }
+
+  .chords-head::after {
+    margin-top: 12px !important;
+    font-size: clamp(38px, 12vw, 54px) !important;
+  }
+
+  .social-row {
+    justify-content: flex-start;
+    margin-top: 18px;
+  }
+
+  .poster-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .poster-grid .poster-item:first-child,
+  .poster-grid .poster-item:last-child {
+    min-height: 0;
+  }
+
+  .poster-archive-carousel {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .poster-archive-nav {
+    display: none !important;
+  }
+
+  .poster-archive-list {
+    grid-auto-columns: 83%;
+  }
+
+  .tracks-card {
+    padding-top: 32px !important;
+  }
+
+  .tracks-card .section-head {
+    padding: 0 18px 18px !important;
+  }
+
+  .track-carousel {
+    --track-slide-basis: 82% !important;
+  }
+
+  .track-viewport,
+  .track-slide {
+    min-height: 0;
+  }
+
+  .track-viewport {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .track-frame {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .track-nav {
+    display: none !important;
+  }
+
+  .track-slide-meta strong {
+    font-size: 31px !important;
+  }
+
+  .chords-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .chords-card {
+    padding: 24px 14px 28px !important;
+  }
+
+  .chords-head {
+    margin-bottom: 18px !important;
+  }
+
+  .chords-sidebar {
+    display: flex !important;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(232,224,211,.22) !important;
+  }
+
+  .chord-song {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 118px;
+    min-height: 44px;
+    padding: 10px 12px !important;
+    border-right: 1px solid rgba(232,224,211,.1) !important;
+  }
+
+  .chord-song strong {
+    font-size: 14px !important;
+  }
+
+  .chords-toolbar {
+    min-height: 60px;
+    padding: 11px 12px !important;
+    align-items: flex-start !important;
+    gap: 9px;
+  }
+
+  .chords-key {
+    font-size: 21px !important;
+  }
+
+  .chords-sheet {
+    min-height: 460px;
+    padding: 18px 14px 48px !important;
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+  }
+
+  .footer {
+    display: block !important;
+    padding: 32px 20px !important;
+  }
+
+  .footer-note {
+    margin: 28px auto 0 !important;
+    justify-self: auto;
+    max-width: 100%;
+    padding: 16px 0 0;
+    border-top: 2px solid var(--sob-black);
+    border-left: 0;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
