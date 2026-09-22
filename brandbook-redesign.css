@@ -1308,3 +1308,121 @@ a {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* v1.0.1 — approved composition refinements */
+.hero-motto {
+  width: max-content;
+  max-width: 100%;
+  padding: 0 !important;
+  color: var(--sob-lime) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.hero-telegram {
+  box-shadow: inset 6px 0 0 var(--sob-black) !important;
+}
+
+.hero-telegram .telegram-handle {
+  display: inline-flex !important;
+  width: max-content;
+  margin-top: 7px;
+  padding: 4px 7px;
+  color: var(--sob-lime) !important;
+  background: var(--sob-black) !important;
+  opacity: 1;
+  font-style: normal;
+}
+
+.hero-telegram .banner-action {
+  color: var(--sob-lime) !important;
+  background: var(--sob-black) !important;
+  border-color: var(--sob-black) !important;
+}
+
+.donate-banner {
+  border-color: var(--sob-lime) !important;
+}
+
+.donate-banner .banner-action {
+  color: var(--sob-black) !important;
+  background: var(--sob-lime) !important;
+  border-color: var(--sob-lime) !important;
+}
+
+@media (min-width: 821px) {
+  .hero-copy {
+    gap: 14px 16px;
+  }
+
+  .hero-eyebrow {
+    grid-column: 7 / 9;
+    justify-self: start;
+    align-self: end;
+    margin: 0 0 -4px !important;
+  }
+
+  .hero h1 {
+    margin-bottom: 3px !important;
+  }
+
+  .hero h1::after {
+    bottom: -8px;
+  }
+
+  .hero-motto {
+    margin: 1px 0 0 !important;
+  }
+
+  .hero-photo {
+    grid-row: 2 / 7;
+  }
+
+  .lead {
+    margin-top: 0 !important;
+  }
+
+  .release-player {
+    width: min(100%, 780px) !important;
+    max-width: 780px !important;
+    justify-self: start;
+  }
+
+  .poster-card {
+    display: grid !important;
+    grid-template-columns: minmax(330px, .82fr) minmax(0, 1.18fr) !important;
+    grid-template-areas:
+      "copy upcoming"
+      "archive archive";
+    column-gap: 42px;
+    row-gap: 38px;
+    align-items: start;
+  }
+
+  .poster-copy {
+    grid-area: copy;
+    align-self: start;
+    margin: 0 !important;
+  }
+
+  .poster-grid {
+    grid-area: upcoming;
+    grid-template-columns: 1fr !important;
+    justify-self: stretch;
+    margin: 0 !important;
+  }
+
+  .poster-grid .poster-item,
+  .poster-grid .poster-item:first-child,
+  .poster-grid .poster-item:last-child {
+    min-height: 0 !important;
+  }
+
+  .poster-archive-wrap {
+    grid-area: archive;
+    width: 100%;
+    margin-top: 0 !important;
+  }
+}
