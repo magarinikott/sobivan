@@ -667,9 +667,9 @@ a {
 }
 
 .poster-archive-list {
-  display: grid !important;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(260px, 32%);
+  display: flex !important;
+  flex-wrap: nowrap;
+  align-items: stretch;
   gap: 12px !important;
   overflow-x: auto !important;
   padding: 0 0 10px !important;
@@ -677,16 +677,36 @@ a {
 }
 
 .poster-item--archive {
+  flex: 0 0 190px;
+  min-width: 190px !important;
+  max-width: 190px !important;
   min-height: 0 !important;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: auto auto !important;
+  gap: 0 !important;
+  align-items: stretch !important;
+  padding: 0 !important;
   scroll-snap-align: start;
 }
 
+.poster-item--archive img {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
 .poster-item--archive .poster-meta {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  padding: 11px 12px 12px !important;
   border-top-color: var(--sob-lime) !important;
 }
 
 .poster-item--archive .poster-meta strong {
-  font-size: 22px !important;
+  margin: 0;
+  font-size: 18px !important;
+  line-height: 1.05 !important;
 }
 
 .poster-archive-nav,
@@ -1195,7 +1215,13 @@ a {
   }
 
   .poster-archive-list {
-    grid-auto-columns: 83%;
+    gap: 12px !important;
+  }
+
+  .poster-item--archive {
+    flex-basis: 180px;
+    min-width: 180px !important;
+    max-width: 180px !important;
   }
 
   .tracks-card {
@@ -1309,7 +1335,7 @@ a {
   }
 }
 
-/* v1.0.2 — approved composition refinements */
+/* v1.0.3 — approved composition refinements */
 .hero-motto {
   width: max-content;
   max-width: 100%;
@@ -1359,12 +1385,14 @@ a {
 
   .hero-eyebrow {
     position: absolute;
-    top: 48px;
+    top: 4px;
+    right: auto;
     left: calc(42px + clamp(276px, 31.74vw, 469px));
     grid-column: auto;
     justify-self: auto;
     align-self: auto;
     margin: 0 !important;
+    transform: none;
   }
 
   .hero h1 {
@@ -1385,6 +1413,8 @@ a {
 
   .donate-banner {
     grid-column: 5 / 9;
+    align-self: start;
+    margin-top: 12px !important;
   }
 
   .lead {
