@@ -692,6 +692,11 @@ a {
 .poster-item--archive img {
   width: 100% !important;
   min-width: 0 !important;
+  filter: brightness(.9) saturate(.83) contrast(1.07) !important;
+}
+
+.poster-item--archive:hover img {
+  filter: brightness(.9) saturate(1) contrast(1.08) !important;
 }
 
 .poster-item--archive .poster-meta {
@@ -1342,7 +1347,7 @@ a {
   }
 }
 
-/* v1.0.4 — approved composition refinements */
+/* v1.0.5 — approved composition refinements */
 .hero-motto {
   width: max-content;
   max-width: 100%;
