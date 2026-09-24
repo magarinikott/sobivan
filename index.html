@@ -16,6 +16,7 @@
     />
     <link rel="stylesheet" href="./styles.css?v=20260919-2300" />
     <link rel="stylesheet" href="./brandbook-redesign.css?v=1.0.6" />
+    <link rel="stylesheet" href="./chords-prototype.css?v=1" />
   </head>
   <body>
     <main class="page">
@@ -196,7 +197,20 @@
         </div>
 
         <div class="chords-layout">
-          <aside class="chords-sidebar" data-song-nav>
+          <div class="chords-browser">
+            <div class="chords-browser-head">
+              <div class="chords-browser-title">
+                <span>Каталог песен</span>
+                <strong>Найди и пой</strong>
+              </div>
+              <label class="chords-search">
+                <span class="visually-hidden">Поиск песни</span>
+                <input type="search" placeholder="Найти песню…" autocomplete="off" data-song-search />
+              </label>
+              <span class="chords-browser-count" data-song-count>22 песни</span>
+            </div>
+
+            <aside class="chords-sidebar" data-song-nav>
             <button class="chord-song is-active" type="button" data-song-button data-song-id="ne-odin">
               <strong>Не один</strong>
               
@@ -285,7 +299,9 @@
               <strong>Заебало</strong>
               
             </button>
-          </aside>
+            </aside>
+            <p class="chords-empty" data-song-empty hidden>Ничего не найдено</p>
+          </div>
 
           <div class="chords-viewer">
             <div class="chords-toolbar">
@@ -2085,6 +2101,10 @@ Just do it, ёпта
         };
 
         const buttons = Array.from(chordsBlock.querySelectorAll("[data-song-button]"));
+        const songNav = chordsBlock.querySelector("[data-song-nav]");
+        const songSearch = chordsBlock.querySelector("[data-song-search]");
+        const songCount = chordsBlock.querySelector("[data-song-count]");
+        const songEmpty = chordsBlock.querySelector("[data-song-empty]");
         const titleNode = chordsBlock.querySelector("[data-song-title]");
                 const textNode = chordsBlock.querySelector("[data-song-sheet]");
         const transposeButtons = Array.from(chordsBlock.querySelectorAll("[data-transpose]"));
@@ -2099,6 +2119,44 @@ Just do it, ёпта
         let autoScrollRemainder = 0;
         let autoScrollMultiplier = 1;
         const autoScrollBaseSpeed = 48;
+
+        const songCollator = new Intl.Collator("ru", { sensitivity: "base" });
+        buttons
+          .sort((first, second) => songCollator.compare(
+            first.textContent.trim(),
+            second.textContent.trim()
+          ))
+          .forEach((button, index) => {
+            button.dataset.songIndex = String(index + 1).padStart(2, "0");
+            songNav?.append(button);
+          });
+
+        function songWord(count) {
+          const mod10 = count % 10;
+          const mod100 = count % 100;
+          if (mod10 === 1 && mod100 !== 11) return "песня";
+          if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return "песни";
+          return "песен";
+        }
+
+        function filterSongs(query = "") {
+          const normalizedQuery = query.trim().toLocaleLowerCase("ru");
+          let visibleCount = 0;
+
+          buttons.forEach((button) => {
+            const title = button.textContent.trim().toLocaleLowerCase("ru");
+            const visible = !normalizedQuery || title.includes(normalizedQuery);
+            button.hidden = !visible;
+            if (visible) visibleCount += 1;
+          });
+
+          if (songCount) {
+            songCount.textContent = `${visibleCount} ${songWord(visibleCount)}`;
+          }
+          if (songEmpty) {
+            songEmpty.hidden = visibleCount !== 0;
+          }
+        }
 
 
         function setAutoScrollSpeed(multiplier) {
@@ -2295,6 +2353,22 @@ Just do it, ёпта
           });
         });
 
+        songSearch?.addEventListener("input", (event) => {
+          filterSongs(event.currentTarget.value);
+        });
+
+        songSearch?.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
+            const firstVisibleSong = buttons.find((button) => !button.hidden);
+            firstVisibleSong?.click();
+          }
+          if (event.key === "Escape") {
+            event.currentTarget.value = "";
+            filterSongs();
+            event.currentTarget.blur();
+          }
+        });
+
         transposeButtons.forEach((button) => {
           button.addEventListener("click", () => {
             const delta = Number(button.dataset.transpose || 0);
@@ -2318,7 +2392,11 @@ Just do it, ёпта
         });
 
         setAutoScrollSpeed(1);
-        renderSong("ne-odin", 0);
+        filterSongs();
+        renderSong(buttons[0]?.dataset.songId || "ne-odin", 0);
+        window.requestAnimationFrame(() => {
+          if (songNav) songNav.scrollLeft = 0;
+        });
       })();
     </script>
     <script src="./poster-render.js?v=20260527-1541"></script>
