@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "series": "Шум между строк",
+  "quotes": [
+    {
+      "id": "ne-odin-01",
+      "song_id": "ne-odin",
+      "song": "Не один",
+      "lines": ["Однажды уйдут холода", "Однажды наступит в мире весна"],
+      "enabled": true
+    },
+    {
+      "id": "poday-signal-01",
+      "song_id": "poday-signal",
+      "song": "Подай сигнал",
+      "lines": ["У бесконечности есть свой размер", "Но его недостаточно"],
+      "enabled": true
+    },
+    {
+      "id": "novyy-zakat-01",
+      "song_id": "novyy-zakat",
+      "song": "Новый закат",
+      "lines": ["Лучше упасть и подняться заново", "Тысячу раз подряд", "Чем вообще не пытаться ворваться", "И себе доказать"],
+      "enabled": true
+    },
+    {
+      "id": "zavtra-budet-01",
+      "song_id": "zavtra-budet",
+      "song": "Завтра будет",
+      "lines": ["Выход есть, не один, выход есть всегда"],
+      "enabled": true
+    },
+    {
+      "id": "pomni-01",
+      "song_id": "pomni",
+      "song": "Помни",
+      "lines": ["Помни о том, через что мы прошли", "Помни про то, что ещё что-то будет"],
+      "enabled": true
+    },
+
+    {
+      "id": "ne-odin-02",
+      "song_id": "ne-odin",
+      "song": "Не один",
+      "lines": ["Но рядом с моим плечом другое плечо, опора, сила, надежда"],
+      "enabled": true
+    },
+    {
+      "id": "ne-odin-03",
+      "song_id": "ne-odin",
+      "song": "Не один",
+      "lines": ["Я не один и никогда не буду один, как бы вы там ни хотели"],
+      "enabled": true
+    },
+    {
+      "id": "ne-odin-04",
+      "song_id": "ne-odin",
+      "song": "Не один",
+      "lines": ["Вам не сломить человека, который уже был когда-то сломлен"],
+      "enabled": true
+    },
+    {
+      "id": "deti-solntsa-01",
+      "song_id": "deti-solntsa",
+      "song": "Дети солнца",
+      "lines": ["Мы взлетим с тобой по воле неба", "Посетим места, где никто ни разу не был"],
+      "enabled": true
+    },
+    {
+      "id": "deti-solntsa-02",
+      "song_id": "deti-solntsa",
+      "song": "Дети солнца",
+      "lines": ["Миру — мир, война нам не к чему"],
+      "enabled": true
+    },
+    {
+      "id": "zhertva-01",
+      "song_id": "zhertva",
+      "song": "Жертва",
+      "lines": ["Мы — то, что мы о себе думаем"],
+      "enabled": true
+    },
+    {
+      "id": "zhertva-02",
+      "song_id": "zhertva",
+      "song": "Жертва",
+      "lines": ["Важно лишь понять", "Что конкретно для тебя имеет значение"],
+      "enabled": true
+    },
+    {
+      "id": "poday-signal-02",
+      "song_id": "poday-signal",
+      "song": "Подай сигнал",
+      "lines": ["Просто верить — и всё", "Этого хватит сполна", "Просто идти до конца", "И верить в чудеса"],
+      "enabled": true
+    },
+    {
+      "id": "poday-signal-03",
+      "song_id": "poday-signal",
+      "song": "Подай сигнал",
+      "lines": ["Я бы нашёл тебя из сотен", "Я б распознал твои движения", "Услышал из тысяч голосов"],
+      "enabled": true
+    },
+    {
+      "id": "novyy-zakat-02",
+      "song_id": "novyy-zakat",
+      "song": "Новый закат",
+      "lines": ["Слушай свой внутренний голос", "Слушай своё вдохновение"],
+      "enabled": true
+    },
+    {
+      "id": "novyy-zakat-03",
+      "song_id": "novyy-zakat",
+      "song": "Новый закат",
+      "lines": ["Всё, что получится, будет потом", "А пока — наугад"],
+      "enabled": true
+    },
+    {
+      "id": "zavtra-budet-02",
+      "song_id": "zavtra-budet",
+      "song": "Завтра будет",
+      "lines": ["Вся жизнь не может быть чёрной полосой", "Открой глаза и посмотри, кто рядом с тобой"],
+      "enabled": true
+    },
+    {
+      "id": "dkmsv-01",
+      "song_id": "dkmsv",
+      "song": "День когда мы создали свою вселенную",
+      "lines": ["Мы с тобой уже бессмертны", "Знай, что я никогда не забуду", "День, когда мы создали вселенную"],
+      "enabled": true
+    },
+    {
+      "id": "dkmsv-02",
+      "song_id": "dkmsv",
+      "song": "День когда мы создали свою вселенную",
+      "lines": ["Атом за атомом, кирпич за кирпичиком", "Мы строим свою небольшую утопию"],
+      "enabled": true
+    },
+    {
+      "id": "dkmsv-03",
+      "song_id": "dkmsv",
+      "song": "День когда мы создали свою вселенную",
+      "lines": ["Всё, через что мы прошли, точно было не зря"],
+      "enabled": true
+    },
+    {
+      "id": "vechno-01",
+      "song_id": "vechno",
+      "song": "Вечно",
+      "lines": ["И без тебя не будет меня"],
+      "enabled": true
+    },
+    {
+      "id": "vechno-02",
+      "song_id": "vechno",
+      "song": "Вечно",
+      "lines": ["Я стану лучше", "Лучше, чем был", "Лучше, чем есть в эту минуту"],
+      "enabled": true
+    },
+    {
+      "id": "vechno-03",
+      "song_id": "vechno",
+      "song": "Вечно",
+      "lines": ["Если вселенная бесконечна", "То у любви не будет начала"],
+      "enabled": true
+    },
+    {
+      "id": "rasskazhi-01",
+      "song_id": "rasskazhi",
+      "song": "Расскажи",
+      "lines": ["А так быть хочется настоящим", "Быть добрым, сильным, для всех примером"],
+      "enabled": true
+    },
+    {
+      "id": "la-la-la-01",
+      "song_id": "la-la-la",
+      "song": "Ла ла ла",
+      "lines": ["Мои строчки — это чувство", "Ручка и листок бумаги"],
+      "enabled": true
+    },
+    {
+      "id": "podnimaeshsya-01",
+      "song_id": "podnimaeshsya",
+      "song": "Поднимаешься",
+      "lines": ["Но завтра будет иначе", "Уже вот-вот станет лучше"],
+      "enabled": true
+    },
+    {
+      "id": "mne-ne-nravitsya-01",
+      "song_id": "mne-ne-nravitsya",
+      "song": "Мне не нравится",
+      "lines": ["Мне нравится только чай и ты", "Вот, собственно, и всё"],
+      "enabled": true
+    },
+    {
+      "id": "silnyy-01",
+      "song_id": "silnyy",
+      "song": "Сильный",
+      "lines": ["Не нужен никто", "Чтобы помнить, кто я"],
+      "enabled": true
+    },
+    {
+      "id": "robot-01",
+      "song_id": "robot",
+      "song": "Робот",
+      "lines": ["Но если ты мыслишь, ты существуешь"],
+      "enabled": true
+    },
+    {
+      "id": "ya-hochu-01",
+      "song_id": "ya-hochu",
+      "song": "Я хочу",
+      "lines": ["Если ты качаешь головой в такт", "Значит, я на немного, совсем чуть-чуть, но ближе к цели"],
+      "enabled": true
+    },
+    {
+      "id": "v-proshlom-kopatsya-01",
+      "song_id": "v-proshlom-kopatsya",
+      "song": "В прошлом копаться",
+      "lines": ["Я не сожалею о том, что там было"],
+      "enabled": true
+    },
+    {
+      "id": "v-proshlom-kopatsya-02",
+      "song_id": "v-proshlom-kopatsya",
+      "song": "В прошлом копаться",
+      "lines": ["А может, пойду дальше", "Но буду помнить"],
+      "enabled": true
+    },
+    {
+      "id": "kogda-ya-uzhe-vyrastu-01",
+      "song_id": "kogda-ya-uzhe-vyrastu",
+      "song": "Когда я уже вырасту",
+      "lines": ["Я думал, что в 30 вся жизнь состоится", "Но 30 пришли, сука, очень так быстро"],
+      "enabled": true
+    },
+    {
+      "id": "pomni-02",
+      "song_id": "pomni",
+      "song": "Помни",
+      "lines": ["И ты меня помни", "Таким, какой я есть, запомни"],
+      "enabled": true
+    },
+    {
+      "id": "zaebalo-01",
+      "song_id": "zaebalo",
+      "song": "Заебало",
+      "lines": ["У самурая нет цели, есть только путь", "Самурай, мусор выкинуть не забудь"],
+      "enabled": true
+    }
+  ]
+}

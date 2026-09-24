@@ -1,1 +1,3 @@
 .DS_Store
+automation/story_cards/output/
+automation/story_cards/__pycache__/
