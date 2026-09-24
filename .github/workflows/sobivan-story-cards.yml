@@ -1,6 +1,9 @@
 name: SOBIVAN · Шум между строк
 
 on:
+  schedule:
+    # Понедельник, 10:00 Europe/Moscow (UTC+3 круглый год).
+    - cron: "0 7 * * 1"
   workflow_dispatch:
     inputs:
       send_to_telegram:
@@ -53,14 +56,14 @@ jobs:
           retention-days: 30
 
       - name: Отправить 5 PNG в Telegram отдельными файлами
-        if: ${{ inputs.send_to_telegram }}
+        if: ${{ github.event_name == 'schedule' || inputs.send_to_telegram }}
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python automation/story_cards/send_telegram.py "${{ steps.generate.outputs.directory }}"
 
       - name: Запомнить использованные цитаты
-        if: ${{ inputs.send_to_telegram }}
+        if: ${{ github.event_name == 'schedule' || inputs.send_to_telegram }}
         run: |
           python automation/story_cards/generate.py \
             --finalize "${{ steps.generate.outputs.directory }}/selection.json"
