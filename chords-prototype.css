@@ -100,9 +100,9 @@
 
 .chords-sidebar {
   display: grid !important;
-  grid-template-rows: repeat(3, 42px);
+  grid-template-rows: repeat(3, 48px);
   grid-auto-flow: column;
-  grid-auto-columns: max-content;
+  grid-auto-columns: 190px;
   gap: 8px;
   width: 100%;
   max-height: none !important;
@@ -118,11 +118,11 @@
 }
 
 .chord-song {
-  width: max-content !important;
-  min-width: max-content !important;
-  max-width: 230px !important;
-  min-height: 42px !important;
-  padding: 9px 13px !important;
+  width: 190px !important;
+  min-width: 190px !important;
+  max-width: 190px !important;
+  min-height: 48px !important;
+  padding: 8px 12px !important;
   color: var(--sob-paper) !important;
   background: var(--sob-black) !important;
   border: 1px solid rgba(232, 224, 211, .24) !important;
@@ -134,12 +134,13 @@
 }
 
 .chord-song strong {
-  display: block;
+  display: -webkit-box;
   overflow: hidden;
   font-size: 15px !important;
-  line-height: 1 !important;
-  white-space: nowrap !important;
-  text-overflow: ellipsis;
+  line-height: 1.05 !important;
+  white-space: normal !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .chord-song:hover {
@@ -205,6 +206,12 @@
   gap: 7px !important;
 }
 
+.chords-actions button {
+  width: 44px !important;
+  min-width: 44px !important;
+  padding: 0 !important;
+}
+
 .chords-sheet {
   min-height: 620px;
   max-height: 720px;
@@ -245,13 +252,17 @@
   }
 
   .chords-sidebar {
-    grid-template-rows: repeat(3, 38px);
+    grid-template-rows: repeat(3, 44px);
+    grid-auto-columns: 165px;
     margin-top: 11px;
     padding-bottom: 5px !important;
   }
 
   .chord-song {
-    min-height: 38px !important;
+    width: 165px !important;
+    min-width: 165px !important;
+    max-width: 165px !important;
+    min-height: 44px !important;
     padding: 8px 10px !important;
   }
 
@@ -276,8 +287,8 @@
   }
 
   .chords-actions button {
-    width: 29px !important;
-    min-width: 29px !important;
+    width: 35px !important;
+    min-width: 35px !important;
     height: 32px !important;
     padding: 0 !important;
     font-size: 8px !important;
