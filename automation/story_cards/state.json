@@ -4,7 +4,23 @@
     "poday-signal-01",
     "novyy-zakat-01",
     "zavtra-budet-01",
-    "pomni-01"
+    "pomni-01",
+    "ne-odin-02",
+    "ne-odin-03",
+    "ne-odin-04",
+    "deti-solntsa-01",
+    "deti-solntsa-02"
   ],
-  "packs": []
+  "packs": [
+    {
+      "generated_at": "2026-09-24T11:35:55.896525+00:00",
+      "quote_ids": [
+        "ne-odin-02",
+        "ne-odin-03",
+        "ne-odin-04",
+        "deti-solntsa-01",
+        "deti-solntsa-02"
+      ]
+    }
+  ]
 }
