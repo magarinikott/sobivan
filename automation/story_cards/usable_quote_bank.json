@@ -1,0 +1,1645 @@
+{
+  "version": 2,
+  "series": "Шум между строк",
+  "review_criteria": [
+    "Фраза понятна без соседних строк песни.",
+    "В ней есть законченная мысль, образ, ирония или эмоциональный крючок.",
+    "Её можно перепостить как самостоятельную карточку.",
+    "Случайные обрывки, служебные строки и слабые дубли исключены."
+  ],
+  "source_candidate_count": 2032,
+  "usable_count": 126,
+  "quotes": [
+    {
+      "id": "ne-odin-01",
+      "song_id": "ne-odin",
+      "song": "Не один",
+      "lines": [
+        "Однажды уйдут холода",
+        "Однажды наступит в мире весна"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ne-odin-usable-3d7be111cf",
+      "song_id": "ne-odin",
+      "song": "Не один",
+      "lines": [
+        "Не отпущу ни на миг",
+        "Тот лучик света, что сквозь тучку проник"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ne-odin-02",
+      "song_id": "ne-odin",
+      "song": "Не один",
+      "lines": [
+        "Но рядом с моим плечом другое плечо, опора, сила, надежда"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ne-odin-03",
+      "song_id": "ne-odin",
+      "song": "Не один",
+      "lines": [
+        "Я не один и никогда не буду один, как бы вы там ни хотели"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ne-odin-04",
+      "song_id": "ne-odin",
+      "song": "Не один",
+      "lines": [
+        "Вам не сломить человека, который уже был когда-то сломлен"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ne-odin-usable-31372ce983",
+      "song_id": "ne-odin",
+      "song": "Не один",
+      "lines": [
+        "Допил, поставил и разбил гранёной жизни стакан",
+        "Я достаю мечты и убираю их обратно в карман"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "deti-solntsa-02",
+      "song_id": "deti-solntsa",
+      "song": "Дети солнца",
+      "lines": [
+        "Миру — мир, война нам не к чему"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "deti-solntsa-01",
+      "song_id": "deti-solntsa",
+      "song": "Дети солнца",
+      "lines": [
+        "Мы взлетим с тобой по воле неба",
+        "Посетим места, где никто ни разу не был"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "deti-solntsa-usable-163f880d40",
+      "song_id": "deti-solntsa",
+      "song": "Дети солнца",
+      "lines": [
+        "Солнце встанет, осветит наши крыши",
+        "Дым всё выше и выше, выше и выше"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "deti-solntsa-usable-e953e939db",
+      "song_id": "deti-solntsa",
+      "song": "Дети солнца",
+      "lines": [
+        "Всё спокойно, никакой тревоги",
+        "Не забывай, ведь мы под крылом у Бога"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zhertva-usable-1711d35d77",
+      "song_id": "zhertva",
+      "song": "Жертва",
+      "lines": [
+        "Всё, что ты есть, навязано обществом",
+        "Из новой красивой рекламы",
+        "Всякий раз, когда думаешь, что по-другому нельзя",
+        "Поищи, где та мысль взяла начало"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zhertva-usable-a4b93bd453",
+      "song_id": "zhertva",
+      "song": "Жертва",
+      "lines": [
+        "Вся твоя жизнь — маркетинговое исследование",
+        "Всё создано для твоего потребления"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zhertva-usable-e5550bfad3",
+      "song_id": "zhertva",
+      "song": "Жертва",
+      "lines": [
+        "Мы не то, что мы едим",
+        "Мы — то, что мы о себе думаем"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zhertva-usable-37438ecd33",
+      "song_id": "zhertva",
+      "song": "Жертва",
+      "lines": [
+        "Тебе всего и всегда будет мало",
+        "Тебе так сказали, все твои мысли придуманы кем-то"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zhertva-02",
+      "song_id": "zhertva",
+      "song": "Жертва",
+      "lines": [
+        "Важно лишь понять",
+        "Что конкретно для тебя имеет значение"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zhertva-usable-b4037dc946",
+      "song_id": "zhertva",
+      "song": "Жертва",
+      "lines": [
+        "Ведь даже в айфоне нет ничего плохого",
+        "Если он тебе действительно нужен"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "poday-signal-usable-833f78b32c",
+      "song_id": "poday-signal",
+      "song": "Подай сигнал",
+      "lines": [
+        "Я обещаю, что больше",
+        "Никаких обещаний"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "poday-signal-usable-ee6afce2d6",
+      "song_id": "poday-signal",
+      "song": "Подай сигнал",
+      "lines": [
+        "С тобой как без сигареты",
+        "Мне лучше, но не хватает"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "poday-signal-03",
+      "song_id": "poday-signal",
+      "song": "Подай сигнал",
+      "lines": [
+        "Я бы нашёл тебя из сотен",
+        "Я б распознал твои движения",
+        "Услышал из тысяч голосов"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "poday-signal-usable-f960c303f5",
+      "song_id": "poday-signal",
+      "song": "Подай сигнал",
+      "lines": [
+        "Будет достаточно маленькой искры",
+        "Или шёпота ветра"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "poday-signal-01",
+      "song_id": "poday-signal",
+      "song": "Подай сигнал",
+      "lines": [
+        "У бесконечности есть свой размер",
+        "Но его недостаточно"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "poday-signal-02",
+      "song_id": "poday-signal",
+      "song": "Подай сигнал",
+      "lines": [
+        "Просто верить — и всё",
+        "Этого хватит сполна",
+        "Просто идти до конца",
+        "И верить в чудеса"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "novyy-zakat-usable-b0b215f01a",
+      "song_id": "novyy-zakat",
+      "song": "Новый закат",
+      "lines": [
+        "К чёрту сомнения, трепет, волнения",
+        "Идём наугад"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "novyy-zakat-01",
+      "song_id": "novyy-zakat",
+      "song": "Новый закат",
+      "lines": [
+        "Лучше упасть и подняться заново",
+        "Тысячу раз подряд",
+        "Чем вообще не пытаться ворваться",
+        "И себе доказать"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "novyy-zakat-02",
+      "song_id": "novyy-zakat",
+      "song": "Новый закат",
+      "lines": [
+        "Слушай свой внутренний голос",
+        "Слушай своё вдохновение"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "novyy-zakat-usable-d98495ea64",
+      "song_id": "novyy-zakat",
+      "song": "Новый закат",
+      "lines": [
+        "Пиши каждый миг",
+        "Пусть даже без цели"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "novyy-zakat-usable-b8dcaee954",
+      "song_id": "novyy-zakat",
+      "song": "Новый закат",
+      "lines": [
+        "После удара поднялся",
+        "Ведь в жизни будет много преград"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "novyy-zakat-03",
+      "song_id": "novyy-zakat",
+      "song": "Новый закат",
+      "lines": [
+        "Всё, что получится, будет потом",
+        "А пока — наугад"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zavtra-budet-usable-acc8f18809",
+      "song_id": "zavtra-budet",
+      "song": "Завтра будет",
+      "lines": [
+        "Самоанализ — неблагодарное дело"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zavtra-budet-usable-ff4f6bab81",
+      "song_id": "zavtra-budet",
+      "song": "Завтра будет",
+      "lines": [
+        "Сегодня худший день, но завтра будет"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zavtra-budet-usable-a8460d962c",
+      "song_id": "zavtra-budet",
+      "song": "Завтра будет",
+      "lines": [
+        "Завтра точно будет, и не важно, если",
+        "Будет хуже, чем вчера, — ты пройдёшь успешно"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zavtra-budet-02",
+      "song_id": "zavtra-budet",
+      "song": "Завтра будет",
+      "lines": [
+        "Вся жизнь не может быть чёрной полосой",
+        "Открой глаза и посмотри, кто рядом с тобой"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zavtra-budet-usable-4d413616d6",
+      "song_id": "zavtra-budet",
+      "song": "Завтра будет",
+      "lines": [
+        "Всё, что с тобой сейчас, — выбор твоих действий",
+        "А каждое действие несёт последствия"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zavtra-budet-01",
+      "song_id": "zavtra-budet",
+      "song": "Завтра будет",
+      "lines": [
+        "Выход есть, не один, выход есть всегда"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "dkmsv-usable-01acab6d90",
+      "song_id": "dkmsv",
+      "song": "День когда мы создали свою вселенную (ДКМСВ)",
+      "lines": [
+        "Я смотрю тебе прямо в глаза",
+        "Мы с тобой уже бессмертны"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "dkmsv-usable-3791437025",
+      "song_id": "dkmsv",
+      "song": "День когда мы создали свою вселенную (ДКМСВ)",
+      "lines": [
+        "Знай, что я никогда не забуду",
+        "День, когда мы создали вселенную"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "dkmsv-02",
+      "song_id": "dkmsv",
+      "song": "День когда мы создали свою вселенную (ДКМСВ)",
+      "lines": [
+        "Атом за атомом, кирпич за кирпичиком",
+        "Мы строим свою небольшую утопию"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "dkmsv-usable-5c2659242e",
+      "song_id": "dkmsv",
+      "song": "День когда мы создали свою вселенную (ДКМСВ)",
+      "lines": [
+        "Это наша личная территория",
+        "Защита от внешнего мира"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "dkmsv-03",
+      "song_id": "dkmsv",
+      "song": "День когда мы создали свою вселенную (ДКМСВ)",
+      "lines": [
+        "Всё, через что мы прошли, точно было не зря"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "dkmsv-usable-af3371d3f5",
+      "song_id": "dkmsv",
+      "song": "День когда мы создали свою вселенную (ДКМСВ)",
+      "lines": [
+        "Наша вселенная хрупка, как младенец",
+        "Что держит ладошками свои ступни"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "dkmsv-usable-05cad4830d",
+      "song_id": "dkmsv",
+      "song": "День когда мы создали свою вселенную (ДКМСВ)",
+      "lines": [
+        "Платить нервными клетками мы точно не будем"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ya-dumal-usable-77a5daab8a",
+      "song_id": "ya-dumal",
+      "song": "Я думал",
+      "lines": [
+        "Порядок будет в голове, когда там мозга нет"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ya-dumal-usable-b11ed7e305",
+      "song_id": "ya-dumal",
+      "song": "Я думал",
+      "lines": [
+        "Решить проблему проще, когда проблемы нет"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ya-dumal-usable-7e94dd0769",
+      "song_id": "ya-dumal",
+      "song": "Я думал",
+      "lines": [
+        "Запомни: все ограничения в твоей голове"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ya-dumal-usable-6492597f2c",
+      "song_id": "ya-dumal",
+      "song": "Я думал",
+      "lines": [
+        "Не наводи суету, не берись сразу за всё"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ya-dumal-usable-1e488168f3",
+      "song_id": "ya-dumal",
+      "song": "Я думал",
+      "lines": [
+        "Всё просто, чел: я даже не пытался успеть"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ya-dumal-usable-f2fef9f155",
+      "song_id": "ya-dumal",
+      "song": "Я думал",
+      "lines": [
+        "Если чему-то научился я к своим годам",
+        "Так это тому, что не нужно ныть по пустякам"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "vechno-usable-69bfb415bf",
+      "song_id": "vechno",
+      "song": "Вечно",
+      "lines": [
+        "Вечно — слишком короткое слово"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "vechno-usable-0c6b3871de",
+      "song_id": "vechno",
+      "song": "Вечно",
+      "lines": [
+        "Где нет света — там и есть темнота",
+        "И без тебя не будет меня"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "vechno-usable-1e0419e5d5",
+      "song_id": "vechno",
+      "song": "Вечно",
+      "lines": [
+        "Но всё, что было моё, теперь у тебя",
+        "Перестал притворяться героем"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "vechno-02",
+      "song_id": "vechno",
+      "song": "Вечно",
+      "lines": [
+        "Я стану лучше",
+        "Лучше, чем был",
+        "Лучше, чем есть в эту минуту"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "vechno-usable-8f388a8745",
+      "song_id": "vechno",
+      "song": "Вечно",
+      "lines": [
+        "Я переверну ради тебя целый мир",
+        "Целый мир без тебя мне тут не нужен"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "vechno-03",
+      "song_id": "vechno",
+      "song": "Вечно",
+      "lines": [
+        "Если вселенная бесконечна",
+        "То у любви не будет начала"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "vechno-usable-7deec3801f",
+      "song_id": "vechno",
+      "song": "Вечно",
+      "lines": [
+        "Вечно вечности мало, чтобы забыть тебя",
+        "Я не позволю своим демонам победить"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "istochnik-znaniy-usable-84ad088d91",
+      "song_id": "istochnik-znaniy",
+      "song": "Источник знаний",
+      "lines": [
+        "У каждого правда своя, но истина только одна"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "istochnik-znaniy-usable-f9c0b4956e",
+      "song_id": "istochnik-znaniy",
+      "song": "Источник знаний",
+      "lines": [
+        "Не надо сжигать книги — мы сами откажемся от знаний"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "istochnik-znaniy-usable-068cc69b90",
+      "song_id": "istochnik-znaniy",
+      "song": "Источник знаний",
+      "lines": [
+        "Добрые люди с честными лицами скажут",
+        "Кого слушать дальше",
+        "Скажут, кого ненавидеть, кого уважать",
+        "В кого кинуть камень"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "istochnik-znaniy-usable-a1a4bb7883",
+      "song_id": "istochnik-znaniy",
+      "song": "Источник знаний",
+      "lines": [
+        "Путь возникает под ногами идущего, а не лежащего боком"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "istochnik-znaniy-usable-62e3973886",
+      "song_id": "istochnik-znaniy",
+      "song": "Источник знаний",
+      "lines": [
+        "Отвлёкся на мгновение —",
+        "И ты уже не в теме",
+        "Моргнул — и пропустил очередное явление"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "istochnik-znaniy-usable-1586d19477",
+      "song_id": "istochnik-znaniy",
+      "song": "Источник знаний",
+      "lines": [
+        "Тут напрягаться не нужно",
+        "Критически относиться",
+        "Дуэлей интеллектуальных",
+        "Не берут безоружных"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "rasskazhi-usable-aa251b3330",
+      "song_id": "rasskazhi",
+      "song": "Расскажи",
+      "lines": [
+        "Не разочаруй людей — шоу должно продолжаться"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "rasskazhi-usable-4345db6b56",
+      "song_id": "rasskazhi",
+      "song": "Расскажи",
+      "lines": [
+        "Шут должен веселить, шут должен улыбаться"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "rasskazhi-01",
+      "song_id": "rasskazhi",
+      "song": "Расскажи",
+      "lines": [
+        "А так быть хочется настоящим",
+        "Быть добрым, сильным, для всех примером"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "rasskazhi-usable-858f0017b8",
+      "song_id": "rasskazhi",
+      "song": "Расскажи",
+      "lines": [
+        "Внутри себя скрываю сотни мыслей",
+        "Сказать хочу, но боюсь реакций"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "rasskazhi-usable-c1991400b9",
+      "song_id": "rasskazhi",
+      "song": "Расскажи",
+      "lines": [
+        "Ты знаешь, это как влюбиться снова",
+        "Пиздец как хочется, но пиздец как страшно"
+      ],
+      "enabled": true,
+      "explicit": true,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "la-la-la-usable-6ac76ecf18",
+      "song_id": "la-la-la",
+      "song": "Ла ла ла",
+      "lines": [
+        "Я спою, а ты послушай",
+        "И перебивать не стоит",
+        "Я открою тебе душу",
+        "Наплевать в неё попробуй"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "la-la-la-01",
+      "song_id": "la-la-la",
+      "song": "Ла ла ла",
+      "lines": [
+        "Мои строчки — это чувство",
+        "Ручка и листок бумаги"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "la-la-la-usable-4054bcb792",
+      "song_id": "la-la-la",
+      "song": "Ла ла ла",
+      "lines": [
+        "Каждый миг, что мы не вместе",
+        "Посвящаю тебе песни"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "la-la-la-usable-6059ef7f81",
+      "song_id": "la-la-la",
+      "song": "Ла ла ла",
+      "lines": [
+        "Так всегда, когда теряешь",
+        "Никогда — когда находишь"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "podnimaeshsya-usable-a41fc96c70",
+      "song_id": "podnimaeshsya",
+      "song": "Поднимаешься",
+      "lines": [
+        "Поднимаешься — падаешь",
+        "Поднимаешься — падаешь"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "podnimaeshsya-usable-41b791916b",
+      "song_id": "podnimaeshsya",
+      "song": "Поднимаешься",
+      "lines": [
+        "Ты больше не человечен",
+        "Ты хочешь стать кем-то вечным",
+        "Ты будешь клёвой отметкой",
+        "В сети останешься следом"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "podnimaeshsya-usable-f5793e71d6",
+      "song_id": "podnimaeshsya",
+      "song": "Поднимаешься",
+      "lines": [
+        "Ты был когда-то героем",
+        "Ты был когда-то примером"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "podnimaeshsya-usable-b99f677ba3",
+      "song_id": "podnimaeshsya",
+      "song": "Поднимаешься",
+      "lines": [
+        "Но завтра будет иначе",
+        "Уже вот-вот станет лучше",
+        "Ты резко встал в одночасье",
+        "Но потолок сверху рухнул"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "mne-ne-nravitsya-01",
+      "song_id": "mne-ne-nravitsya",
+      "song": "Мне не нравится",
+      "lines": [
+        "Мне нравится только чай и ты",
+        "Вот, собственно, и всё"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "mne-ne-nravitsya-usable-291ce108e0",
+      "song_id": "mne-ne-nravitsya",
+      "song": "Мне не нравится",
+      "lines": [
+        "Обстановка по кайфу",
+        "Только кайф у каждого свой"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "mne-ne-nravitsya-usable-363920faef",
+      "song_id": "mne-ne-nravitsya",
+      "song": "Мне не нравится",
+      "lines": [
+        "Я же обдолбан тобой"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "mne-ne-nravitsya-usable-08e6f8909f",
+      "song_id": "mne-ne-nravitsya",
+      "song": "Мне не нравится",
+      "lines": [
+        "Если тебя нет рядом со мной",
+        "Ломка такая, что просто пиздец"
+      ],
+      "enabled": true,
+      "explicit": true,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "mne-ne-nravitsya-usable-53436443d5",
+      "song_id": "mne-ne-nravitsya",
+      "song": "Мне не нравится",
+      "lines": [
+        "Но ты всегда самая яркая",
+        "Без изменений, со временем"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "silnyy-usable-d25483b118",
+      "song_id": "silnyy",
+      "song": "Сильный",
+      "lines": [
+        "Ты хотел показать, что внутри",
+        "Но тебя они не принимали"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "silnyy-usable-999d35e25d",
+      "song_id": "silnyy",
+      "song": "Сильный",
+      "lines": [
+        "Всё, что есть у меня, —",
+        "Это чувство вины",
+        "Что подвёл я, я, я, я, я себя же"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "silnyy-01",
+      "song_id": "silnyy",
+      "song": "Сильный",
+      "lines": [
+        "Не нужен никто",
+        "Чтобы помнить, кто я"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "silnyy-usable-5cc1652370",
+      "song_id": "silnyy",
+      "song": "Сильный",
+      "lines": [
+        "Полуцарёк своего жалкого мира",
+        "Но твой мир — это твоя съёмная квартира"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "silnyy-usable-e8bbb94f69",
+      "song_id": "silnyy",
+      "song": "Сильный",
+      "lines": [
+        "Just do it, ёпта",
+        "Только тогда ты добьёшься чего-то"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "robot-01",
+      "song_id": "robot",
+      "song": "Робот",
+      "lines": [
+        "Но если ты мыслишь, ты существуешь"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "robot-usable-a5afc70165",
+      "song_id": "robot",
+      "song": "Робот",
+      "lines": [
+        "Что будет потом, нас не интересует",
+        "Что было тогда, нас не волнует"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "robot-usable-3c4b8b74f3",
+      "song_id": "robot",
+      "song": "Робот",
+      "lines": [
+        "Обязательства, планы, последствия, срывы",
+        "Мы живём настоящим, живём как жили"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "robot-usable-be908e9395",
+      "song_id": "robot",
+      "song": "Робот",
+      "lines": [
+        "Только капча на сайте пройти не позволит",
+        "Ты докажи, что ты не робот"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "robot-usable-871dd9745f",
+      "song_id": "robot",
+      "song": "Робот",
+      "lines": [
+        "99% износа",
+        "Выставленный на максимум предел"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "robot-usable-1e3dc9a8eb",
+      "song_id": "robot",
+      "song": "Робот",
+      "lines": [
+        "Как мне понять, что я не робот точно"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ya-hochu-usable-de2f73985d",
+      "song_id": "ya-hochu",
+      "song": "Я хочу",
+      "lines": [
+        "Всё в своих мечтах летаю",
+        "Дело всё стоит на месте"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ya-hochu-usable-3356fb4758",
+      "song_id": "ya-hochu",
+      "song": "Я хочу",
+      "lines": [
+        "Я хочу, чтобы когда эта песня стала гимном",
+        "Гимном всех, кто не сдаётся, гимном всех ноунеймов в мире"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ya-hochu-usable-ffc5f2bea1",
+      "song_id": "ya-hochu",
+      "song": "Я хочу",
+      "lines": [
+        "Так что пока я ноунейм",
+        "Никому не нужный совсем",
+        "Буду хотеть банально быть услышанным"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "ya-hochu-01",
+      "song_id": "ya-hochu",
+      "song": "Я хочу",
+      "lines": [
+        "Если ты качаешь головой в такт",
+        "Значит, я на немного, совсем чуть-чуть, но ближе к цели"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "v-proshlom-kopatsya-usable-64d7aabc76",
+      "song_id": "v-proshlom-kopatsya",
+      "song": "В прошлом копаться",
+      "lines": [
+        "В прошлом копаться",
+        "Сломаешь лопатку",
+        "И не найдёшь ни ответов, ни смысла"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "v-proshlom-kopatsya-usable-4907a5f874",
+      "song_id": "v-proshlom-kopatsya",
+      "song": "В прошлом копаться",
+      "lines": [
+        "То, что было, не скроешь"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "v-proshlom-kopatsya-01",
+      "song_id": "v-proshlom-kopatsya",
+      "song": "В прошлом копаться",
+      "lines": [
+        "Я не сожалею о том, что там было"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "v-proshlom-kopatsya-usable-df0c69e645",
+      "song_id": "v-proshlom-kopatsya",
+      "song": "В прошлом копаться",
+      "lines": [
+        "Но вот я здесь, привет",
+        "В своём настоящем",
+        "И я стою на земле своими ногами"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "v-proshlom-kopatsya-usable-e69b08400f",
+      "song_id": "v-proshlom-kopatsya",
+      "song": "В прошлом копаться",
+      "lines": [
+        "В руках гитара",
+        "А в будущем — песни, альбомы"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "v-proshlom-kopatsya-02",
+      "song_id": "v-proshlom-kopatsya",
+      "song": "В прошлом копаться",
+      "lines": [
+        "А может, пойду дальше",
+        "Но буду помнить"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "tvoya-nezavisimost-usable-8d0dab4bfb",
+      "song_id": "tvoya-nezavisimost",
+      "song": "Твоя независимость",
+      "lines": [
+        "Все мои мысли только о смысле",
+        "нахуй я тут и что мной движет"
+      ],
+      "enabled": true,
+      "explicit": true,
+      "political": true,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "tvoya-nezavisimost-usable-a835f926fc",
+      "song_id": "tvoya-nezavisimost",
+      "song": "Твоя независимость",
+      "lines": [
+        "Вся независимость собственных мыслей",
+        "Сходиться к выбору чужих мнений"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": true,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "tvoya-nezavisimost-usable-b7bf5831ab",
+      "song_id": "tvoya-nezavisimost",
+      "song": "Твоя независимость",
+      "lines": [
+        "Смотришься в зеркало видишь убийцу",
+        "Убийцу собственных достижений"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": true,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "tvoya-nezavisimost-usable-bbb78482e6",
+      "song_id": "tvoya-nezavisimost",
+      "song": "Твоя независимость",
+      "lines": [
+        "Ты всему знаешь цену",
+        "но не предаешь ценность"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": true,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "tvoya-nezavisimost-usable-3d522af644",
+      "song_id": "tvoya-nezavisimost",
+      "song": "Твоя независимость",
+      "lines": [
+        "Твоя независимость",
+        "лишь в выбор хозяина"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": true,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "tvoya-nezavisimost-usable-21ea56f85f",
+      "song_id": "tvoya-nezavisimost",
+      "song": "Твоя независимость",
+      "lines": [
+        "Тот кто был когда то рупор, кто был голосом народа",
+        "Стал сегодня просто флюгер, говорит все то что модно"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": true,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "kogda-ya-uzhe-vyrastu-usable-1660c78991",
+      "song_id": "kogda-ya-uzhe-vyrastu",
+      "song": "Когда я уже вырасту",
+      "lines": [
+        "Ещё один год — как ты стал ближе к могиле",
+        "Ещё один день как будто впустую прожит"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "kogda-ya-uzhe-vyrastu-01",
+      "song_id": "kogda-ya-uzhe-vyrastu",
+      "song": "Когда я уже вырасту",
+      "lines": [
+        "Я думал, что в 30 вся жизнь состоится",
+        "Но 30 пришли, сука, очень так быстро"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "kogda-ya-uzhe-vyrastu-usable-e7d94d9361",
+      "song_id": "kogda-ya-uzhe-vyrastu",
+      "song": "Когда я уже вырасту",
+      "lines": [
+        "Чтобы добиться успеха, нужно ебашить до гроба",
+        "Но после гроба успех ощутить сложно"
+      ],
+      "enabled": true,
+      "explicit": true,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "kogda-ya-uzhe-vyrastu-usable-484c7d534b",
+      "song_id": "kogda-ya-uzhe-vyrastu",
+      "song": "Когда я уже вырасту",
+      "lines": [
+        "Одному всё, а другим ничего",
+        "Одному ничего для успеха не нужно",
+        "Другим для успеха нужно всё"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "kogda-ya-uzhe-vyrastu-usable-8ee865d5d8",
+      "song_id": "kogda-ya-uzhe-vyrastu",
+      "song": "Когда я уже вырасту",
+      "lines": [
+        "Нет больше героев труда, есть герои в сети"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "kogda-ya-uzhe-vyrastu-usable-13e7df34af",
+      "song_id": "kogda-ya-uzhe-vyrastu",
+      "song": "Когда я уже вырасту",
+      "lines": [
+        "Как правильно жить расскажут",
+        "Где вкусно поесть покажут"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "kogda-ya-uzhe-vyrastu-usable-4c17969cfd",
+      "song_id": "kogda-ya-uzhe-vyrastu",
+      "song": "Когда я уже вырасту",
+      "lines": [
+        "Работай усердней, родись в богатой семье"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "kogda-ya-uzhe-vyrastu-usable-3fda724f37",
+      "song_id": "kogda-ya-uzhe-vyrastu",
+      "song": "Когда я уже вырасту",
+      "lines": [
+        "Но когда все красивые — то никто не красивый"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "pomni-usable-a7f380950f",
+      "song_id": "pomni",
+      "song": "Помни",
+      "lines": [
+        "Запомни меня таким",
+        "Мои дурацкие шутки",
+        "Что постоянно не в тему"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "pomni-usable-1ad9803f7d",
+      "song_id": "pomni",
+      "song": "Помни",
+      "lines": [
+        "Ты просто запомни их",
+        "Пока ещё есть что вспомнить"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "pomni-usable-eb30835f9f",
+      "song_id": "pomni",
+      "song": "Помни",
+      "lines": [
+        "Запоминаю каждый твой жест, как будто он последний"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "pomni-02",
+      "song_id": "pomni",
+      "song": "Помни",
+      "lines": [
+        "И ты меня помни",
+        "Таким, какой я есть, запомни"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "pomni-01",
+      "song_id": "pomni",
+      "song": "Помни",
+      "lines": [
+        "Помни о том, через что мы прошли",
+        "Помни про то, что ещё что-то будет"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "pomni-usable-f058b9fa6d",
+      "song_id": "pomni",
+      "song": "Помни",
+      "lines": [
+        "Помни лишь то, что одной тебе помнить по силам"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "pomni-usable-e0439e1a21",
+      "song_id": "pomni",
+      "song": "Помни",
+      "lines": [
+        "Помни о том, как я люблю тебя сильно, сильно"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zaebalo-01",
+      "song_id": "zaebalo",
+      "song": "Заебало",
+      "lines": [
+        "У самурая нет цели, есть только путь",
+        "Самурай, мусор выкинуть не забудь"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zaebalo-usable-0527d9d19d",
+      "song_id": "zaebalo",
+      "song": "Заебало",
+      "lines": [
+        "Всю свою жизнь работать на дядю",
+        "Чтоб он богаче был, а ты доживал до зарплаты"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zaebalo-usable-e48fe625d4",
+      "song_id": "zaebalo",
+      "song": "Заебало",
+      "lines": [
+        "Без тебя там всё развалится, без базара",
+        "Но с тобой что-то не видно нам результата"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zaebalo-usable-029d56a831",
+      "song_id": "zaebalo",
+      "song": "Заебало",
+      "lines": [
+        "Типа понять, что не один ты, а нас двое"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zaebalo-usable-52395acaeb",
+      "song_id": "zaebalo",
+      "song": "Заебало",
+      "lines": [
+        "Как же заебало быть для всех героем"
+      ],
+      "enabled": true,
+      "explicit": false,
+      "political": false,
+      "review": "standalone_meaningful"
+    },
+    {
+      "id": "zaebalo-usable-d5a60cde33",
+      "song_id": "zaebalo",
+      "song": "Заебало",
+      "lines": [
+        "Заебало",
+        "Что все считают себя богами",
+        "Заебало, не считают себя мудаками"
+      ],
+      "enabled": true,
+      "explicit": true,
+      "political": false,
+      "review": "standalone_meaningful"
+    }
+  ]
+}

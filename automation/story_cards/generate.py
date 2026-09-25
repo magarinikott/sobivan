@@ -17,7 +17,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
-BANK_PATH = HERE / "quote_bank.json"
+BANK_PATH = HERE / "usable_quote_bank.json"
 STATE_PATH = HERE / "state.json"
 FONTS = REPO / "assets" / "fonts"
 
@@ -145,7 +145,8 @@ def render_card(quote: dict, output_path: Path) -> None:
     base_y = 1630
     draw.rectangle((LEFT, base_y, LEFT + 74, base_y + 8), fill=LIME)
     draw.rectangle((LEFT + 74, base_y, COLUMN_RIGHT, base_y + 8), fill="#292929")
-    draw.text((LEFT, 1678), f"SOBIVAN / {quote['song'].upper()}", fill=MUTED, font=meta_font)
+    song_label = "ДКМСВ" if quote["song_id"] == "dkmsv" else quote["song"].upper()
+    draw.text((LEFT, 1678), f"SOBIVAN / {song_label}", fill=MUTED, font=meta_font)
     site = "SOBIVAN.RU"
     draw.text((COLUMN_RIGHT - text_width(draw, site, meta_font), 1740), site, fill=MUTED, font=meta_font)
 
@@ -170,7 +171,47 @@ def select_quotes(bank: dict, state: dict, count: int, include_used: bool = Fals
             f"в банке только {len(available)} новых цитат; нужно {count}. "
             "Автоматика остановлена, чтобы не было повторов."
         )
-    return available[:count]
+    # Не даём одной песне заполнить весь пак и не складываем вместе несколько
+    # explicit/политических карточек. Выбор детерминирован состоянием Git, а не случаен.
+    used_by_song: dict[str, int] = {}
+    for quote in bank["quotes"]:
+        if quote["id"] in used:
+            used_by_song[quote["song_id"]] = used_by_song.get(quote["song_id"], 0) + 1
+
+    song_order = list(dict.fromkeys(q["song_id"] for q in bank["quotes"]))
+    rotation = len(state.get("packs", [])) % max(1, len(song_order))
+    rotated = song_order[rotation:] + song_order[:rotation]
+    rank = {song_id: index for index, song_id in enumerate(rotated)}
+    songs = sorted(
+        {q["song_id"] for q in available},
+        key=lambda song_id: (used_by_song.get(song_id, 0), rank.get(song_id, 9999)),
+    )
+
+    selected: list[dict] = []
+    explicit_count = 0
+    political_count = 0
+    for song_id in songs:
+        for quote in available:
+            if quote["song_id"] != song_id:
+                continue
+            if quote.get("explicit", False) and explicit_count >= 1:
+                continue
+            if quote.get("political", False) and political_count >= 1:
+                continue
+            selected.append(quote)
+            explicit_count += int(quote.get("explicit", False))
+            political_count += int(quote.get("political", False))
+            break
+        if len(selected) == count:
+            return selected
+
+    # Запасной проход на случай когда в банке остались только explicit/политические фразы.
+    for quote in available:
+        if quote not in selected:
+            selected.append(quote)
+        if len(selected) == count:
+            return selected
+    raise RuntimeError("не удалось собрать полный пак")
 
 
 def finalize(selection_path: Path, state_path: Path) -> None:
