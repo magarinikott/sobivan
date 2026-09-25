@@ -313,6 +313,10 @@
               </div>
             </div>
 
+            <p class="chords-missing-note" data-chords-missing hidden>
+              Аккорды для этой песни уточняются. Текст уже можно читать и прокручивать.
+            </p>
+
             <pre class="chords-sheet"><code data-song-sheet>Припев
 
 Куплет 1
@@ -2102,6 +2106,7 @@ Just do it, ёпта
         const songCount = chordsBlock.querySelector("[data-song-count]");
         const songEmpty = chordsBlock.querySelector("[data-song-empty]");
         const textNode = chordsBlock.querySelector("[data-song-sheet]");
+        const chordsMissingNote = chordsBlock.querySelector("[data-chords-missing]");
         const transposeButtons = Array.from(chordsBlock.querySelectorAll("[data-transpose]"));
         const speedButtons = Array.from(chordsBlock.querySelectorAll("[data-speed]"));
         const autoScrollButton = chordsBlock.querySelector("[data-auto-scroll]");
@@ -2326,6 +2331,18 @@ Just do it, ёпта
           currentSongId = songId;
           currentShift = shift;
 
+          const hasChords = song.text
+            .split("\n")
+            .some((line) => isChordLine(line));
+
+          if (chordsMissingNote) {
+            chordsMissingNote.hidden = hasChords;
+          }
+          transposeButtons.forEach((button) => {
+            button.disabled = !hasChords;
+            button.setAttribute("aria-disabled", String(!hasChords));
+          });
+
           stopAutoScroll();
           textNode.innerHTML = renderHighlightedText(getRenderedSongText(song, shift));
           const sheet = textNode.closest(".chords-sheet");
@@ -2387,7 +2404,7 @@ Just do it, ёпта
 
         setAutoScrollSpeed(1);
         filterSongs();
-        renderSong(buttons[0]?.dataset.songId || "ne-odin", 0);
+        renderSong("ne-odin", 0);
         window.requestAnimationFrame(() => {
           if (songNav) songNav.scrollLeft = 0;
         });
