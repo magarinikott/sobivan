@@ -9,7 +9,12 @@
     "ne-odin-03",
     "ne-odin-04",
     "deti-solntsa-01",
-    "deti-solntsa-02"
+    "deti-solntsa-02",
+    "zhertva-usable-1711d35d77",
+    "dkmsv-usable-01acab6d90",
+    "ya-dumal-usable-77a5daab8a",
+    "vechno-usable-69bfb415bf",
+    "istochnik-znaniy-usable-84ad088d91"
   ],
   "packs": [
     {
@@ -20,6 +25,16 @@
         "ne-odin-04",
         "deti-solntsa-01",
         "deti-solntsa-02"
+      ]
+    },
+    {
+      "generated_at": "2026-09-28T14:44:33.235498+00:00",
+      "quote_ids": [
+        "zhertva-usable-1711d35d77",
+        "dkmsv-usable-01acab6d90",
+        "ya-dumal-usable-77a5daab8a",
+        "vechno-usable-69bfb415bf",
+        "istochnik-znaniy-usable-84ad088d91"
       ]
     }
   ]
