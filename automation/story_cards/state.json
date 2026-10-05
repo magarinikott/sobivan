@@ -14,7 +14,12 @@
     "dkmsv-usable-01acab6d90",
     "ya-dumal-usable-77a5daab8a",
     "vechno-usable-69bfb415bf",
-    "istochnik-znaniy-usable-84ad088d91"
+    "istochnik-znaniy-usable-84ad088d91",
+    "rasskazhi-usable-aa251b3330",
+    "la-la-la-usable-6ac76ecf18",
+    "podnimaeshsya-usable-a41fc96c70",
+    "mne-ne-nravitsya-01",
+    "silnyy-usable-d25483b118"
   ],
   "packs": [
     {
@@ -35,6 +40,16 @@
         "ya-dumal-usable-77a5daab8a",
         "vechno-usable-69bfb415bf",
         "istochnik-znaniy-usable-84ad088d91"
+      ]
+    },
+    {
+      "generated_at": "2026-10-05T15:25:08.098249+00:00",
+      "quote_ids": [
+        "rasskazhi-usable-aa251b3330",
+        "la-la-la-usable-6ac76ecf18",
+        "podnimaeshsya-usable-a41fc96c70",
+        "mne-ne-nravitsya-01",
+        "silnyy-usable-d25483b118"
       ]
     }
   ]
