@@ -19,7 +19,12 @@
     "la-la-la-usable-6ac76ecf18",
     "podnimaeshsya-usable-a41fc96c70",
     "mne-ne-nravitsya-01",
-    "silnyy-usable-d25483b118"
+    "silnyy-usable-d25483b118",
+    "robot-01",
+    "ya-hochu-usable-de2f73985d",
+    "v-proshlom-kopatsya-usable-64d7aabc76",
+    "tvoya-nezavisimost-usable-8d0dab4bfb",
+    "kogda-ya-uzhe-vyrastu-usable-1660c78991"
   ],
   "packs": [
     {
@@ -50,6 +55,16 @@
         "podnimaeshsya-usable-a41fc96c70",
         "mne-ne-nravitsya-01",
         "silnyy-usable-d25483b118"
+      ]
+    },
+    {
+      "generated_at": "2026-10-12T16:19:46.855037+00:00",
+      "quote_ids": [
+        "robot-01",
+        "ya-hochu-usable-de2f73985d",
+        "v-proshlom-kopatsya-usable-64d7aabc76",
+        "tvoya-nezavisimost-usable-8d0dab4bfb",
+        "kogda-ya-uzhe-vyrastu-usable-1660c78991"
       ]
     }
   ]
