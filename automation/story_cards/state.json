@@ -24,7 +24,12 @@
     "ya-hochu-usable-de2f73985d",
     "v-proshlom-kopatsya-usable-64d7aabc76",
     "tvoya-nezavisimost-usable-8d0dab4bfb",
-    "kogda-ya-uzhe-vyrastu-usable-1660c78991"
+    "kogda-ya-uzhe-vyrastu-usable-1660c78991",
+    "zaebalo-01",
+    "novyy-zakat-usable-b0b215f01a",
+    "zavtra-budet-usable-acc8f18809",
+    "dkmsv-usable-3791437025",
+    "ya-dumal-usable-b11ed7e305"
   ],
   "packs": [
     {
@@ -65,6 +70,16 @@
         "v-proshlom-kopatsya-usable-64d7aabc76",
         "tvoya-nezavisimost-usable-8d0dab4bfb",
         "kogda-ya-uzhe-vyrastu-usable-1660c78991"
+      ]
+    },
+    {
+      "generated_at": "2026-10-19T14:11:22.530736+00:00",
+      "quote_ids": [
+        "zaebalo-01",
+        "novyy-zakat-usable-b0b215f01a",
+        "zavtra-budet-usable-acc8f18809",
+        "dkmsv-usable-3791437025",
+        "ya-dumal-usable-b11ed7e305"
       ]
     }
   ]
