@@ -29,7 +29,12 @@
     "novyy-zakat-usable-b0b215f01a",
     "zavtra-budet-usable-acc8f18809",
     "dkmsv-usable-3791437025",
-    "ya-dumal-usable-b11ed7e305"
+    "ya-dumal-usable-b11ed7e305",
+    "vechno-usable-0c6b3871de",
+    "istochnik-znaniy-usable-f9c0b4956e",
+    "rasskazhi-usable-4345db6b56",
+    "la-la-la-01",
+    "podnimaeshsya-usable-41b791916b"
   ],
   "packs": [
     {
@@ -80,6 +85,16 @@
         "zavtra-budet-usable-acc8f18809",
         "dkmsv-usable-3791437025",
         "ya-dumal-usable-b11ed7e305"
+      ]
+    },
+    {
+      "generated_at": "2026-10-26T13:44:56.064961+00:00",
+      "quote_ids": [
+        "vechno-usable-0c6b3871de",
+        "istochnik-znaniy-usable-f9c0b4956e",
+        "rasskazhi-usable-4345db6b56",
+        "la-la-la-01",
+        "podnimaeshsya-usable-41b791916b"
       ]
     }
   ]
