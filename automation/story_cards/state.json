@@ -34,7 +34,12 @@
     "istochnik-znaniy-usable-f9c0b4956e",
     "rasskazhi-usable-4345db6b56",
     "la-la-la-01",
-    "podnimaeshsya-usable-41b791916b"
+    "podnimaeshsya-usable-41b791916b",
+    "mne-ne-nravitsya-usable-291ce108e0",
+    "silnyy-usable-999d35e25d",
+    "robot-usable-a5afc70165",
+    "ya-hochu-usable-3356fb4758",
+    "v-proshlom-kopatsya-usable-4907a5f874"
   ],
   "packs": [
     {
@@ -95,6 +100,16 @@
         "rasskazhi-usable-4345db6b56",
         "la-la-la-01",
         "podnimaeshsya-usable-41b791916b"
+      ]
+    },
+    {
+      "generated_at": "2026-11-02T16:41:37.315498+00:00",
+      "quote_ids": [
+        "mne-ne-nravitsya-usable-291ce108e0",
+        "silnyy-usable-999d35e25d",
+        "robot-usable-a5afc70165",
+        "ya-hochu-usable-3356fb4758",
+        "v-proshlom-kopatsya-usable-4907a5f874"
       ]
     }
   ]
