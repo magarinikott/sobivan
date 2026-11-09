@@ -39,7 +39,12 @@
     "silnyy-usable-999d35e25d",
     "robot-usable-a5afc70165",
     "ya-hochu-usable-3356fb4758",
-    "v-proshlom-kopatsya-usable-4907a5f874"
+    "v-proshlom-kopatsya-usable-4907a5f874",
+    "tvoya-nezavisimost-usable-a835f926fc",
+    "kogda-ya-uzhe-vyrastu-01",
+    "pomni-usable-a7f380950f",
+    "zaebalo-usable-0527d9d19d",
+    "zhertva-usable-a4b93bd453"
   ],
   "packs": [
     {
@@ -110,6 +115,16 @@
         "robot-usable-a5afc70165",
         "ya-hochu-usable-3356fb4758",
         "v-proshlom-kopatsya-usable-4907a5f874"
+      ]
+    },
+    {
+      "generated_at": "2026-11-09T16:59:16.237249+00:00",
+      "quote_ids": [
+        "tvoya-nezavisimost-usable-a835f926fc",
+        "kogda-ya-uzhe-vyrastu-01",
+        "pomni-usable-a7f380950f",
+        "zaebalo-usable-0527d9d19d",
+        "zhertva-usable-a4b93bd453"
       ]
     }
   ]
