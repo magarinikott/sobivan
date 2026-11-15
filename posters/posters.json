@@ -2,8 +2,22 @@
   "items": [
     {
       "status": "active",
-      "title": "20 сентября • Акустический концерт",
-      "subtitle": "Крыша Мира • Казань • 19:00",
+      "title": "22 ноября • SOBIVAN / ЯЖиВУ",
+      "subtitle": "Rock Star Bar • Казань • 19:30",
+      "alt": "SOBIVAN и ЯЖиВУ — 22 ноября 2026, Rock Star Bar, Пушкина 29А. Двери 19:00, начало 19:30, вход 250 ₽",
+      "image": "./posters/assets/2026-11-22-rockstar-sobivan.jpg"
+    },
+    {
+      "status": "active",
+      "title": "15 ноября • Вечерний фонарь",
+      "subtitle": "Rock Star Bar • Казань • 19:00",
+      "alt": "Вечерний фонарь с участием SOBIVAN — 15 ноября 2026, 19:00, Rock Star Bar, Пушкина 29А",
+      "image": "./posters/assets/2026-11-15-vecherniy-fonar.jpg"
+    },
+    {
+      "status": "archive",
+      "title": "Казань",
+      "subtitle": "",
       "alt": "Афиша акустического концерта SOBIVAN и Хабиасса 20 сентября на Крыше Мира",
       "image": "./posters/assets/2026-09-20-roof-habiass.jpg"
     },
