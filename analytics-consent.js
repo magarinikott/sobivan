@@ -25,7 +25,7 @@
   const panel = document.createElement('section');
   panel.className = 'analytics-consent';
   panel.setAttribute('aria-label', 'Настройки аналитики');
-  panel.innerHTML = '<p>Разрешить Яндекс Метрику? Она использует cookie и данные о посещениях, чтобы мы понимали, как пользуются сайтом и переходят слушать музыку. Без Вебвизора. Отказ не ограничивает работу сайта. <a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener noreferrer">Политика Яндекса</a></p><div class="analytics-actions"><button type="button" data-accept>Разрешить</button><button type="button" data-decline>Без аналитики</button></div>';
+  panel.innerHTML = '<p>Мы используем cookie для анализа посещаемости сайта с помощью Яндекс Метрики. Вы можете принять или отклонить их использование. <a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener noreferrer">Политика конфиденциальности Яндекса</a></p><div class="analytics-actions"><button type="button" data-accept>Принять</button><button type="button" data-decline>Отклонить</button></div>';
   const settings = document.createElement('button');
   settings.type = 'button';
   settings.className = 'analytics-settings';
