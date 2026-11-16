@@ -44,7 +44,12 @@
     "kogda-ya-uzhe-vyrastu-01",
     "pomni-usable-a7f380950f",
     "zaebalo-usable-0527d9d19d",
-    "zhertva-usable-a4b93bd453"
+    "zhertva-usable-a4b93bd453",
+    "poday-signal-usable-833f78b32c",
+    "vechno-usable-1e0419e5d5",
+    "istochnik-znaniy-usable-068cc69b90",
+    "rasskazhi-01",
+    "la-la-la-usable-4054bcb792"
   ],
   "packs": [
     {
@@ -125,6 +130,16 @@
         "pomni-usable-a7f380950f",
         "zaebalo-usable-0527d9d19d",
         "zhertva-usable-a4b93bd453"
+      ]
+    },
+    {
+      "generated_at": "2026-11-16T16:37:32.464837+00:00",
+      "quote_ids": [
+        "poday-signal-usable-833f78b32c",
+        "vechno-usable-1e0419e5d5",
+        "istochnik-znaniy-usable-068cc69b90",
+        "rasskazhi-01",
+        "la-la-la-usable-4054bcb792"
       ]
     }
   ]
